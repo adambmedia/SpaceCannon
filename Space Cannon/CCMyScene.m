@@ -143,11 +143,28 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
     
     if (firstBody.categoryBitMask == kCCHaloCategory && secondBody.categoryBitMask == kCCBallCategory) {
         // Collision between halo and ball.
+        [self addExplosion:firstBody.node.position];
+        
         [firstBody.node removeFromParent];
         [secondBody.node removeFromParent];
     }
     
 }
+
+-(void)addExplosion:(CGPoint)position
+{
+    NSString *explosionPath = [[NSBundle mainBundle] pathForResource:@"HaloExplosion" ofType:@"sks"];
+    SKEmitterNode *explosion = [NSKeyedUnarchiver unarchiveObjectWithFile:explosionPath];
+    
+    explosion.position = position;
+    [_mainLayer addChild:explosion];
+    
+    SKAction *removeExplosion = [SKAction sequence:@[[SKAction waitForDuration:1.5],
+                                                     [SKAction removeFromParent]]];
+    [explosion runAction:removeExplosion];
+                                 
+}
+
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
