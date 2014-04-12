@@ -9,40 +9,48 @@
 #import "CCMyScene.h"
 
 @implementation CCMyScene
+{
+    SKNode *_mainLayer;
+    SKSpriteNode *_cannon;
+}
+
 
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
         
-        self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
         
-        SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+        // Add background.
+        SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"Starfield"];
+        background.position = CGPointZero;
+        background.anchorPoint = CGPointZero;
+        background.blendMode = SKBlendModeReplace;
+        [self addChild:background];
         
-        myLabel.text = @"Hello, World!";
-        myLabel.fontSize = 30;
-        myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
-                                       CGRectGetMidY(self.frame));
+        // Add main layer.
+        _mainLayer = [[SKNode alloc] init];
+        [self addChild:_mainLayer];
         
-        [self addChild:myLabel];
+        // Add cannon.
+        _cannon = [SKSpriteNode spriteNodeWithImageNamed:@"Cannon"];
+        _cannon.position = CGPointMake(self.size.width * 0.5, 0.0);
+        [_mainLayer addChild:_cannon];
+        
+        // Create cannon rotation actions.
+        SKAction *rotateCannon = [SKAction sequence:@[[SKAction rotateByAngle:M_PI duration:2],
+                                                      [SKAction rotateByAngle:-M_PI duration:2]]];
+        [_cannon runAction:[SKAction repeatActionForever:rotateCannon]];
+        
     }
     return self;
 }
+
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
     
     for (UITouch *touch in touches) {
-        CGPoint location = [touch locationInNode:self];
-        
-        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
-        
-        sprite.position = location;
-        
-        SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
-        
-        [sprite runAction:[SKAction repeatActionForever:action]];
-        
-        [self addChild:sprite];
+
     }
 }
 
