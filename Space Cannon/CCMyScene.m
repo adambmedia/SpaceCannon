@@ -14,11 +14,22 @@
     SKSpriteNode *_cannon;
 }
 
+static const CGFloat SHOOT_SPEED = 1000.0f;
+
+static inline CGVector radiansToVector(CGFloat radians)
+{
+    CGVector vector;
+    vector.dx = cosf(radians);
+    vector.dy = sinf(radians);
+    return vector;
+}
+
 
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
-        /* Setup your scene here */
         
+        // Turn off gravity.
+        self.physicsWorld.gravity = CGVectorMake(0.0, 0.0);
         
         // Add background.
         SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"Starfield"];
@@ -46,11 +57,25 @@
 }
 
 
+-(void)shoot
+{
+    // Create ball node.
+    SKSpriteNode *ball = [SKSpriteNode spriteNodeWithImageNamed:@"Ball"];
+    CGVector rotationVector = radiansToVector(_cannon.zRotation);
+    ball.position = CGPointMake(_cannon.position.x + (_cannon.size.width * 0.5 * rotationVector.dx),
+                                _cannon.position.y + (_cannon.size.width * 0.5 * rotationVector.dy));
+    [_mainLayer addChild:ball];
+    
+    ball.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:6.0];
+    ball.physicsBody.velocity = CGVectorMake(rotationVector.dx * SHOOT_SPEED, rotationVector.dy * SHOOT_SPEED);
+    
+}
+
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    /* Called when a touch begins */
     
     for (UITouch *touch in touches) {
-
+        [self shoot];
     }
 }
 
@@ -59,3 +84,6 @@
 }
 
 @end
+
+
+
