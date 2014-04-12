@@ -15,6 +15,10 @@
 		57AF9AAA18CE158E00717742 /* Explosion.caf in Resources */ = {isa = PBXBuildFile; fileRef = 57AF9AA518CE158E00717742 /* Explosion.caf */; };
 		57AF9AAB18CE158E00717742 /* Laser.caf in Resources */ = {isa = PBXBuildFile; fileRef = 57AF9AA618CE158E00717742 /* Laser.caf */; };
 		57AF9AAC18CE158E00717742 /* Zap.caf in Resources */ = {isa = PBXBuildFile; fileRef = 57AF9AA718CE158E00717742 /* Zap.caf */; };
+		57AF9AD118CF7ADF00717742 /* PlayButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57AF9ACE18CF7ADF00717742 /* PlayButton@2x.png */; };
+		57AF9AD218CF7ADF00717742 /* ScoreBoard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57AF9ACF18CF7ADF00717742 /* ScoreBoard@2x.png */; };
+		57AF9AD318CF7ADF00717742 /* Title@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57AF9AD018CF7ADF00717742 /* Title@2x.png */; };
+		57AF9AD618CF7B1A00717742 /* CCMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 57AF9AD518CF7B1A00717742 /* CCMenu.m */; };
 		57FA965618A8EEFE006ED483 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57FA965518A8EEFE006ED483 /* Foundation.framework */; };
 		57FA965818A8EEFE006ED483 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57FA965718A8EEFE006ED483 /* CoreGraphics.framework */; };
 		57FA965A18A8EEFF006ED483 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57FA965918A8EEFF006ED483 /* UIKit.framework */; };
@@ -64,6 +68,11 @@
 		57AF9AA518CE158E00717742 /* Explosion.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Explosion.caf; sourceTree = "<group>"; };
 		57AF9AA618CE158E00717742 /* Laser.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Laser.caf; sourceTree = "<group>"; };
 		57AF9AA718CE158E00717742 /* Zap.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zap.caf; sourceTree = "<group>"; };
+		57AF9ACE18CF7ADF00717742 /* PlayButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlayButton@2x.png"; sourceTree = "<group>"; };
+		57AF9ACF18CF7ADF00717742 /* ScoreBoard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ScoreBoard@2x.png"; sourceTree = "<group>"; };
+		57AF9AD018CF7ADF00717742 /* Title@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Title@2x.png"; sourceTree = "<group>"; };
+		57AF9AD418CF7B1A00717742 /* CCMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMenu.h; sourceTree = "<group>"; };
+		57AF9AD518CF7B1A00717742 /* CCMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMenu.m; sourceTree = "<group>"; };
 		57FA965218A8EEFE006ED483 /* Space Cannon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Cannon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57FA965518A8EEFE006ED483 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		57FA965718A8EEFE006ED483 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -185,6 +194,8 @@
 				5780EB1818C4D5E700B993B2 /* HaloExplosion.sks */,
 				5780EB1918C4D5E700B993B2 /* spark.png */,
 				5742FD8718C62E6200F963DE /* LifeBarExplosion.sks */,
+				57AF9AD418CF7B1A00717742 /* CCMenu.h */,
+				57AF9AD518CF7B1A00717742 /* CCMenu.m */,
 			);
 			path = "Space Cannon";
 			sourceTree = "<group>";
@@ -221,6 +232,9 @@
 		57FA969118A8EF5A006ED483 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				57AF9ACE18CF7ADF00717742 /* PlayButton@2x.png */,
+				57AF9ACF18CF7ADF00717742 /* ScoreBoard@2x.png */,
+				57AF9AD018CF7ADF00717742 /* Title@2x.png */,
 				57FA969218A8EF5A006ED483 /* Ammo0@2x.png */,
 				57FA969318A8EF5A006ED483 /* Ammo1@2x.png */,
 				57FA969418A8EF5A006ED483 /* Ammo2@2x.png */,
@@ -317,11 +331,13 @@
 				57AF9AA918CE158E00717742 /* DeepExplosion.caf in Resources */,
 				57FA96A818A8EF5A006ED483 /* Halo@2x.png in Resources */,
 				57AF9AAA18CE158E00717742 /* Explosion.caf in Resources */,
+				57AF9AD218CF7ADF00717742 /* ScoreBoard@2x.png in Resources */,
 				5742FD8818C62E6200F963DE /* LifeBarExplosion.sks in Resources */,
 				57FA96A618A8EF5A006ED483 /* BlueBar@2x.png in Resources */,
 				57FA966218A8EEFF006ED483 /* InfoPlist.strings in Resources */,
 				57FA96A318A8EF5A006ED483 /* Ammo5@2x.png in Resources */,
 				57FA969F18A8EF5A006ED483 /* Ammo1@2x.png in Resources */,
+				57AF9AD118CF7ADF00717742 /* PlayButton@2x.png in Resources */,
 				5780EB1A18C4D5E700B993B2 /* HaloExplosion.sks in Resources */,
 				57FA96A418A8EF5A006ED483 /* Ball@2x.png in Resources */,
 				57AF9AAB18CE158E00717742 /* Laser.caf in Resources */,
@@ -335,6 +351,7 @@
 				57AF9AAC18CE158E00717742 /* Zap.caf in Resources */,
 				57FA96A918A8EF5A006ED483 /* Starfield@2x.png in Resources */,
 				57FA96A718A8EF5A006ED483 /* Cannon@2x.png in Resources */,
+				57AF9AD318CF7ADF00717742 /* Title@2x.png in Resources */,
 				57FA96A218A8EF5A006ED483 /* Ammo4@2x.png in Resources */,
 				5780EB1B18C4D5E700B993B2 /* spark.png in Resources */,
 			);
@@ -357,6 +374,7 @@
 			files = (
 				57FA967118A8EEFF006ED483 /* CCMyScene.m in Sources */,
 				57FA966818A8EEFF006ED483 /* CCAppDelegate.m in Sources */,
+				57AF9AD618CF7B1A00717742 /* CCMenu.m in Sources */,
 				57FA966418A8EEFF006ED483 /* main.m in Sources */,
 				57FA966E18A8EEFF006ED483 /* CCViewController.m in Sources */,
 			);

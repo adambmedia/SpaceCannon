@@ -7,10 +7,12 @@
 //
 
 #import "CCMyScene.h"
+#import "CCMenu.h"
 
 @implementation CCMyScene
 {
     SKNode *_mainLayer;
+    CCMenu *_menu;
     SKSpriteNode *_cannon;
     SKSpriteNode *_ammoDisplay;
     SKLabelNode *_scoreLabel;
@@ -20,6 +22,7 @@
     SKAction *_explosionSound;
     SKAction *_laserSound;
     SKAction *_zapSound;
+    BOOL _gameOver;
 }
 
 static const CGFloat kCCShootSpeed = 1000.0;
@@ -120,8 +123,16 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         _laserSound = [SKAction playSoundFileNamed:@"Laser.caf" waitForCompletion:NO];
         _zapSound = [SKAction playSoundFileNamed:@"Zap.caf" waitForCompletion:NO];
         
+        // Setup menu
+        _menu = [[CCMenu alloc] init];
+        _menu.position = CGPointMake(self.size.width * 0.5, self.size.height - 220);
+        [self addChild:_menu];
         
-        [self newGame];
+        // Set initial values
+        self.ammo = 5;
+        self.score = 0;
+        _gameOver = YES;
+        _scoreLabel.hidden = YES;
         
         
     }
@@ -132,12 +143,13 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
 {
     self.ammo = 5;
     self.score = 0;
+    _scoreLabel.hidden = NO;
     
     [_mainLayer removeAllChildren];
     
     // Setup shields
     for (int i = 0; i < 6; i++) {
-        SKSpriteNode *shield = [SKSpriteNode spriteNodeWithImageNamed:@"Block"];
+        SKSpriteNode *shield = [SKSpriteNode spriteNodeWithImageNamed:@"BlocK"];
         shield.name = @"shield";
         shield.position = CGPointMake(35 + (50 *i), 90);
         [_mainLayer addChild:shield];
@@ -151,6 +163,9 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
     lifeBar.physicsBody = [SKPhysicsBody bodyWithEdgeFromPoint:CGPointMake(-lifeBar.size.width * 0.5, 0) toPoint:CGPointMake(lifeBar.size.width * 0.5, 0)];
     lifeBar.physicsBody.categoryBitMask = kCCLifeBarCategory;
     [_mainLayer addChild:lifeBar];
+    
+    _gameOver = NO;
+    _menu.hidden = YES;
 }
 
 -(void)setAmmo:(int)ammo
@@ -273,7 +288,13 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         [node removeFromParent];
     }];
     
-    [self performSelector:@selector(newGame) withObject:nil afterDelay:1.5];
+    _menu.score = self.score;
+    if (self.score > _menu.topScore) {
+        _menu.topScore = self.score;
+    }
+    _menu.hidden = NO;
+    _gameOver = YES;
+    _scoreLabel.hidden = YES;
 }
 
 -(void)addExplosion:(CGPoint)position withName:(NSString*)name
@@ -294,7 +315,20 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
     for (UITouch *touch in touches) {
-        _didShoot = YES;
+        if (!_gameOver) {
+            _didShoot = YES;
+        }
+    }
+}
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    for (UITouch *touch in touches) {
+        if (_gameOver) {
+            SKNode *n = [_menu nodeAtPoint:[touch locationInNode:_menu]];
+            if ([n.name isEqualToString:@"Play"]) {
+                [self newGame];
+            }
+        }
     }
 }
 
