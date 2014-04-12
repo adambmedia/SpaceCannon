@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		571F75A818D3064E00E72683 /* BallTrail.sks in Resources */ = {isa = PBXBuildFile; fileRef = 571F75A718D3064E00E72683 /* BallTrail.sks */; };
+		5720534118D310A9002EA2DD /* CCBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 5720534018D310A9002EA2DD /* CCBall.m */; };
+		5720534718D3225B002EA2DD /* HaloX@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5720534618D3225B002EA2DD /* HaloX@2x.png */; };
 		5742FD8818C62E6200F963DE /* LifeBarExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5742FD8718C62E6200F963DE /* LifeBarExplosion.sks */; };
 		5780EB1A18C4D5E700B993B2 /* HaloExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5780EB1818C4D5E700B993B2 /* HaloExplosion.sks */; };
 		5780EB1B18C4D5E700B993B2 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 5780EB1918C4D5E700B993B2 /* spark.png */; };
@@ -60,6 +63,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		571F75A718D3064E00E72683 /* BallTrail.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BallTrail.sks; sourceTree = "<group>"; };
+		5720533F18D310A9002EA2DD /* CCBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBall.h; sourceTree = "<group>"; };
+		5720534018D310A9002EA2DD /* CCBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBall.m; sourceTree = "<group>"; };
+		5720534618D3225B002EA2DD /* HaloX@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HaloX@2x.png"; sourceTree = "<group>"; };
 		5742FD8718C62E6200F963DE /* LifeBarExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LifeBarExplosion.sks; sourceTree = "<group>"; };
 		5780EB1818C4D5E700B993B2 /* HaloExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HaloExplosion.sks; sourceTree = "<group>"; };
 		5780EB1918C4D5E700B993B2 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
@@ -196,6 +203,9 @@
 				5742FD8718C62E6200F963DE /* LifeBarExplosion.sks */,
 				57AF9AD418CF7B1A00717742 /* CCMenu.h */,
 				57AF9AD518CF7B1A00717742 /* CCMenu.m */,
+				571F75A718D3064E00E72683 /* BallTrail.sks */,
+				5720533F18D310A9002EA2DD /* CCBall.h */,
+				5720534018D310A9002EA2DD /* CCBall.m */,
 			);
 			path = "Space Cannon";
 			sourceTree = "<group>";
@@ -232,6 +242,7 @@
 		57FA969118A8EF5A006ED483 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				5720534618D3225B002EA2DD /* HaloX@2x.png */,
 				57AF9ACE18CF7ADF00717742 /* PlayButton@2x.png */,
 				57AF9ACF18CF7ADF00717742 /* ScoreBoard@2x.png */,
 				57AF9AD018CF7ADF00717742 /* Title@2x.png */,
@@ -341,6 +352,7 @@
 				5780EB1A18C4D5E700B993B2 /* HaloExplosion.sks in Resources */,
 				57FA96A418A8EF5A006ED483 /* Ball@2x.png in Resources */,
 				57AF9AAB18CE158E00717742 /* Laser.caf in Resources */,
+				5720534718D3225B002EA2DD /* HaloX@2x.png in Resources */,
 				57FA967518A8EEFF006ED483 /* Images.xcassets in Resources */,
 				57FA96A118A8EF5A006ED483 /* Ammo3@2x.png in Resources */,
 				57FA966B18A8EEFF006ED483 /* Main.storyboard in Resources */,
@@ -349,6 +361,7 @@
 				57AF9AA818CE158E00717742 /* Bounce.caf in Resources */,
 				57FA96A518A8EF5A006ED483 /* Block@2x.png in Resources */,
 				57AF9AAC18CE158E00717742 /* Zap.caf in Resources */,
+				571F75A818D3064E00E72683 /* BallTrail.sks in Resources */,
 				57FA96A918A8EF5A006ED483 /* Starfield@2x.png in Resources */,
 				57FA96A718A8EF5A006ED483 /* Cannon@2x.png in Resources */,
 				57AF9AD318CF7ADF00717742 /* Title@2x.png in Resources */,
@@ -374,6 +387,7 @@
 			files = (
 				57FA967118A8EEFF006ED483 /* CCMyScene.m in Sources */,
 				57FA966818A8EEFF006ED483 /* CCAppDelegate.m in Sources */,
+				5720534118D310A9002EA2DD /* CCBall.m in Sources */,
 				57AF9AD618CF7B1A00717742 /* CCMenu.m in Sources */,
 				57FA966418A8EEFF006ED483 /* main.m in Sources */,
 				57FA966E18A8EEFF006ED483 /* CCViewController.m in Sources */,
