@@ -23,6 +23,7 @@
     SKAction *_laserSound;
     SKAction *_zapSound;
     BOOL _gameOver;
+    NSUserDefaults *_userDefaults;
 }
 
 static const CGFloat kCCShootSpeed = 1000.0;
@@ -35,6 +36,8 @@ static const uint32_t kCCBallCategory    = 0x1 << 1;
 static const uint32_t kCCEdgeCategory    = 0x1 << 2;
 static const uint32_t kCCShieldCategory  = 0x1 << 3;
 static const uint32_t kCCLifeBarCategory = 0x1 << 4;
+
+static NSString * const kCCKeyTopScore = @"TopScore";
 
 static inline CGVector radiansToVector(CGFloat radians)
 {
@@ -66,13 +69,13 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         
         // Add edges.
         SKNode *leftEdge = [[SKNode alloc] init];
-        leftEdge.physicsBody = [SKPhysicsBody bodyWithEdgeFromPoint:CGPointZero toPoint:CGPointMake(0.0, self.size.height)];
+        leftEdge.physicsBody = [SKPhysicsBody bodyWithEdgeFromPoint:CGPointZero toPoint:CGPointMake(0.0, self.size.height + 100)];
         leftEdge.position = CGPointZero;
         leftEdge.physicsBody.categoryBitMask = kCCEdgeCategory;
         [self addChild:leftEdge];
         
         SKNode *rightEdge = [[SKNode alloc] init];
-        rightEdge.physicsBody = [SKPhysicsBody bodyWithEdgeFromPoint:CGPointZero toPoint:CGPointMake(0.0, self.size.height)];
+        rightEdge.physicsBody = [SKPhysicsBody bodyWithEdgeFromPoint:CGPointZero toPoint:CGPointMake(0.0, self.size.height + 100)];
         rightEdge.position = CGPointMake(self.size.width, 0.0);
         rightEdge.physicsBody.categoryBitMask = kCCEdgeCategory;
         [self addChild:rightEdge];
@@ -95,7 +98,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         // Create spawn halo actions.
         SKAction *spawnHalo = [SKAction sequence:@[[SKAction waitForDuration:2 withRange:1],
                                                    [SKAction performSelector:@selector(spawnHalo) onTarget:self]]];
-        [self runAction:[SKAction repeatActionForever:spawnHalo]];
+        [self runAction:[SKAction repeatActionForever:spawnHalo] withKey:@"SpawnHalo"];
         
         // Setup Ammo.
         _ammoDisplay = [SKSpriteNode spriteNodeWithImageNamed:@"Ammo5"];
@@ -134,6 +137,10 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         _gameOver = YES;
         _scoreLabel.hidden = YES;
         
+        // Load top score
+        _userDefaults = [NSUserDefaults standardUserDefaults];
+        _menu.topScore = [_userDefaults integerForKey:kCCKeyTopScore];
+        
         
     }
     return self;
@@ -141,10 +148,6 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
 
 -(void)newGame
 {
-    self.ammo = 5;
-    self.score = 0;
-    _scoreLabel.hidden = NO;
-    
     [_mainLayer removeAllChildren];
     
     // Setup shields
@@ -158,14 +161,20 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         shield.physicsBody.collisionBitMask = 0;
     }
     
+    // Setup life bar
     SKSpriteNode *lifeBar = [SKSpriteNode spriteNodeWithImageNamed:@"BlueBar"];
     lifeBar.position = CGPointMake(self.size.width * 0.5, 70);
     lifeBar.physicsBody = [SKPhysicsBody bodyWithEdgeFromPoint:CGPointMake(-lifeBar.size.width * 0.5, 0) toPoint:CGPointMake(lifeBar.size.width * 0.5, 0)];
     lifeBar.physicsBody.categoryBitMask = kCCLifeBarCategory;
     [_mainLayer addChild:lifeBar];
     
-    _gameOver = NO;
+    // Set intial values
+    [self actionForKey:@"SpawnHalo"].speed = 1.0;
+    self.ammo = 5;
+    self.score = 0;
+    _scoreLabel.hidden = NO;
     _menu.hidden = YES;
+    _gameOver = NO;
 }
 
 -(void)setAmmo:(int)ammo
@@ -211,6 +220,12 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
 
 -(void)spawnHalo
 {
+    // Increase spawn speed.
+    SKAction *spawnHaloAction = [self actionForKey:@"SpawnHalo"];
+    if (spawnHaloAction.speed < 1.5) {
+        spawnHaloAction.speed += 0.01;
+    }
+    
     // Create halo node.
     SKSpriteNode *halo = [SKSpriteNode spriteNodeWithImageNamed:@"Halo"];
     halo.name = @"halo";
@@ -247,6 +262,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         [self addExplosion:firstBody.node.position withName:@"HaloExplosion"];
         [self runAction:_explosionSound];
         
+        firstBody.categoryBitMask = 0;
         [firstBody.node removeFromParent];
         [secondBody.node removeFromParent];
     }
@@ -255,6 +271,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         [self addExplosion:firstBody.node.position withName:@"HaloExplosion"];
         [self runAction:_explosionSound];
         
+        firstBody.categoryBitMask = 0;
         [firstBody.node removeFromParent];
         [secondBody.node removeFromParent];
     }
@@ -263,6 +280,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         [self addExplosion:secondBody.node.position withName:@"LifeBarExplosion"];
         [self runAction:_deepExplosionSound];
         
+        firstBody.categoryBitMask = 0;
         [secondBody.node removeFromParent];
         [self gameOver];
     }
@@ -291,6 +309,8 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
     _menu.score = self.score;
     if (self.score > _menu.topScore) {
         _menu.topScore = self.score;
+        [_userDefaults setInteger:self.score forKey:kCCKeyTopScore];
+        [_userDefaults synchronize];
     }
     _menu.hidden = NO;
     _gameOver = YES;
@@ -343,6 +363,12 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
     // Remove unused nodes.
     [_mainLayer enumerateChildNodesWithName:@"ball" usingBlock:^(SKNode *node, BOOL *stop) {
         if (!CGRectContainsPoint(self.frame, node.position)) {
+            [node removeFromParent];
+        }
+    }];
+    
+    [_mainLayer enumerateChildNodesWithName:@"halo" usingBlock:^(SKNode *node, BOOL *stop) {
+        if (node.position.y + node.frame.size.height < 0) {
             [node removeFromParent];
         }
     }];
