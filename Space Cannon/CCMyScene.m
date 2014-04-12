@@ -189,7 +189,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         
         // Load top score
         _userDefaults = [NSUserDefaults standardUserDefaults];
-        _menu.topScore = [_userDefaults integerForKey:kCCKeyTopScore];
+        _menu.topScore = (int)[_userDefaults integerForKey:kCCKeyTopScore];
         
         // Load music
         NSURL *url = [[NSBundle mainBundle] URLForResource:@"ObservingTheStar" withExtension:@"caf"];
