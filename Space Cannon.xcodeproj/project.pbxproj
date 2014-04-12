@@ -10,6 +10,7 @@
 		571F75A818D3064E00E72683 /* BallTrail.sks in Resources */ = {isa = PBXBuildFile; fileRef = 571F75A718D3064E00E72683 /* BallTrail.sks */; };
 		5720534118D310A9002EA2DD /* CCBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 5720534018D310A9002EA2DD /* CCBall.m */; };
 		5720534718D3225B002EA2DD /* HaloX@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5720534618D3225B002EA2DD /* HaloX@2x.png */; };
+		5720535018D6F170002EA2DD /* ShieldUp.caf in Resources */ = {isa = PBXBuildFile; fileRef = 5720534F18D47B86002EA2DD /* ShieldUp.caf */; };
 		5742FD8818C62E6200F963DE /* LifeBarExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5742FD8718C62E6200F963DE /* LifeBarExplosion.sks */; };
 		5780EB1A18C4D5E700B993B2 /* HaloExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5780EB1818C4D5E700B993B2 /* HaloExplosion.sks */; };
 		5780EB1B18C4D5E700B993B2 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 5780EB1918C4D5E700B993B2 /* spark.png */; };
@@ -67,6 +68,7 @@
 		5720533F18D310A9002EA2DD /* CCBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBall.h; sourceTree = "<group>"; };
 		5720534018D310A9002EA2DD /* CCBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBall.m; sourceTree = "<group>"; };
 		5720534618D3225B002EA2DD /* HaloX@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HaloX@2x.png"; sourceTree = "<group>"; };
+		5720534F18D47B86002EA2DD /* ShieldUp.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ShieldUp.caf; sourceTree = "<group>"; };
 		5742FD8718C62E6200F963DE /* LifeBarExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LifeBarExplosion.sks; sourceTree = "<group>"; };
 		5780EB1818C4D5E700B993B2 /* HaloExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HaloExplosion.sks; sourceTree = "<group>"; };
 		5780EB1918C4D5E700B993B2 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 		57AF9AA218CE158E00717742 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				5720534F18D47B86002EA2DD /* ShieldUp.caf */,
 				57AF9AA318CE158E00717742 /* Bounce.caf */,
 				57AF9AA418CE158E00717742 /* DeepExplosion.caf */,
 				57AF9AA518CE158E00717742 /* Explosion.caf */,
@@ -310,6 +313,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Code Coalition";
 				TargetAttributes = {
+					57FA965118A8EEFE006ED483 = {
+						DevelopmentTeam = WP7237VP7E;
+					};
 					57FA967918A8EEFF006ED483 = {
 						TestTargetID = 57FA965118A8EEFE006ED483;
 					};
@@ -339,6 +345,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5720535018D6F170002EA2DD /* ShieldUp.caf in Resources */,
 				57AF9AA918CE158E00717742 /* DeepExplosion.caf in Resources */,
 				57FA96A818A8EF5A006ED483 /* Halo@2x.png in Resources */,
 				57AF9AAA18CE158E00717742 /* Explosion.caf in Resources */,
@@ -517,10 +524,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Space Cannon/Space Cannon-Prefix.pch";
 				INFOPLIST_FILE = "Space Cannon/Space Cannon-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -531,10 +541,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Space Cannon/Space Cannon-Prefix.pch";
 				INFOPLIST_FILE = "Space Cannon/Space Cannon-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};
