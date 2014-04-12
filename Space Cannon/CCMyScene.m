@@ -203,6 +203,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
             _audioPlayer.numberOfLoops = -1;
             _audioPlayer.volume = 0.8;
             [_audioPlayer play];
+            _menu.musicPlaying = YES;
         }
         
     }
@@ -491,6 +492,14 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
             SKNode *n = [_menu nodeAtPoint:[touch locationInNode:_menu]];
             if ([n.name isEqualToString:@"Play"]) {
                 [self newGame];
+            }
+            if ([n.name isEqualToString:@"Music"]) {
+                _menu.musicPlaying = !_menu.musicPlaying;
+                if (_menu.musicPlaying) {
+                    [_audioPlayer play];
+                } else {
+                    [_audioPlayer stop];
+                }
             }
         }
         else if (!_gameOver)

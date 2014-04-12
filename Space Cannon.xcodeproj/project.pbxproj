@@ -26,6 +26,8 @@
 		57AF9AD218CF7ADF00717742 /* ScoreBoard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57AF9ACF18CF7ADF00717742 /* ScoreBoard@2x.png */; };
 		57AF9AD318CF7ADF00717742 /* Title@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57AF9AD018CF7ADF00717742 /* Title@2x.png */; };
 		57AF9AD618CF7B1A00717742 /* CCMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 57AF9AD518CF7B1A00717742 /* CCMenu.m */; };
+		57DBD5FF18F70A1A006B2EBC /* MusicOffButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57DBD5FD18F70A1A006B2EBC /* MusicOffButton@2x.png */; };
+		57DBD60018F70A1A006B2EBC /* MusicOnButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57DBD5FE18F70A1A006B2EBC /* MusicOnButton@2x.png */; };
 		57FA965618A8EEFE006ED483 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57FA965518A8EEFE006ED483 /* Foundation.framework */; };
 		57FA965818A8EEFE006ED483 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57FA965718A8EEFE006ED483 /* CoreGraphics.framework */; };
 		57FA965A18A8EEFF006ED483 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57FA965918A8EEFF006ED483 /* UIKit.framework */; };
@@ -88,6 +90,8 @@
 		57AF9AD018CF7ADF00717742 /* Title@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Title@2x.png"; sourceTree = "<group>"; };
 		57AF9AD418CF7B1A00717742 /* CCMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMenu.h; sourceTree = "<group>"; };
 		57AF9AD518CF7B1A00717742 /* CCMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMenu.m; sourceTree = "<group>"; };
+		57DBD5FD18F70A1A006B2EBC /* MusicOffButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MusicOffButton@2x.png"; sourceTree = "<group>"; };
+		57DBD5FE18F70A1A006B2EBC /* MusicOnButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MusicOnButton@2x.png"; sourceTree = "<group>"; };
 		57FA965218A8EEFE006ED483 /* Space Cannon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Cannon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57FA965518A8EEFE006ED483 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		57FA965718A8EEFE006ED483 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -260,6 +264,8 @@
 		57FA969118A8EF5A006ED483 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				57DBD5FD18F70A1A006B2EBC /* MusicOffButton@2x.png */,
+				57DBD5FE18F70A1A006B2EBC /* MusicOnButton@2x.png */,
 				576E66DA18D9EC380037A404 /* PauseButton@2x.png */,
 				576E66DB18D9EC380037A404 /* ResumeButton@2x.png */,
 				5720534618D3225B002EA2DD /* HaloX@2x.png */,
@@ -327,7 +333,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = CC;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Code Coalition";
 				TargetAttributes = {
 					57FA965118A8EEFE006ED483 = {
@@ -378,6 +384,7 @@
 				57FA96A418A8EF5A006ED483 /* Ball@2x.png in Resources */,
 				57AF9AAB18CE158E00717742 /* Laser.caf in Resources */,
 				5720534718D3225B002EA2DD /* HaloX@2x.png in Resources */,
+				57DBD5FF18F70A1A006B2EBC /* MusicOffButton@2x.png in Resources */,
 				57FA967518A8EEFF006ED483 /* Images.xcassets in Resources */,
 				57FA96A118A8EF5A006ED483 /* Ammo3@2x.png in Resources */,
 				57FA966B18A8EEFF006ED483 /* Main.storyboard in Resources */,
@@ -386,6 +393,7 @@
 				57AF9AA818CE158E00717742 /* Bounce.caf in Resources */,
 				576E66EC18DA41E90037A404 /* ObservingTheStar.caf in Resources */,
 				57FA96A518A8EF5A006ED483 /* Block@2x.png in Resources */,
+				57DBD60018F70A1A006B2EBC /* MusicOnButton@2x.png in Resources */,
 				57AF9AAC18CE158E00717742 /* Zap.caf in Resources */,
 				571F75A818D3064E00E72683 /* BallTrail.sks in Resources */,
 				57FA96A918A8EF5A006ED483 /* Starfield@2x.png in Resources */,
@@ -471,7 +479,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -510,7 +517,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -576,7 +582,6 @@
 		57FA968F18A8EEFF006ED483 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Space Cannon.app/Space Cannon";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -599,7 +604,6 @@
 		57FA969018A8EEFF006ED483 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Space Cannon.app/Space Cannon";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

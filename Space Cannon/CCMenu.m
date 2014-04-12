@@ -15,6 +15,7 @@
     SKSpriteNode *_title;
     SKSpriteNode *_scoreBoard;
     SKSpriteNode *_playButton;
+    SKSpriteNode *_musicButton;
 }
 
 - (id)init
@@ -33,6 +34,11 @@
         _playButton.name = @"Play";
         _playButton.position = CGPointMake(0, 0);
         [self addChild:_playButton];
+        
+        _musicButton = [SKSpriteNode spriteNodeWithImageNamed:@"MusicOnButton"];
+        _musicButton.name = @"Music";
+        _musicButton.position = CGPointMake(90, 0);
+        [self addChild:_musicButton];
         
         _scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"DIN Alternate"];
         _scoreLabel.fontSize = 30;
@@ -93,8 +99,21 @@
         self.touchable = YES;
     }];
     
+    _musicButton.alpha = 0.0;
+    [_musicButton runAction:animatePlayButton];
     
 }
+
+-(void)setMusicPlaying:(BOOL)musicPlaying
+{
+    _musicPlaying = musicPlaying;
+    if (_musicPlaying) {
+        _musicButton.texture = [SKTexture textureWithImageNamed:@"MusicOnButton"];
+    } else {
+        _musicButton.texture = [SKTexture textureWithImageNamed:@"MusicOffButton"];
+    }
+}
+
 
 -(void)setScore:(int)score
 {
