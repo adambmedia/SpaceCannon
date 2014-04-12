@@ -12,6 +12,7 @@
 {
     SKNode *_mainLayer;
     SKSpriteNode *_cannon;
+    BOOL _didShoot;
 }
 
 static const CGFloat SHOOT_SPEED = 1000.0f;
@@ -38,6 +39,18 @@ static inline CGVector radiansToVector(CGFloat radians)
         background.blendMode = SKBlendModeReplace;
         [self addChild:background];
         
+        // Add edges.
+        SKNode *leftEdge = [[SKNode alloc] init];
+        leftEdge.physicsBody = [SKPhysicsBody bodyWithEdgeFromPoint:CGPointZero toPoint:CGPointMake(0.0, self.size.height)];
+        leftEdge.position = CGPointZero;
+        [self addChild:leftEdge];
+        
+        SKNode *rightEdge = [[SKNode alloc] init];
+        rightEdge.physicsBody = [SKPhysicsBody bodyWithEdgeFromPoint:CGPointZero toPoint:CGPointMake(0.0, self.size.height)];
+        rightEdge.position = CGPointMake(self.size.width, 0.0);
+        [self addChild:rightEdge];
+        
+        
         // Add main layer.
         _mainLayer = [[SKNode alloc] init];
         [self addChild:_mainLayer];
@@ -61,6 +74,7 @@ static inline CGVector radiansToVector(CGFloat radians)
 {
     // Create ball node.
     SKSpriteNode *ball = [SKSpriteNode spriteNodeWithImageNamed:@"Ball"];
+    ball.name = @"ball";
     CGVector rotationVector = radiansToVector(_cannon.zRotation);
     ball.position = CGPointMake(_cannon.position.x + (_cannon.size.width * 0.5 * rotationVector.dx),
                                 _cannon.position.y + (_cannon.size.width * 0.5 * rotationVector.dy));
@@ -68,6 +82,9 @@ static inline CGVector radiansToVector(CGFloat radians)
     
     ball.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:6.0];
     ball.physicsBody.velocity = CGVectorMake(rotationVector.dx * SHOOT_SPEED, rotationVector.dy * SHOOT_SPEED);
+    ball.physicsBody.restitution = 1.0;
+    ball.physicsBody.linearDamping = 0.0;
+    ball.physicsBody.friction = 0.0;
     
 }
 
@@ -75,8 +92,24 @@ static inline CGVector radiansToVector(CGFloat radians)
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
     for (UITouch *touch in touches) {
-        [self shoot];
+        _didShoot = YES;
     }
+}
+
+-(void)didSimulatePhysics
+{
+    // Shoot.
+    if (_didShoot) {
+        [self shoot];
+        _didShoot = NO;
+    }
+    
+    // Remove unused nodes.
+    [_mainLayer enumerateChildNodesWithName:@"ball" usingBlock:^(SKNode *node, BOOL *stop) {
+        if (!CGRectContainsPoint(self.frame, node.position)) {
+            [node removeFromParent];
+        }
+    }];
 }
 
 -(void)update:(CFTimeInterval)currentTime {
