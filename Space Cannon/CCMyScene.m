@@ -13,7 +13,13 @@
     SKNode *_mainLayer;
     SKSpriteNode *_cannon;
     SKSpriteNode *_ammoDisplay;
+    SKLabelNode *_scoreLabel;
     BOOL _didShoot;
+    SKAction *_bounceSound;
+    SKAction *_deepExplosionSound;
+    SKAction *_explosionSound;
+    SKAction *_laserSound;
+    SKAction *_zapSound;
 }
 
 static const CGFloat kCCShootSpeed = 1000.0;
@@ -76,7 +82,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         // Add cannon.
         _cannon = [SKSpriteNode spriteNodeWithImageNamed:@"Cannon"];
         _cannon.position = CGPointMake(self.size.width * 0.5, 0.0);
-        [_mainLayer addChild:_cannon];
+        [self addChild:_cannon];
         
         // Create cannon rotation actions.
         SKAction *rotateCannon = [SKAction sequence:@[[SKAction rotateByAngle:M_PI duration:2],
@@ -92,8 +98,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         _ammoDisplay = [SKSpriteNode spriteNodeWithImageNamed:@"Ammo5"];
         _ammoDisplay.anchorPoint = CGPointMake(0.5, 0.0);
         _ammoDisplay.position = _cannon.position;
-        [_mainLayer addChild:_ammoDisplay];
-        self.ammo = 5;
+        [self addChild:_ammoDisplay];
         
         SKAction *incrementAmmo = [SKAction sequence:@[[SKAction waitForDuration:1],
                                                        [SKAction runBlock:^{
@@ -101,25 +106,51 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         }]]];
         [self runAction:[SKAction repeatActionForever:incrementAmmo]];
         
-        // Setup shields
-        for (int i = 0; i < 6; i++) {
-            SKSpriteNode *shield = [SKSpriteNode spriteNodeWithImageNamed:@"Block"];
-            shield.position = CGPointMake(35 + (50 *i), 90);
-            [_mainLayer addChild:shield];
-            shield.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(42, 9)];
-            shield.physicsBody.categoryBitMask = kCCShieldCategory;
-            shield.physicsBody.collisionBitMask = 0;
-        }
+        // Setup score display
+        _scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"DIN Alternate"];
+        _scoreLabel.position = CGPointMake(15, 10);
+        _scoreLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
+        _scoreLabel.fontSize = 15;
+        [self addChild:_scoreLabel];
         
-        SKSpriteNode *lifeBar = [SKSpriteNode spriteNodeWithImageNamed:@"BlueBar"];
-        lifeBar.position = CGPointMake(self.size.width * 0.5, 70);
-        lifeBar.physicsBody = [SKPhysicsBody bodyWithEdgeFromPoint:CGPointMake(-lifeBar.size.width * 0.5, 0) toPoint:CGPointMake(lifeBar.size.width * 0.5, 0)];
-        lifeBar.physicsBody.categoryBitMask = kCCLifeBarCategory;
-        [_mainLayer addChild:lifeBar];
+        // Setup sounds
+        _bounceSound = [SKAction playSoundFileNamed:@"Bounce.caf" waitForCompletion:NO];
+        _deepExplosionSound = [SKAction playSoundFileNamed:@"DeepExplosion.caf" waitForCompletion:NO];
+        _explosionSound = [SKAction playSoundFileNamed:@"Explosion.caf" waitForCompletion:NO];
+        _laserSound = [SKAction playSoundFileNamed:@"Laser.caf" waitForCompletion:NO];
+        _zapSound = [SKAction playSoundFileNamed:@"Zap.caf" waitForCompletion:NO];
+        
+        
+        [self newGame];
         
         
     }
     return self;
+}
+
+-(void)newGame
+{
+    self.ammo = 5;
+    self.score = 0;
+    
+    [_mainLayer removeAllChildren];
+    
+    // Setup shields
+    for (int i = 0; i < 6; i++) {
+        SKSpriteNode *shield = [SKSpriteNode spriteNodeWithImageNamed:@"Block"];
+        shield.name = @"shield";
+        shield.position = CGPointMake(35 + (50 *i), 90);
+        [_mainLayer addChild:shield];
+        shield.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(42, 9)];
+        shield.physicsBody.categoryBitMask = kCCShieldCategory;
+        shield.physicsBody.collisionBitMask = 0;
+    }
+    
+    SKSpriteNode *lifeBar = [SKSpriteNode spriteNodeWithImageNamed:@"BlueBar"];
+    lifeBar.position = CGPointMake(self.size.width * 0.5, 70);
+    lifeBar.physicsBody = [SKPhysicsBody bodyWithEdgeFromPoint:CGPointMake(-lifeBar.size.width * 0.5, 0) toPoint:CGPointMake(lifeBar.size.width * 0.5, 0)];
+    lifeBar.physicsBody.categoryBitMask = kCCLifeBarCategory;
+    [_mainLayer addChild:lifeBar];
 }
 
 -(void)setAmmo:(int)ammo
@@ -128,6 +159,12 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         _ammo = ammo;
         _ammoDisplay.texture = [SKTexture textureWithImageNamed:[NSString stringWithFormat:@"Ammo%d", ammo]];
     }
+}
+
+-(void)setScore:(int)score
+{
+    _score = score;
+    _scoreLabel.text = [NSString stringWithFormat:@"Score: %d", score];
 }
 
 
@@ -151,6 +188,8 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         ball.physicsBody.friction = 0.0;
         ball.physicsBody.categoryBitMask = kCCBallCategory;
         ball.physicsBody.collisionBitMask = kCCEdgeCategory;
+        ball.physicsBody.contactTestBitMask = kCCEdgeCategory;
+        [self runAction:_laserSound];
     }
     
 }
@@ -159,6 +198,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
 {
     // Create halo node.
     SKSpriteNode *halo = [SKSpriteNode spriteNodeWithImageNamed:@"Halo"];
+    halo.name = @"halo";
     halo.position = CGPointMake(randomInRange(halo.size.width * 0.5, self.size.width - (halo.size.width * 0.5)),
                                 self.size.height + (halo.size.height * 0.5));
     halo.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:16.0];
@@ -169,7 +209,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
     halo.physicsBody.friction = 0.0;
     halo.physicsBody.categoryBitMask = kCCHaloCategory;
     halo.physicsBody.collisionBitMask = kCCEdgeCategory;
-    halo.physicsBody.contactTestBitMask = kCCBallCategory | kCCShieldCategory |kCCLifeBarCategory;
+    halo.physicsBody.contactTestBitMask = kCCBallCategory | kCCShieldCategory | kCCLifeBarCategory | kCCEdgeCategory;
     [_mainLayer addChild:halo];
 }
 
@@ -188,7 +228,9 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
     
     if (firstBody.categoryBitMask == kCCHaloCategory && secondBody.categoryBitMask == kCCBallCategory) {
         // Collision between halo and ball.
+        self.score++;
         [self addExplosion:firstBody.node.position withName:@"HaloExplosion"];
+        [self runAction:_explosionSound];
         
         [firstBody.node removeFromParent];
         [secondBody.node removeFromParent];
@@ -196,19 +238,42 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
     if (firstBody.categoryBitMask == kCCHaloCategory && secondBody.categoryBitMask == kCCShieldCategory) {
         // Collision between halo and shield.
         [self addExplosion:firstBody.node.position withName:@"HaloExplosion"];
+        [self runAction:_explosionSound];
         
         [firstBody.node removeFromParent];
         [secondBody.node removeFromParent];
     }
     if (firstBody.categoryBitMask == kCCHaloCategory && secondBody.categoryBitMask == kCCLifeBarCategory) {
         // Collision between halo and life bar.
-        [self addExplosion:firstBody.node.position withName:@"HaloExplosion"];
         [self addExplosion:secondBody.node.position withName:@"LifeBarExplosion"];
+        [self runAction:_deepExplosionSound];
         
-        [firstBody.node removeFromParent];
         [secondBody.node removeFromParent];
+        [self gameOver];
+    }
+    if (firstBody.categoryBitMask == kCCHaloCategory && secondBody.categoryBitMask == kCCEdgeCategory) {
+        [self runAction:_zapSound];
+    }
+    if (firstBody.categoryBitMask == kCCBallCategory && secondBody.categoryBitMask == kCCEdgeCategory) {
+        [self runAction:_bounceSound];
     }
     
+}
+
+-(void)gameOver
+{
+    [_mainLayer enumerateChildNodesWithName:@"halo" usingBlock:^(SKNode *node, BOOL *stop) {
+        [self addExplosion:node.position withName:@"HaloExplosion"];
+        [node removeFromParent];
+    }];
+    [_mainLayer enumerateChildNodesWithName:@"ball" usingBlock:^(SKNode *node, BOOL *stop) {
+        [node removeFromParent];
+    }];
+    [_mainLayer enumerateChildNodesWithName:@"shield" usingBlock:^(SKNode *node, BOOL *stop) {
+        [node removeFromParent];
+    }];
+    
+    [self performSelector:@selector(newGame) withObject:nil afterDelay:1.5];
 }
 
 -(void)addExplosion:(CGPoint)position withName:(NSString*)name
