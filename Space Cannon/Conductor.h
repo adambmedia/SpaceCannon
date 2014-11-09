@@ -12,6 +12,10 @@
 
 - (void)haloHitLeftEdgeAtPosition:(float)position;
 - (void)haloHitRightEdgeAtPosition:(float)position;
-
-
+- (void)playerShotBallWithRotationVector:(CGVector)rotationVector
+                            remaningAmmo:(int)remainingAmmo;
+- (void)haloHitBall:(float)position;
+- (void)haloHitLifeBar:(float)position;
+- (void)bounceOccured;
+- (void)shieldUp;
 @end
