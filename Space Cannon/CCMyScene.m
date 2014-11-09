@@ -10,6 +10,7 @@
 #import "CCMenu.h"
 #import "CCBall.h"
 #import <AVFoundation/AVFoundation.h>
+#import "Conductor.h"
 
 @implementation CCMyScene
 {
@@ -32,6 +33,7 @@
     BOOL _gameOver;
     NSUserDefaults *_userDefaults;
     NSMutableArray *_shieldPool;
+    Conductor *conductor;
 }
 
 static const CGFloat kCCShootSpeed = 1000.0;
@@ -165,6 +167,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         [self addChild:_pointLabel];
         
         // Setup sounds
+        conductor = [[Conductor alloc] init];
         _bounceSound = [SKAction playSoundFileNamed:@"Bounce.caf" waitForCompletion:NO];
         _deepExplosionSound = [SKAction playSoundFileNamed:@"DeepExplosion.caf" waitForCompletion:NO];
         _explosionSound = [SKAction playSoundFileNamed:@"Explosion.caf" waitForCompletion:NO];
@@ -400,6 +403,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         [self gameOver];
     }
     if (firstBody.categoryBitMask == kCCHaloCategory && secondBody.categoryBitMask == kCCEdgeCategory) {
+        [conductor haloHitLeftEdgeAtPosition:firstBody.node.position.y];
         [self runAction:_zapSound];
     }
     if (firstBody.categoryBitMask == kCCBallCategory && secondBody.categoryBitMask == kCCEdgeCategory) {

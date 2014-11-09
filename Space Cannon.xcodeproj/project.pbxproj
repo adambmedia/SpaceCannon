@@ -202,6 +202,7 @@
 		C4722E851A0F018F00C83A83 /* AKWindowsTable.m in Sources */ = {isa = PBXBuildFile; fileRef = C4722DED1A0F018F00C83A83 /* AKWindowsTable.m */; };
 		C4722E861A0F018F00C83A83 /* AKInstrumentProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = C4722DF01A0F018F00C83A83 /* AKInstrumentProperty.m */; };
 		C4722E871A0F018F00C83A83 /* AKNoteProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = C4722DF21A0F018F00C83A83 /* AKNoteProperty.m */; };
+		C4722E8A1A0F02E800C83A83 /* Conductor.m in Sources */ = {isa = PBXBuildFile; fileRef = C4722E891A0F02E800C83A83 /* Conductor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -588,6 +589,8 @@
 		C4722DF01A0F018F00C83A83 /* AKInstrumentProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKInstrumentProperty.m; sourceTree = "<group>"; };
 		C4722DF11A0F018F00C83A83 /* AKNoteProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKNoteProperty.h; sourceTree = "<group>"; };
 		C4722DF21A0F018F00C83A83 /* AKNoteProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKNoteProperty.m; sourceTree = "<group>"; };
+		C4722E881A0F02E800C83A83 /* Conductor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Conductor.h; path = "Space Cannon/Conductor.h"; sourceTree = "<group>"; };
+		C4722E891A0F02E800C83A83 /* Conductor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Conductor.m; path = "Space Cannon/Conductor.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -641,6 +644,8 @@
 		57FA964918A8EEFE006ED483 = {
 			isa = PBXGroup;
 			children = (
+				C4722E881A0F02E800C83A83 /* Conductor.h */,
+				C4722E891A0F02E800C83A83 /* Conductor.m */,
 				57FA965D18A8EEFF006ED483 /* Space Cannon */,
 				57FA968118A8EEFF006ED483 /* Space CannonTests */,
 				57FA965418A8EEFE006ED483 /* Frameworks */,
@@ -1657,6 +1662,7 @@
 				C4722E751A0F018F00C83A83 /* AKArray.m in Sources */,
 				C4722DF51A0F018F00C83A83 /* AKManager.m in Sources */,
 				C4722E561A0F018F00C83A83 /* AKDelay.m in Sources */,
+				C4722E8A1A0F02E800C83A83 /* Conductor.m in Sources */,
 				C4722E601A0F018F00C83A83 /* AKHighPassFilter.m in Sources */,
 				C4722E4C1A0F018F00C83A83 /* AKAdditiveCosines.m in Sources */,
 				C4722E2F1A0F018F00C83A83 /* AKPhasingControl.m in Sources */,
