@@ -293,6 +293,8 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         ball.physicsBody.categoryBitMask = kCCBallCategory;
         ball.physicsBody.collisionBitMask = kCCEdgeCategory;
         ball.physicsBody.contactTestBitMask = kCCEdgeCategory | kCCShieldUpCategory;
+        
+        [conductor playerShotBallWithRotationVector:rotationVector remaningAmmo:self.ammo];
         [self runAction:_laserSound];
         
         // Create trail.
@@ -373,6 +375,8 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         // Collision between halo and ball.
         self.score += self.pointValue;
         [self addExplosion:firstBody.node.position withName:@"HaloExplosion"];
+
+        [conductor haloHitBall:firstBody.node.position.y];
         [self runAction:_explosionSound];
         
         if ([[firstBody.node.userData valueForKey:@"Multiplier"] boolValue]) {
@@ -404,6 +408,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
     }
     if (firstBody.categoryBitMask == kCCHaloCategory && secondBody.categoryBitMask == kCCEdgeCategory) {
         [conductor haloHitLeftEdgeAtPosition:firstBody.node.position.y];
+        [conductor haloHitRightEdgeAtPosition:firstBody.node.position.y];
         [self runAction:_zapSound];
     }
     if (firstBody.categoryBitMask == kCCBallCategory && secondBody.categoryBitMask == kCCEdgeCategory) {
@@ -414,7 +419,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
                 self.pointValue = 1;
             }
         }
-        
+        [conductor bounceOccured];
         [self runAction:_bounceSound];
     }
     if (firstBody.categoryBitMask == kCCBallCategory && secondBody.categoryBitMask == kCCShieldUpCategory) {
@@ -423,14 +428,14 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
             int randomIndex = arc4random_uniform((int)_shieldPool.count);
             [_mainLayer addChild:[_shieldPool objectAtIndex:randomIndex]];
             [_shieldPool removeObjectAtIndex:randomIndex];
+            [conductor shieldUp];
             [self runAction:_shieldUpSound];
         }
         [firstBody.node removeFromParent];
         [secondBody.node removeFromParent];
     }
-    
-    
 }
+
 
 -(void)gameOver
 {

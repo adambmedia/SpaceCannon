@@ -10,12 +10,11 @@
 
 #import "AKFoundation.h"
 
-// import any instruments here
+#import "Instrument.h"
 
 @implementation Conductor
 {
-    //SeqInstrument *instrument;
-    //AKSequence *sequence;
+    Instrument *instrument;
 }
 
 - (instancetype)init
@@ -23,8 +22,8 @@
     self = [super init];
     if (self) {
         AKOrchestra *orchestra = [[AKOrchestra alloc] init];
-        //instrument = [[SeqInstrument alloc] init];
-        //[orchestra addInstrument:instrument];
+        instrument = [[Instrument alloc] init];
+        [orchestra addInstrument:instrument];
         [[AKManager sharedAKManager] runOrchestra:orchestra];
     }
     return self;
@@ -38,6 +37,24 @@
     NSLog(@"Halo hit right edge at position %f", position);
 }
 
+- (void)playerShotBallWithRotationVector:(CGVector)rotationVector remaningAmmo:(int)remainingAmmo {
+    NSLog(@"Player shot at X %f Y% and has %d ammo left" , rotationVector.dx, rotationVector.dy, remainingAmmo);
+}
 
+- (void)haloHitBall:(float)position {
+    NSLog(@"Halo hit ball at %f", position);
+}
+
+- (void)haloHitLifeBar:(float)position;{
+    NSLog(@"Halo hit life bar at %f", position);
+}
+
+- (void)bounceOccured{
+    NSLog(@"Bounce occured");
+}
+
+- (void)shieldUp{
+    NSLog(@"Shield's up!");
+}
 
 @end
