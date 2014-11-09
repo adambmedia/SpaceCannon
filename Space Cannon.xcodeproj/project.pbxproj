@@ -337,7 +337,7 @@
 				ORGANIZATIONNAME = "Code Coalition";
 				TargetAttributes = {
 					57FA965118A8EEFE006ED483 = {
-						DevelopmentTeam = WP7237VP7E;
+						DevelopmentTeam = T9KEX275FG;
 					};
 					57FA967918A8EEFF006ED483 = {
 						TestTargetID = 57FA965118A8EEFE006ED483;
