@@ -205,7 +205,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         else {
             _audioPlayer.numberOfLoops = -1;
             _audioPlayer.volume = 0.8;
-            [_audioPlayer play];
+//            [_audioPlayer play];
             _menu.musicPlaying = YES;
         }
         
@@ -295,7 +295,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         ball.physicsBody.contactTestBitMask = kCCEdgeCategory | kCCShieldUpCategory;
         
         [conductor playerShotBallWithRotationVector:rotationVector remaningAmmo:self.ammo];
-        [self runAction:_laserSound];
+//        [self runAction:_laserSound];
         
         // Create trail.
         NSString *ballTrailPath = [[NSBundle mainBundle] pathForResource:@"BallTrail" ofType:@"sks"];
@@ -377,7 +377,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         [self addExplosion:firstBody.node.position withName:@"HaloExplosion"];
 
         [conductor haloHitBall:firstBody.node.position.y];
-        [self runAction:_explosionSound];
+//        [self runAction:_explosionSound];
         
         if ([[firstBody.node.userData valueForKey:@"Multiplier"] boolValue]) {
             self.pointValue++;
@@ -390,7 +390,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
     if (firstBody.categoryBitMask == kCCHaloCategory && secondBody.categoryBitMask == kCCShieldCategory) {
         // Collision between halo and shield.
         [self addExplosion:firstBody.node.position withName:@"HaloExplosion"];
-        [self runAction:_explosionSound];
+//        [self runAction:_explosionSound];
         
         firstBody.categoryBitMask = 0;
         [firstBody.node removeFromParent];
@@ -400,7 +400,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
     if (firstBody.categoryBitMask == kCCHaloCategory && secondBody.categoryBitMask == kCCLifeBarCategory) {
         // Collision between halo and life bar.
         [self addExplosion:secondBody.node.position withName:@"LifeBarExplosion"];
-        [self runAction:_deepExplosionSound];
+//        [self runAction:_deepExplosionSound];
         
         firstBody.categoryBitMask = 0;
         [secondBody.node removeFromParent];
@@ -409,7 +409,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
     if (firstBody.categoryBitMask == kCCHaloCategory && secondBody.categoryBitMask == kCCEdgeCategory) {
         [conductor haloHitLeftEdgeAtPosition:firstBody.node.position.y];
         [conductor haloHitRightEdgeAtPosition:firstBody.node.position.y];
-        [self runAction:_zapSound];
+//        [self runAction:_zapSound];
     }
     if (firstBody.categoryBitMask == kCCBallCategory && secondBody.categoryBitMask == kCCEdgeCategory) {
         if ([firstBody.node isKindOfClass:[CCBall class]]) {
@@ -420,7 +420,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
             }
         }
         [conductor bounceOccured];
-        [self runAction:_bounceSound];
+       //// [self runAction:_bounceSound];
     }
     if (firstBody.categoryBitMask == kCCBallCategory && secondBody.categoryBitMask == kCCShieldUpCategory) {
         // Hit a shield power up.
@@ -429,7 +429,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
             [_mainLayer addChild:[_shieldPool objectAtIndex:randomIndex]];
             [_shieldPool removeObjectAtIndex:randomIndex];
             [conductor shieldUp];
-            [self runAction:_shieldUpSound];
+//            [self runAction:_shieldUpSound];
         }
         [firstBody.node removeFromParent];
         [secondBody.node removeFromParent];
@@ -505,7 +505,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
             if ([n.name isEqualToString:@"Music"]) {
                 _menu.musicPlaying = !_menu.musicPlaying;
                 if (_menu.musicPlaying) {
-                    [_audioPlayer play];
+//                    [_audioPlayer play];
                 } else {
                     [_audioPlayer stop];
                 }
