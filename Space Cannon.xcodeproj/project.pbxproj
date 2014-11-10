@@ -1860,12 +1860,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Space Cannon/Space Cannon-Prefix.pch";
 				INFOPLIST_FILE = "Space Cannon/Space Cannon-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)/AudioKit/libraries",
-					"$(PROJECT_DIR)/Space",
-					"$(PROJECT_DIR)/Space",
-					"Cannon/AudioKit/Libraries/iOS/csound-iOS/libs",
-				);
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Space\\ Cannon/AudioKit/Libraries/iOS/csound-iOS/libs";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1884,12 +1879,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Space Cannon/Space Cannon-Prefix.pch";
 				INFOPLIST_FILE = "Space Cannon/Space Cannon-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)/AudioKit/libraries",
-					"$(PROJECT_DIR)/Space",
-					"$(PROJECT_DIR)/Space",
-					"Cannon/AudioKit/Libraries/iOS/csound-iOS/libs",
-				);
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Space\\ Cannon/AudioKit/Libraries/iOS/csound-iOS/libs";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;

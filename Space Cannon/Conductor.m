@@ -51,6 +51,7 @@
 
 - (void)bounceOccured{
     NSLog(@"Bounce occured");
+    [instrument playNote:[[InstrumentNote alloc] init]];
 }
 
 - (void)shieldUp{
