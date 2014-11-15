@@ -13,12 +13,14 @@
 #import "SoftBoingInstrument.h"
 #import "CrunchInstrument.h"
 #import "BuzzInstrument.h"
+#import "SpaceVerb.h"
 
 @implementation Conductor
 {
     SoftBoingInstrument *softBoingInstrument;
     CrunchInstrument *crunchInstrument;
     BuzzInstrument *buzzInstrument;
+    SpaceVerb *spaceVerb;
 }
 
 - (instancetype)init
@@ -32,7 +34,13 @@
         [orchestra addInstrument:crunchInstrument];
         buzzInstrument = [[BuzzInstrument alloc] init];
         [orchestra addInstrument:buzzInstrument];
+        spaceVerb = [[SpaceVerb alloc] initWithInstrument1:softBoingInstrument.auxilliaryOutput
+                                               instrument2:crunchInstrument.auxilliaryOutput
+                                               instrument3:buzzInstrument.auxilliaryOutput];
+        [orchestra addInstrument:spaceVerb];
         [[AKManager sharedAKManager] runOrchestra:orchestra];
+        
+        [spaceVerb play];
     }
     
     return self;
@@ -40,13 +48,13 @@
 
 
 - (void)haloHitLeftEdgeAtPosition:(float)position {
-//    NSLog(@"Halo hit left edge at position %f", position);
-    Buzz  *newBuzz = [[Buzz alloc] initWithFrequency:position];
+//    NSLog(@"Halo hit left edge at position %f", 600-position);
+    Buzz  *newBuzz = [[Buzz alloc] initWithFrequency:600-position];
     [buzzInstrument playNote:newBuzz];
 }
 - (void)haloHitRightEdgeAtPosition:(float)position {
-//    NSLog(@"Halo hit right edge at position %f", position);
-    Buzz  *newBuzz = [[Buzz alloc] initWithFrequency:position];
+//    NSLog(@"Halo hit right edge at position %f", 600-position);
+    Buzz  *newBuzz = [[Buzz alloc] initWithFrequency:600-position];
     [buzzInstrument playNote:newBuzz];
 }
 

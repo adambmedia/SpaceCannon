@@ -20,23 +20,8 @@
         [crunch setOptionalDampingFactor:akp(0.83)];
         [self connect:crunch];
         
-        AKCompressor *compressor = [[AKCompressor alloc] initWithAffectedAudioSource:crunch
-                                                              controllingAudioSource:crunch
-                                                                           threshold:akp(0)
-                                                                             lowKnee:akp(48)
-                                                                            highKnee:akp(60)
-                                                                    compressionRatio:akp(2)
-                                                                          attackTime:akp(0.01)
-                                                                         releaseTime:akp(0.01)];
-        [self connect:compressor];
-        
-        AKReverb *reverb = [[AKReverb alloc] initWithAudioSource:crunch
-                                                   feedbackLevel:akp(0.6)
-                                                 cutoffFrequency:akp(20000)];
-        [self connect:reverb];
-        
-        AKAudioOutput *output = [[AKAudioOutput alloc] initWithSourceStereoAudio:reverb];
-        [self connect:output];
+        _auxilliaryOutput = [AKAudio globalParameter];
+        [self assignOutput:_auxilliaryOutput to:crunch];
     }
     return self;
 }

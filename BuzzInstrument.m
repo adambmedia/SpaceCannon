@@ -30,13 +30,9 @@
                                                              vibratoAmplitude:akp(0)];
         [self connect:bowedString];
         
-        AKReverb *reverb = [[AKReverb alloc] initWithAudioSource:bowedString
-                                                   feedbackLevel:akp(0.6)
-                                                 cutoffFrequency:akp(20000)];
-        [self connect:reverb];
-        
-        AKAudioOutput *output = [[AKAudioOutput alloc] initWithSourceStereoAudio:reverb];
-        [self connect:output];
+        _auxilliaryOutput = [AKAudio globalParameter];
+        [self assignOutput:_auxilliaryOutput to:bowedString];
+
     }
     return self;
 }

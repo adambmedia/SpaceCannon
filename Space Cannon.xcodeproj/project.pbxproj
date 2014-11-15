@@ -58,6 +58,7 @@
 		57FA96A918A8EF5A006ED483 /* Starfield@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57FA969D18A8EF5A006ED483 /* Starfield@2x.png */; };
 		C4722E8A1A0F02E800C83A83 /* Conductor.m in Sources */ = {isa = PBXBuildFile; fileRef = C4722E891A0F02E800C83A83 /* Conductor.m */; };
 		C47888801A16E27B00A80367 /* CrunchInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = C478887F1A16E27B00A80367 /* CrunchInstrument.m */; };
+		C47888831A16FBB200A80367 /* SpaceVerb.m in Sources */ = {isa = PBXBuildFile; fileRef = C47888821A16FBB200A80367 /* SpaceVerb.m */; };
 		E43024DA1A16EC9F00CD5083 /* BuzzInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = E43024D91A16EC9F00CD5083 /* BuzzInstrument.m */; };
 		E4302A901A16F32D00CD5083 /* AKEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = E43029201A16F32C00CD5083 /* AKEvent.m */; };
 		E4302A911A16F32D00CD5083 /* AKInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = E43029231A16F32C00CD5083 /* AKInstrument.m */; };
@@ -280,6 +281,8 @@
 		C4722E891A0F02E800C83A83 /* Conductor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Conductor.m; path = "Space Cannon/Conductor.m"; sourceTree = "<group>"; };
 		C478887E1A16E27B00A80367 /* CrunchInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CrunchInstrument.h; path = "Space Cannon/CrunchInstrument.h"; sourceTree = "<group>"; };
 		C478887F1A16E27B00A80367 /* CrunchInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CrunchInstrument.m; path = "Space Cannon/CrunchInstrument.m"; sourceTree = "<group>"; };
+		C47888811A16FBB200A80367 /* SpaceVerb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpaceVerb.h; path = "Space Cannon/Instruments/SpaceVerb.h"; sourceTree = "<group>"; };
+		C47888821A16FBB200A80367 /* SpaceVerb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpaceVerb.m; path = "Space Cannon/Instruments/SpaceVerb.m"; sourceTree = "<group>"; };
 		E43024D81A16EC9F00CD5083 /* BuzzInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuzzInstrument.h; sourceTree = "<group>"; };
 		E43024D91A16EC9F00CD5083 /* BuzzInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuzzInstrument.m; sourceTree = "<group>"; };
 		E430291F1A16F32C00CD5083 /* AKEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKEvent.h; sourceTree = "<group>"; };
@@ -777,6 +780,8 @@
 				C478887F1A16E27B00A80367 /* CrunchInstrument.m */,
 				E43024D81A16EC9F00CD5083 /* BuzzInstrument.h */,
 				E43024D91A16EC9F00CD5083 /* BuzzInstrument.m */,
+				C47888811A16FBB200A80367 /* SpaceVerb.h */,
+				C47888821A16FBB200A80367 /* SpaceVerb.m */,
 			);
 			name = Instruments;
 			sourceTree = "<group>";
@@ -1720,6 +1725,7 @@
 				E4302A911A16F32D00CD5083 /* AKInstrument.m in Sources */,
 				E4302ABB1A16F32D00CD5083 /* AKSpectralVocoder.m in Sources */,
 				E4302B0A1A16F32D00CD5083 /* AKDeclick.m in Sources */,
+				C47888831A16FBB200A80367 /* SpaceVerb.m in Sources */,
 				E4302AD21A16F32D00CD5083 /* AKVibes.m in Sources */,
 				E4302AEC1A16F32D00CD5083 /* AKAudioInput.m in Sources */,
 				E4302B111A16F32D00CD5083 /* AKPanner.m in Sources */,
@@ -1888,10 +1894,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Space Cannon/Space Cannon-Prefix.pch";
 				INFOPLIST_FILE = "Space Cannon/Space Cannon-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/Space\\ Cannon/AudioKit/Libraries/iOS/csound-iOS/libs",
-					"/Users/nicholasarner/Development/H4Y/AudioKit/AudioKit/Libraries/iOS/csound-iOS/libs",
-				);
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/../AudioKit/AudioKit/Libraries/iOS/csound-iOS/libs";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1910,10 +1913,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Space Cannon/Space Cannon-Prefix.pch";
 				INFOPLIST_FILE = "Space Cannon/Space Cannon-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/Space\\ Cannon/AudioKit/Libraries/iOS/csound-iOS/libs",
-					"/Users/nicholasarner/Development/H4Y/AudioKit/AudioKit/Libraries/iOS/csound-iOS/libs",
-				);
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/../AudioKit/AudioKit/Libraries/iOS/csound-iOS/libs";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;

@@ -11,6 +11,8 @@
 
 @interface SoftBoingInstrument : AKInstrument
 
+@property (readonly) AKAudio *auxilliaryOutput;
+
 @end
 
 @interface SoftBoing : AKNote

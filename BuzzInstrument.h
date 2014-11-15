@@ -10,6 +10,8 @@
 
 @interface BuzzInstrument : AKInstrument
 
+@property (readonly) AKAudio *auxilliaryOutput;
+
 @end
 
 @interface Buzz : AKNote
