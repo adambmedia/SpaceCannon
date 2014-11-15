@@ -57,6 +57,7 @@
 		57FA96A818A8EF5A006ED483 /* Halo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57FA969C18A8EF5A006ED483 /* Halo@2x.png */; };
 		57FA96A918A8EF5A006ED483 /* Starfield@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57FA969D18A8EF5A006ED483 /* Starfield@2x.png */; };
 		C4722E8A1A0F02E800C83A83 /* Conductor.m in Sources */ = {isa = PBXBuildFile; fileRef = C4722E891A0F02E800C83A83 /* Conductor.m */; };
+		C47888801A16E27B00A80367 /* CrunchInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = C478887F1A16E27B00A80367 /* CrunchInstrument.m */; };
 		E4EAA1DA1A0F16C2007DD63C /* AKEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EAA06B1A0F16C2007DD63C /* AKEvent.m */; };
 		E4EAA1DB1A0F16C2007DD63C /* AKInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EAA06E1A0F16C2007DD63C /* AKInstrument.m */; };
 		E4EAA1DC1A0F16C2007DD63C /* AKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EAA0701A0F16C2007DD63C /* AKManager.m */; };
@@ -203,7 +204,7 @@
 		E4EAA26C1A0F16C3007DD63C /* AKWindowsTable.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EAA1D41A0F16C2007DD63C /* AKWindowsTable.m */; };
 		E4EAA26D1A0F16C3007DD63C /* AKInstrumentProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EAA1D71A0F16C2007DD63C /* AKInstrumentProperty.m */; };
 		E4EAA26E1A0F16C3007DD63C /* AKNoteProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EAA1D91A0F16C2007DD63C /* AKNoteProperty.m */; };
-		E4EAA2741A0F1C7B007DD63C /* Instrument.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EAA2731A0F1C7B007DD63C /* Instrument.m */; };
+		E4EAA2741A0F1C7B007DD63C /* SoftBoingInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EAA2731A0F1C7B007DD63C /* SoftBoingInstrument.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -276,6 +277,8 @@
 		57FA969D18A8EF5A006ED483 /* Starfield@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Starfield@2x.png"; sourceTree = "<group>"; };
 		C4722E881A0F02E800C83A83 /* Conductor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Conductor.h; path = "Space Cannon/Conductor.h"; sourceTree = "<group>"; };
 		C4722E891A0F02E800C83A83 /* Conductor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Conductor.m; path = "Space Cannon/Conductor.m"; sourceTree = "<group>"; };
+		C478887E1A16E27B00A80367 /* CrunchInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CrunchInstrument.h; path = "Space Cannon/CrunchInstrument.h"; sourceTree = "<group>"; };
+		C478887F1A16E27B00A80367 /* CrunchInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CrunchInstrument.m; path = "Space Cannon/CrunchInstrument.m"; sourceTree = "<group>"; };
 		E4EAA06A1A0F16C2007DD63C /* AKEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKEvent.h; sourceTree = "<group>"; };
 		E4EAA06B1A0F16C2007DD63C /* AKEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKEvent.m; sourceTree = "<group>"; };
 		E4EAA06C1A0F16C2007DD63C /* AKFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKFoundation.h; sourceTree = "<group>"; };
@@ -592,8 +595,8 @@
 		E4EAA1D71A0F16C2007DD63C /* AKInstrumentProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKInstrumentProperty.m; sourceTree = "<group>"; };
 		E4EAA1D81A0F16C2007DD63C /* AKNoteProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKNoteProperty.h; sourceTree = "<group>"; };
 		E4EAA1D91A0F16C2007DD63C /* AKNoteProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKNoteProperty.m; sourceTree = "<group>"; };
-		E4EAA2721A0F1C7B007DD63C /* Instrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Instrument.h; sourceTree = "<group>"; };
-		E4EAA2731A0F1C7B007DD63C /* Instrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Instrument.m; sourceTree = "<group>"; };
+		E4EAA2721A0F1C7B007DD63C /* SoftBoingInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoftBoingInstrument.h; sourceTree = "<group>"; };
+		E4EAA2731A0F1C7B007DD63C /* SoftBoingInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoftBoingInstrument.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -650,8 +653,10 @@
 				E4EAA0681A0F16C2007DD63C /* AudioKit */,
 				C4722E881A0F02E800C83A83 /* Conductor.h */,
 				C4722E891A0F02E800C83A83 /* Conductor.m */,
-				E4EAA2721A0F1C7B007DD63C /* Instrument.h */,
-				E4EAA2731A0F1C7B007DD63C /* Instrument.m */,
+				E4EAA2721A0F1C7B007DD63C /* SoftBoingInstrument.h */,
+				E4EAA2731A0F1C7B007DD63C /* SoftBoingInstrument.m */,
+				C478887E1A16E27B00A80367 /* CrunchInstrument.h */,
+				C478887F1A16E27B00A80367 /* CrunchInstrument.m */,
 				57FA965D18A8EEFF006ED483 /* Space Cannon */,
 				57FA968118A8EEFF006ED483 /* Space CannonTests */,
 				57FA965418A8EEFE006ED483 /* Frameworks */,
@@ -1687,7 +1692,7 @@
 				E4EAA24F1A0F16C3007DD63C /* AKVariableFrequencyResponseBandPassFilter.m in Sources */,
 				57FA966E18A8EEFF006ED483 /* CCViewController.m in Sources */,
 				E4EAA2161A0F16C3007DD63C /* AKPhasingControl.m in Sources */,
-				E4EAA2741A0F1C7B007DD63C /* Instrument.m in Sources */,
+				E4EAA2741A0F1C7B007DD63C /* SoftBoingInstrument.m in Sources */,
 				E4EAA2401A0F16C3007DD63C /* AKDopplerEffect.m in Sources */,
 				E4EAA1F61A0F16C3007DD63C /* AKMinControl.m in Sources */,
 				E4EAA21A1A0F16C3007DD63C /* AKVibes.m in Sources */,
@@ -1726,6 +1731,7 @@
 				E4EAA23F1A0F16C3007DD63C /* AKCompressor.m in Sources */,
 				E4EAA2631A0F16C3007DD63C /* AKAdditiveCosineTable.m in Sources */,
 				E4EAA2421A0F16C3007DD63C /* AKPortamento.m in Sources */,
+				C47888801A16E27B00A80367 /* CrunchInstrument.m in Sources */,
 				E4EAA23D1A0F16C3007DD63C /* AKDelay.m in Sources */,
 				E4EAA2011A0F16C3007DD63C /* AKFSignalFromMonoWithAttackAnalysis.m in Sources */,
 				E4EAA1DD1A0F16C2007DD63C /* AKMidi.m in Sources */,

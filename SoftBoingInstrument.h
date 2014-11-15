@@ -1,5 +1,5 @@
 //
-//  Instrument.h
+//  SoftBoingInstrument.h
 //  Space Cannon
 //
 //  Created by Nicholas Arner on 11/8/14.
@@ -9,11 +9,11 @@
 #import "AKFoundation.h"
 
 
-@interface Instrument : AKInstrument
+@interface SoftBoingInstrument : AKInstrument
 
 @end
 
-@interface InstrumentNote : AKNote
+@interface SoftBoing : AKNote
 - (instancetype)init;
 
 @end
