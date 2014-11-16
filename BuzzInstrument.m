@@ -18,6 +18,7 @@
         [self addNoteProperty:note.frequency];
         [self addNoteProperty:note.amplitude];
         [self addNoteProperty:note.pressure];
+        [self addNoteProperty:note.pan];
         
         AKSineTable *sine;
         sine = [[AKSineTable alloc] init];
@@ -32,12 +33,11 @@
                                                              vibratoAmplitude:akp(0.008)];
         [self connect:bowedString];
         
-        AKPanner *panner = [[AKPanner alloc] initWithAudioSource:bowedString pan:akp(0.5)];
+        AKPanner *panner = [[AKPanner alloc] initWithAudioSource:bowedString pan:note.pan];
         [self connect:panner];
         
         _auxilliaryOutput = [AKStereoAudio globalParameter];
         [self assignOutput:_auxilliaryOutput to:panner];
-
     }
     return self;
 }
@@ -59,7 +59,10 @@
         _pressure = [[AKNoteProperty alloc] initWithValue:0.021 minimum:0.021 maximum:0.12];
         [self addProperty:_pressure];
         
-    self.duration.value = 0.2;
+        _pan = [[AKNoteProperty alloc] initWithValue:0.5 minimum:0 maximum:1];
+        [self addProperty:_pan];
+        
+        self.duration.value = 0.2;
     }
     return self;
 }
@@ -70,6 +73,7 @@
     if (self) {
         _frequency.value = frequency;
         _amplitude.value = amplitude;
+        _pan.value = pan;
         [_pressure randomize];
     }
     return self;

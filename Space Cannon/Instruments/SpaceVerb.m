@@ -17,15 +17,13 @@
     self = [super init];
     if (self) {
         
-        AKSum *leftSum = [[AKSum alloc] initWithOperands:softBoing, crunch, buzz, nil];
+        AKSum *leftSum = [[AKSum alloc] initWithOperands:softBoing, crunch, buzz.leftOutput, nil];
         [self connect:leftSum];
         
-        
-        AKSum *rightSum = [[AKSum alloc] initWithOperands:softBoing, crunch, buzz, nil];
+        AKSum *rightSum = [[AKSum alloc] initWithOperands:softBoing, crunch, buzz.rightOutput, nil];
         [self connect:rightSum];
         
         AKStereoAudio *stereoSum = [[AKStereoAudio alloc] initWithLeftAudio:leftSum rightAudio:rightSum];
-        [self connect:stereoSum];
         
         AKReverb *reverb = [[AKReverb alloc] initWithSourceStereoAudio:[stereoSum scaledBy:akp(0.33)]
                                                          feedbackLevel:akp(0.9)

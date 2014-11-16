@@ -26,7 +26,7 @@
                                                                       strikeWidth:akp(0.386)
                                                             leftBoundaryCondition:akpi(2)
                                                            rightBoundaryCondition:akpi(1)
-                                                                        scanSpeed:akp(.23)];
+                                                                        scanSpeed:akp(0.23)];
         [self connect:struckBar];
         
         _auxilliaryOutput = [AKAudio globalParameter];
