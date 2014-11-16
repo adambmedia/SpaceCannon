@@ -10,7 +10,7 @@
 
 @interface SpaceVerb : AKInstrument
 
-- (instancetype)initWithInstrument1:(AKAudio *)inst1
-                        instrument2:(AKAudio *)inst2
-                        instrument3:(AKAudio *)inst3;
+- (instancetype)initWithSoftBoing:(AKAudio *)softBoing
+                           crunch:(AKAudio *)crunch
+                             buzz:(AKStereoAudio *)buzz;
 @end

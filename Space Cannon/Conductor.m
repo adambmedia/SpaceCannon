@@ -34,9 +34,9 @@
         [orchestra addInstrument:crunchInstrument];
         buzzInstrument = [[BuzzInstrument alloc] init];
         [orchestra addInstrument:buzzInstrument];
-        spaceVerb = [[SpaceVerb alloc] initWithInstrument1:softBoingInstrument.auxilliaryOutput
-                                               instrument2:crunchInstrument.auxilliaryOutput
-                                               instrument3:buzzInstrument.auxilliaryOutput];
+        spaceVerb = [[SpaceVerb alloc] initWithSoftBoing:softBoingInstrument.auxilliaryOutput
+                                                  crunch:crunchInstrument.auxilliaryOutput
+                                                    buzz:buzzInstrument.auxilliaryOutput];
         [orchestra addInstrument:spaceVerb];
         [[AKManager sharedAKManager] runOrchestra:orchestra];
         
@@ -48,27 +48,31 @@
 
 
 - (void)haloHitLeftEdgeAtPosition:(float)position {
-//    NSLog(@"Halo hit left edge at position %f", 600-position);
-    Buzz  *newBuzz = [[Buzz alloc] initWithFrequency:600-position];
+    //    NSLog(@"Halo hit left edge at position %f", 600-position);
+    float amplitude = 1.2-(position/640.0)*0.9;
+    float frequency = 1200 - position;
+    Buzz  *newBuzz = [[Buzz alloc] initWithFrequency:frequency amplitude:amplitude pan:0];
     [buzzInstrument playNote:newBuzz];
 }
 - (void)haloHitRightEdgeAtPosition:(float)position {
-//    NSLog(@"Halo hit right edge at position %f", 600-position);
-    Buzz  *newBuzz = [[Buzz alloc] initWithFrequency:600-position];
+    //    NSLog(@"Halo hit right edge at position %f", 600-position);
+    float amplitude = 1.2-(position/640.0)*0.9;
+    float frequency = 1200 - position;
+    Buzz  *newBuzz = [[Buzz alloc] initWithFrequency:frequency amplitude:amplitude pan:1];
     [buzzInstrument playNote:newBuzz];
 }
 
 - (void)playerShotBallWithRotationVector:(CGVector)rotationVector remaningAmmo:(int)remainingAmmo {
-//    NSLog(@"Player shot at X %f Y% and has %d ammo left" , rotationVector.dx, rotationVector.dy, remainingAmmo);
+    //    NSLog(@"Player shot at X %f Y% and has %d ammo left" , rotationVector.dx, rotationVector.dy, remainingAmmo);
 }
 
 - (void)haloHitBall:(float)position {
-//    NSLog(@"Halo hit ball at %f", position);
+    //    NSLog(@"Halo hit ball at %f", position);
     [crunchInstrument playForDuration:0.4];
 }
 
 - (void)haloHitLifeBar:(float)position;{
-//    NSLog(@"Halo hit life bar at %f", position);
+    //    NSLog(@"Halo hit life bar at %f", position);
     [crunchInstrument playForDuration:0.4];
 }
 
@@ -78,7 +82,7 @@
 }
 
 - (void)shieldUp{
-//    NSLog(@"Shield's up!");
+    //    NSLog(@"Shield's up!");
 }
 
 @end
