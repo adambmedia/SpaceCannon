@@ -10,13 +10,16 @@
 
 @interface BuzzInstrument : AKInstrument
 
-@property (readonly) AKAudio *auxilliaryOutput;
+@property (readonly) AKStereoAudio *auxilliaryOutput;
 
 @end
 
 @interface Buzz : AKNote
 @property AKNoteProperty *frequency;
+@property AKNoteProperty *amplitude;
+@property AKNoteProperty *pressure;
+@property AKNoteProperty *pan;
 
-- (instancetype)initWithFrequency:(float)frequency;
+- (instancetype)initWithFrequency:(float)frequency amplitude:(float)amplitude pan:(float)pan;
 
 @end
