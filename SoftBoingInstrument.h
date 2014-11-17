@@ -11,11 +11,13 @@
 
 @interface SoftBoingInstrument : AKInstrument
 
-@property (readonly) AKAudio *auxilliaryOutput;
+@property (readonly) AKStereoAudio *auxilliaryOutput;
 
 @end
 
 @interface SoftBoing : AKNote
-- (instancetype)init;
+@property AKNoteProperty *pan;
+
+- (instancetype)initWithPan:(float)pan;
 
 @end

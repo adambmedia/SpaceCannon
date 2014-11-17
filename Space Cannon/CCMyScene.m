@@ -205,7 +205,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         else {
             _audioPlayer.numberOfLoops = -1;
             _audioPlayer.volume = 0.8;
-            //            [_audioPlayer play];
+            [_audioPlayer play];
             _menu.musicPlaying = YES;
         }
         
@@ -376,7 +376,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         self.score += self.pointValue;
         [self addExplosion:firstBody.node.position withName:@"HaloExplosion"];
         
-        [conductor haloHitBall:firstBody.node.position.y];
+        [conductor haloHitBallAtPosition:firstBody.node.position withinRectangleOfSize:self.size];
         //        [self runAction:_explosionSound];
         
         if ([[firstBody.node.userData valueForKey:@"Multiplier"] boolValue]) {
@@ -400,6 +400,8 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
     if (firstBody.categoryBitMask == kCCHaloCategory && secondBody.categoryBitMask == kCCLifeBarCategory) {
         // Collision between halo and life bar.
         [self addExplosion:secondBody.node.position withName:@"LifeBarExplosion"];
+        [conductor haloHitLifeBar:secondBody.node.position.y];
+        
         //        [self runAction:_deepExplosionSound];
         
         firstBody.categoryBitMask = 0;
@@ -408,9 +410,9 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
     }
     if (firstBody.categoryBitMask == kCCHaloCategory && secondBody.categoryBitMask == kCCEdgeCategory) {
         if ( abs(firstBody.node.position.x - CGPointZero.x) < abs(firstBody.node.position.x - self.size.width) ) {
-            [conductor haloHitLeftEdgeAtPosition:firstBody.node.position.y];
+            [conductor haloHitEdgeAtHeight:firstBody.node.position.y onEdge:@"left"];
         } else {
-            [conductor haloHitRightEdgeAtPosition:firstBody.node.position.y];
+            [conductor haloHitEdgeAtHeight:firstBody.node.position.y onEdge:@"right"];
         }
         //        [self runAction:_zapSound];
     }
@@ -423,7 +425,12 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
                 self.pointValue = 1;
             }
         }
-        [conductor bounceOccured];
+        if ( abs(firstBody.node.position.x - CGPointZero.x) < abs(firstBody.node.position.x - self.size.width) ) {
+            [conductor bounceOccuredOnEdge:@"left"];
+        } else {
+            [conductor bounceOccuredOnEdge:@"right"];
+        }
+
         //// [self runAction:_bounceSound];
     }
     if (firstBody.categoryBitMask == kCCBallCategory && secondBody.categoryBitMask == kCCShieldUpCategory) {

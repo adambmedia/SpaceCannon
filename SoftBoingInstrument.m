@@ -16,7 +16,9 @@
 {
     self = [super init];
     if (self) {
-        //InstrumentNote *note = [[InstrumentNote alloc] init];
+        
+        SoftBoing *softBoing = [[SoftBoing alloc]init];
+        [self addNoteProperty:softBoing.pan];
         
         AKStruckMetalBar *struckBar = [[AKStruckMetalBar alloc] initWithDecayTime:akp(1.52)
                                                            dimensionlessStiffness:akp(76.3)
@@ -29,8 +31,12 @@
                                                                         scanSpeed:akp(0.23)];
         [self connect:struckBar];
         
-        _auxilliaryOutput = [AKAudio globalParameter];
-        [self assignOutput:_auxilliaryOutput to:struckBar];
+        AKPanner *panner = [[AKPanner alloc] initWithAudioSource:struckBar pan:softBoing.pan];
+        [self connect:panner];
+        
+        _auxilliaryOutput = [AKStereoAudio globalParameter];
+        [self assignOutput:_auxilliaryOutput to:panner];
+        
     }
     return self;
 }
@@ -41,6 +47,20 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        _pan = [[AKNoteProperty alloc] initWithValue:0.5 minimum:0 maximum:1];
+        [self addProperty:_pan];
+
+    }
+    return self;
+}
+
+
+
+- (instancetype)initWithPan:(float)pan
+{
+    self = [self init];
+    if (self) {
+        _pan.value = pan;
     }
     return self;
 }
