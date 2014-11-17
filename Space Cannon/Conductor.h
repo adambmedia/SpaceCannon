@@ -10,15 +10,16 @@
 
 @interface Conductor : NSObject
 
-- (void)haloHitLeftEdgeAtPosition:(float)position;
-- (void)haloHitRightEdgeAtPosition:(float)position;
+- (void)haloHitEdgeAtHeight:(float)height onEdge:(NSString *)edge;
 
 - (void)playerShotBallWithRotationVector:(CGVector)rotationVector
                             remaningAmmo:(int)remainingAmmo;
 
-- (void)haloHitBall:(float)position;
+- (void)haloHitBallAtPosition:(CGPoint)position withinRectangleOfSize:(CGSize)size;
+
 - (void)haloHitLifeBar:(float)position;
 
-- (void)bounceOccured;
+- (void)bounceOccuredOnEdge:(NSString *)edge;
+
 - (void)shieldUp;
 @end

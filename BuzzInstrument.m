@@ -3,7 +3,7 @@
 //  Space Cannon
 //
 //  Created by Nicholas Arner on 11/14/14.
-//  Copyright (c) 2014 Code Coalition. All rights reserved.
+//  Copyright (c) 2014 Hear for Yourself. All rights reserved.
 //
 
 #import "BuzzInstrument.h"
@@ -56,7 +56,7 @@
         _amplitude = [[AKNoteProperty alloc] initWithValue:0.6 minimum:0 maximum:1];
         [self addProperty:_amplitude];
         
-        _pressure = [[AKNoteProperty alloc] initWithValue:0.021 minimum:0.021 maximum:0.12];
+        _pressure = [[AKNoteProperty alloc] initWithValue:0.021 minimum:0.021 maximum:0.04];
         [self addProperty:_pressure];
         
         _pan = [[AKNoteProperty alloc] initWithValue:0.5 minimum:0 maximum:1];

@@ -10,17 +10,18 @@
 
 @implementation SpaceVerb
 
-- (instancetype)initWithSoftBoing:(AKAudio *)softBoing
+- (instancetype)initWithSoftBoing:(AKStereoAudio *)softBoing
                            crunch:(AKAudio *)crunch
+//                       deepCrunch:(AKAudio *)deepCrunch
                              buzz:(AKStereoAudio *)buzz
 {
     self = [super init];
     if (self) {
         
-        AKSum *leftSum = [[AKSum alloc] initWithOperands:softBoing, crunch, buzz.leftOutput, nil];
+        AKSum *leftSum = [[AKSum alloc] initWithOperands:softBoing.leftOutput, crunch, buzz.leftOutput, nil];
         [self connect:leftSum];
         
-        AKSum *rightSum = [[AKSum alloc] initWithOperands:softBoing, crunch, buzz.rightOutput, nil];
+        AKSum *rightSum = [[AKSum alloc] initWithOperands:softBoing.rightOutput, crunch, buzz.rightOutput, nil];
         [self connect:rightSum];
         
         AKStereoAudio *stereoSum = [[AKStereoAudio alloc] initWithLeftAudio:leftSum rightAudio:rightSum];
@@ -41,6 +42,7 @@
         // RESET INPUTS ========================================================
         [self resetParameter:softBoing];
         [self resetParameter:crunch];
+//        [self resetParameter:deepCrunch];
         [self resetParameter:buzz];
         
     }
