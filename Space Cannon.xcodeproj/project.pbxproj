@@ -207,7 +207,6 @@
 		E4302B231A16F32D00CD5083 /* AKInstrumentProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = E4302A8D1A16F32D00CD5083 /* AKInstrumentProperty.m */; };
 		E4302B241A16F32D00CD5083 /* AKNoteProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = E4302A8F1A16F32D00CD5083 /* AKNoteProperty.m */; };
 		E4EAA2741A0F1C7B007DD63C /* SoftBoingInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EAA2731A0F1C7B007DD63C /* SoftBoingInstrument.m */; };
-		E4FF07DB1A19738300FEC396 /* DeepCrunchInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FF07DA1A19738300FEC396 /* DeepCrunchInstrument.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -604,8 +603,6 @@
 		E4302A8F1A16F32D00CD5083 /* AKNoteProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKNoteProperty.m; sourceTree = "<group>"; };
 		E4EAA2721A0F1C7B007DD63C /* SoftBoingInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoftBoingInstrument.h; sourceTree = "<group>"; };
 		E4EAA2731A0F1C7B007DD63C /* SoftBoingInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoftBoingInstrument.m; sourceTree = "<group>"; };
-		E4FF07D91A19738300FEC396 /* DeepCrunchInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeepCrunchInstrument.h; path = "Space Cannon/Instruments/DeepCrunchInstrument.h"; sourceTree = "<group>"; };
-		E4FF07DA1A19738300FEC396 /* DeepCrunchInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeepCrunchInstrument.m; path = "Space Cannon/Instruments/DeepCrunchInstrument.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -781,8 +778,6 @@
 				E4EAA2731A0F1C7B007DD63C /* SoftBoingInstrument.m */,
 				C478887E1A16E27B00A80367 /* CrunchInstrument.h */,
 				C478887F1A16E27B00A80367 /* CrunchInstrument.m */,
-				E4FF07D91A19738300FEC396 /* DeepCrunchInstrument.h */,
-				E4FF07DA1A19738300FEC396 /* DeepCrunchInstrument.m */,
 				E43024D81A16EC9F00CD5083 /* BuzzInstrument.h */,
 				E43024D91A16EC9F00CD5083 /* BuzzInstrument.m */,
 				C47888811A16FBB200A80367 /* SpaceVerb.h */,
@@ -1726,7 +1721,6 @@
 				E4EAA2741A0F1C7B007DD63C /* SoftBoingInstrument.m in Sources */,
 				E4302AF91A16F32D00CD5083 /* AKFlanger.m in Sources */,
 				E4302AD51A16F32D00CD5083 /* AKMarimba.m in Sources */,
-				E4FF07DB1A19738300FEC396 /* DeepCrunchInstrument.m in Sources */,
 				E4302A901A16F32D00CD5083 /* AKEvent.m in Sources */,
 				E4302A911A16F32D00CD5083 /* AKInstrument.m in Sources */,
 				E4302ABB1A16F32D00CD5083 /* AKSpectralVocoder.m in Sources */,

@@ -167,7 +167,8 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         [self addChild:_pointLabel];
         
         // Setup sounds
-        conductor = [[Conductor alloc] init];
+        conductor = [[Conductor alloc] initWithPlayfieldSize:self.size];
+        
         _bounceSound = [SKAction playSoundFileNamed:@"Bounce.caf" waitForCompletion:NO];
         _deepExplosionSound = [SKAction playSoundFileNamed:@"DeepExplosion.caf" waitForCompletion:NO];
         _explosionSound = [SKAction playSoundFileNamed:@"Explosion.caf" waitForCompletion:NO];
@@ -303,6 +304,8 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         ballTrail.targetNode = _mainLayer;
         [_mainLayer addChild:ballTrail];
         ball.trail = ballTrail;
+    } else {
+        [conductor attemptedShotWithoutAmmo];
     }
     
 }
@@ -336,7 +339,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         halo.userData = [[NSMutableDictionary alloc] init];
         [halo.userData setValue:@YES forKey:@"Multiplier"];
     }
-    
+    [conductor haloSpawnedAtPosition:halo.position isMultiplier:[halo.userData valueForKey:@"Multiplier"]];
     
     [_mainLayer addChild:halo];
 }
@@ -355,6 +358,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         shieldUp.physicsBody.linearDamping = 0.0;
         shieldUp.physicsBody.angularDamping = 0.0;
         [_mainLayer addChild:shieldUp];
+        [conductor spawnedShieldPowerUpAtPosition:shieldUp.position];
     }
 }
 
@@ -376,11 +380,12 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         self.score += self.pointValue;
         [self addExplosion:firstBody.node.position withName:@"HaloExplosion"];
         
-        [conductor haloHitBallAtPosition:firstBody.node.position withinRectangleOfSize:self.size];
+        [conductor haloHitBallAtPosition:firstBody.node.position forPoints:self.pointValue];
         //        [self runAction:_explosionSound];
         
         if ([[firstBody.node.userData valueForKey:@"Multiplier"] boolValue]) {
             self.pointValue++;
+            [conductor multiplierModeStartedWithPointValue:self.pointValue];
         }
         
         firstBody.categoryBitMask = 0;
@@ -390,6 +395,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
     if (firstBody.categoryBitMask == kCCHaloCategory && secondBody.categoryBitMask == kCCShieldCategory) {
         // Collision between halo and shield.
         [self addExplosion:firstBody.node.position withName:@"HaloExplosion"];
+        [conductor haloHitShieldAtPosition:firstBody.node.position];
         //        [self runAction:_explosionSound];
         
         firstBody.categoryBitMask = 0;
@@ -400,8 +406,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
     if (firstBody.categoryBitMask == kCCHaloCategory && secondBody.categoryBitMask == kCCLifeBarCategory) {
         // Collision between halo and life bar.
         [self addExplosion:secondBody.node.position withName:@"LifeBarExplosion"];
-        [conductor haloHitLifeBar:secondBody.node.position.y];
-        
+        [conductor haloHitLifeBar];
         //        [self runAction:_deepExplosionSound];
         
         firstBody.categoryBitMask = 0;
@@ -409,11 +414,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         [self gameOver];
     }
     if (firstBody.categoryBitMask == kCCHaloCategory && secondBody.categoryBitMask == kCCEdgeCategory) {
-        if ( abs(firstBody.node.position.x - CGPointZero.x) < abs(firstBody.node.position.x - self.size.width) ) {
-            [conductor haloHitEdgeAtHeight:firstBody.node.position.y onEdge:@"left"];
-        } else {
-            [conductor haloHitEdgeAtHeight:firstBody.node.position.y onEdge:@"right"];
-        }
+        [conductor haloHitEdgeAtPosition:firstBody.node.position];
         //        [self runAction:_zapSound];
     }
     
@@ -423,24 +424,22 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
             if (((CCBall*)firstBody.node).bounces > 3) {
                 [firstBody.node removeFromParent];
                 self.pointValue = 1;
+                [conductor multiplierModeEnded];
             }
         }
-        if ( abs(firstBody.node.position.x - CGPointZero.x) < abs(firstBody.node.position.x - self.size.width) ) {
-            [conductor bounceOccuredOnEdge:@"left"];
-        } else {
-            [conductor bounceOccuredOnEdge:@"right"];
-        }
-
-        //// [self runAction:_bounceSound];
+        [conductor ballBouncedAtPosition:firstBody.node.position];
+        // [self runAction:_bounceSound];
     }
     if (firstBody.categoryBitMask == kCCBallCategory && secondBody.categoryBitMask == kCCShieldUpCategory) {
         // Hit a shield power up.
         if (_shieldPool.count > 0 ) {
             int randomIndex = arc4random_uniform((int)_shieldPool.count);
-            [_mainLayer addChild:[_shieldPool objectAtIndex:randomIndex]];
+            SKNode *shield = [_shieldPool objectAtIndex:randomIndex];
+            [_mainLayer addChild:shield];
             [_shieldPool removeObjectAtIndex:randomIndex];
-            [conductor shieldUp];
-            //            [self runAction:_shieldUpSound];
+            [conductor extraShieldHitAtPosition:firstBody.node.position];
+            [conductor replacedShieldAtPosition:shield.position];
+            // [self runAction:_shieldUpSound];
         }
         [firstBody.node removeFromParent];
         [secondBody.node removeFromParent];
