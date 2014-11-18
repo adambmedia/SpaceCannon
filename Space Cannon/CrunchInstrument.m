@@ -65,6 +65,7 @@
     self = [self init];
     if (self) {
         _pan.value = pan;
+        self.duration.value = 1.0;
     }
     return self;
 }

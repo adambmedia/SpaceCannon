@@ -13,6 +13,7 @@
 #import "SoftBoingInstrument.h"
 #import "CrunchInstrument.h"
 #import "BuzzInstrument.h"
+#import "LaserInstrument.h"
 #import "SpaceVerb.h"
 
 @implementation Conductor
@@ -20,6 +21,8 @@
     SoftBoingInstrument *softBoingInstrument;
     CrunchInstrument *crunchInstrument;
     BuzzInstrument *buzzInstrument;
+    LaserInstrument *laserInstrument;
+    
     SpaceVerb *spaceVerb;
     
     CGSize playFieldSize;
@@ -41,9 +44,13 @@
         buzzInstrument = [[BuzzInstrument alloc] init];
         [orchestra addInstrument:buzzInstrument];
         
+        laserInstrument = [[LaserInstrument alloc] init];
+        [orchestra addInstrument:laserInstrument];
+        
         spaceVerb = [[SpaceVerb alloc] initWithSoftBoing:softBoingInstrument.auxilliaryOutput
                                                   crunch:crunchInstrument.auxilliaryOutput
-                                                    buzz:buzzInstrument.auxilliaryOutput];
+                                                    buzz:buzzInstrument.auxilliaryOutput
+                                                   laser:laserInstrument.auxilliaryOutput];
         [orchestra addInstrument:spaceVerb];
         
         [[AKManager sharedAKManager] runOrchestra:orchestra];
@@ -123,10 +130,14 @@
 
 - (void)playerShotBallWithRotationVector:(CGVector)rotationVector remaningAmmo:(int)remainingAmmo {
     NSLog(@"Player shot at X %f Y% and has %d ammo left" , rotationVector.dx, rotationVector.dy, remainingAmmo);
+    LaserNote *laser = [[LaserNote alloc] initWithSpeed:1.0 + (8.0 / (remainingAmmo+1))];
+    [laserInstrument playNote:laser];
 }
 
 - (void)attemptedShotWithoutAmmo {
     NSLog(@"Clunky, sad sound");
+    LaserNote *laser = [[LaserNote alloc] initWithSpeed:10.0];
+    [laserInstrument playNote:laser];
 }
 
 - (void)ballBouncedAtPosition:(CGPoint)position

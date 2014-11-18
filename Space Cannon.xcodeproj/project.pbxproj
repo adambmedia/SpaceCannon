@@ -20,7 +20,6 @@
 		57AF9AA818CE158E00717742 /* Bounce.caf in Resources */ = {isa = PBXBuildFile; fileRef = 57AF9AA318CE158E00717742 /* Bounce.caf */; };
 		57AF9AA918CE158E00717742 /* DeepExplosion.caf in Resources */ = {isa = PBXBuildFile; fileRef = 57AF9AA418CE158E00717742 /* DeepExplosion.caf */; };
 		57AF9AAA18CE158E00717742 /* Explosion.caf in Resources */ = {isa = PBXBuildFile; fileRef = 57AF9AA518CE158E00717742 /* Explosion.caf */; };
-		57AF9AAB18CE158E00717742 /* Laser.caf in Resources */ = {isa = PBXBuildFile; fileRef = 57AF9AA618CE158E00717742 /* Laser.caf */; };
 		57AF9AAC18CE158E00717742 /* Zap.caf in Resources */ = {isa = PBXBuildFile; fileRef = 57AF9AA718CE158E00717742 /* Zap.caf */; };
 		57AF9AD118CF7ADF00717742 /* PlayButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57AF9ACE18CF7ADF00717742 /* PlayButton@2x.png */; };
 		57AF9AD218CF7ADF00717742 /* ScoreBoard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57AF9ACF18CF7ADF00717742 /* ScoreBoard@2x.png */; };
@@ -59,6 +58,9 @@
 		C4722E8A1A0F02E800C83A83 /* Conductor.m in Sources */ = {isa = PBXBuildFile; fileRef = C4722E891A0F02E800C83A83 /* Conductor.m */; };
 		C47888801A16E27B00A80367 /* CrunchInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = C478887F1A16E27B00A80367 /* CrunchInstrument.m */; };
 		C47888831A16FBB200A80367 /* SpaceVerb.m in Sources */ = {isa = PBXBuildFile; fileRef = C47888821A16FBB200A80367 /* SpaceVerb.m */; };
+		C4A02FEE1A1B1DAE00956633 /* SpatialAudioFilePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A02FED1A1B1DAE00956633 /* SpatialAudioFilePlayer.m */; };
+		C4A02FF01A1B233900956633 /* Laser.aiff in Resources */ = {isa = PBXBuildFile; fileRef = C4A02FEF1A1B233900956633 /* Laser.aiff */; };
+		C4A02FF61A1B2DFB00956633 /* LaserInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A02FF51A1B2DFB00956633 /* LaserInstrument.m */; };
 		E43024DA1A16EC9F00CD5083 /* BuzzInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = E43024D91A16EC9F00CD5083 /* BuzzInstrument.m */; };
 		E4302A901A16F32D00CD5083 /* AKEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = E43029201A16F32C00CD5083 /* AKEvent.m */; };
 		E4302A911A16F32D00CD5083 /* AKInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = E43029231A16F32C00CD5083 /* AKInstrument.m */; };
@@ -234,7 +236,6 @@
 		57AF9AA318CE158E00717742 /* Bounce.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bounce.caf; sourceTree = "<group>"; };
 		57AF9AA418CE158E00717742 /* DeepExplosion.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DeepExplosion.caf; sourceTree = "<group>"; };
 		57AF9AA518CE158E00717742 /* Explosion.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Explosion.caf; sourceTree = "<group>"; };
-		57AF9AA618CE158E00717742 /* Laser.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Laser.caf; sourceTree = "<group>"; };
 		57AF9AA718CE158E00717742 /* Zap.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zap.caf; sourceTree = "<group>"; };
 		57AF9ACE18CF7ADF00717742 /* PlayButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlayButton@2x.png"; sourceTree = "<group>"; };
 		57AF9ACF18CF7ADF00717742 /* ScoreBoard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ScoreBoard@2x.png"; sourceTree = "<group>"; };
@@ -283,6 +284,11 @@
 		C478887F1A16E27B00A80367 /* CrunchInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CrunchInstrument.m; path = "Space Cannon/CrunchInstrument.m"; sourceTree = "<group>"; };
 		C47888811A16FBB200A80367 /* SpaceVerb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpaceVerb.h; path = "Space Cannon/Instruments/SpaceVerb.h"; sourceTree = "<group>"; };
 		C47888821A16FBB200A80367 /* SpaceVerb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpaceVerb.m; path = "Space Cannon/Instruments/SpaceVerb.m"; sourceTree = "<group>"; };
+		C4A02FEC1A1B1DAE00956633 /* SpatialAudioFilePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpatialAudioFilePlayer.h; path = "Space Cannon/Instruments/SpatialAudioFilePlayer.h"; sourceTree = "<group>"; };
+		C4A02FED1A1B1DAE00956633 /* SpatialAudioFilePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpatialAudioFilePlayer.m; path = "Space Cannon/Instruments/SpatialAudioFilePlayer.m"; sourceTree = "<group>"; };
+		C4A02FEF1A1B233900956633 /* Laser.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Laser.aiff; sourceTree = "<group>"; };
+		C4A02FF41A1B2DFB00956633 /* LaserInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LaserInstrument.h; path = "Space Cannon/Instruments/LaserInstrument.h"; sourceTree = "<group>"; };
+		C4A02FF51A1B2DFB00956633 /* LaserInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LaserInstrument.m; path = "Space Cannon/Instruments/LaserInstrument.m"; sourceTree = "<group>"; };
 		E43024D81A16EC9F00CD5083 /* BuzzInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuzzInstrument.h; sourceTree = "<group>"; };
 		E43024D91A16EC9F00CD5083 /* BuzzInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuzzInstrument.m; sourceTree = "<group>"; };
 		E430291F1A16F32C00CD5083 /* AKEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKEvent.h; sourceTree = "<group>"; };
@@ -647,7 +653,7 @@
 				57AF9AA318CE158E00717742 /* Bounce.caf */,
 				57AF9AA418CE158E00717742 /* DeepExplosion.caf */,
 				57AF9AA518CE158E00717742 /* Explosion.caf */,
-				57AF9AA618CE158E00717742 /* Laser.caf */,
+				C4A02FEF1A1B233900956633 /* Laser.aiff */,
 				57AF9AA718CE158E00717742 /* Zap.caf */,
 			);
 			path = Sounds;
@@ -774,6 +780,10 @@
 		E43024D71A16EC0A00CD5083 /* Instruments */ = {
 			isa = PBXGroup;
 			children = (
+				C4A02FEC1A1B1DAE00956633 /* SpatialAudioFilePlayer.h */,
+				C4A02FED1A1B1DAE00956633 /* SpatialAudioFilePlayer.m */,
+				C4A02FF41A1B2DFB00956633 /* LaserInstrument.h */,
+				C4A02FF51A1B2DFB00956633 /* LaserInstrument.m */,
 				E4EAA2721A0F1C7B007DD63C /* SoftBoingInstrument.h */,
 				E4EAA2731A0F1C7B007DD63C /* SoftBoingInstrument.m */,
 				C478887E1A16E27B00A80367 /* CrunchInstrument.h */,
@@ -1565,6 +1575,7 @@
 				57AF9AAA18CE158E00717742 /* Explosion.caf in Resources */,
 				576E66DD18D9EC380037A404 /* ResumeButton@2x.png in Resources */,
 				57AF9AD218CF7ADF00717742 /* ScoreBoard@2x.png in Resources */,
+				C4A02FF01A1B233900956633 /* Laser.aiff in Resources */,
 				5742FD8818C62E6200F963DE /* LifeBarExplosion.sks in Resources */,
 				57FA96A618A8EF5A006ED483 /* BlueBar@2x.png in Resources */,
 				57FA966218A8EEFF006ED483 /* InfoPlist.strings in Resources */,
@@ -1574,7 +1585,6 @@
 				57AF9AD118CF7ADF00717742 /* PlayButton@2x.png in Resources */,
 				5780EB1A18C4D5E700B993B2 /* HaloExplosion.sks in Resources */,
 				57FA96A418A8EF5A006ED483 /* Ball@2x.png in Resources */,
-				57AF9AAB18CE158E00717742 /* Laser.caf in Resources */,
 				5720534718D3225B002EA2DD /* HaloX@2x.png in Resources */,
 				57DBD5FF18F70A1A006B2EBC /* MusicOffButton@2x.png in Resources */,
 				57FA967518A8EEFF006ED483 /* Images.xcassets in Resources */,
@@ -1713,6 +1723,7 @@
 				E4302B121A16F32D00CD5083 /* AKArray.m in Sources */,
 				E4302ACA1A16F32D00CD5083 /* AKSineOscillator.m in Sources */,
 				E4302B131A16F32D00CD5083 /* AKAudio.m in Sources */,
+				C4A02FF61A1B2DFB00956633 /* LaserInstrument.m in Sources */,
 				57FA966E18A8EEFF006ED483 /* CCViewController.m in Sources */,
 				E4302B071A16F32D00CD5083 /* AKBandRejectButterworthFilter.m in Sources */,
 				E4302AC61A16F32D00CD5083 /* AKVibrato.m in Sources */,
@@ -1726,6 +1737,7 @@
 				E4302ABB1A16F32D00CD5083 /* AKSpectralVocoder.m in Sources */,
 				E4302B0A1A16F32D00CD5083 /* AKDeclick.m in Sources */,
 				C47888831A16FBB200A80367 /* SpaceVerb.m in Sources */,
+				C4A02FEE1A1B1DAE00956633 /* SpatialAudioFilePlayer.m in Sources */,
 				E4302AD21A16F32D00CD5083 /* AKVibes.m in Sources */,
 				E4302AEC1A16F32D00CD5083 /* AKAudioInput.m in Sources */,
 				E4302B111A16F32D00CD5083 /* AKPanner.m in Sources */,

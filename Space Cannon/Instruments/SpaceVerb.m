@@ -12,16 +12,16 @@
 
 - (instancetype)initWithSoftBoing:(AKStereoAudio *)softBoing
                            crunch:(AKAudio *)crunch
-//                       deepCrunch:(AKAudio *)deepCrunch
                              buzz:(AKStereoAudio *)buzz
+                            laser:(AKStereoAudio *)laser
 {
     self = [super init];
     if (self) {
         
-        AKSum *leftSum = [[AKSum alloc] initWithOperands:softBoing.leftOutput, crunch, buzz.leftOutput, nil];
+        AKSum *leftSum = [[AKSum alloc] initWithOperands:softBoing.leftOutput, crunch, buzz.leftOutput, laser.leftOutput,  nil];
         [self connect:leftSum];
         
-        AKSum *rightSum = [[AKSum alloc] initWithOperands:softBoing.rightOutput, crunch, buzz.rightOutput, nil];
+        AKSum *rightSum = [[AKSum alloc] initWithOperands:softBoing.rightOutput, crunch, buzz.rightOutput, laser.rightOutput, nil];
         [self connect:rightSum];
         
         AKStereoAudio *stereoSum = [[AKStereoAudio alloc] initWithLeftAudio:leftSum rightAudio:rightSum];
@@ -42,8 +42,8 @@
         // RESET INPUTS ========================================================
         [self resetParameter:softBoing];
         [self resetParameter:crunch];
-//        [self resetParameter:deepCrunch];
         [self resetParameter:buzz];
+        [self resetParameter:laser];
         
     }
     return self;

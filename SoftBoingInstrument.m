@@ -49,7 +49,7 @@
     if (self) {
         _pan = [[AKNoteProperty alloc] initWithValue:0.5 minimum:0 maximum:1];
         [self addProperty:_pan];
-
+        self.duration.value = 1.0;
     }
     return self;
 }
