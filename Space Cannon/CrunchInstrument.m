@@ -46,7 +46,7 @@
     if (self) {
         
         _count = [[AKNoteProperty alloc] initWithValue:53 minimum:53 maximum:153];
-        [self addProperty:_damping];
+        [self addProperty:_count];
         
         _damping = [[AKNoteProperty alloc] initWithValue:0.63 minimum:0.43 maximum:0.83];
         [self addProperty:_damping];
