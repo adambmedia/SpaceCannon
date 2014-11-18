@@ -169,12 +169,12 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         // Setup sounds
         conductor = [[Conductor alloc] initWithPlayfieldSize:self.size];
         
-        _bounceSound = [SKAction playSoundFileNamed:@"Bounce.caf" waitForCompletion:NO];
-        _deepExplosionSound = [SKAction playSoundFileNamed:@"DeepExplosion.caf" waitForCompletion:NO];
-        _explosionSound = [SKAction playSoundFileNamed:@"Explosion.caf" waitForCompletion:NO];
-        _laserSound = [SKAction playSoundFileNamed:@"Laser.caf" waitForCompletion:NO];
-        _zapSound = [SKAction playSoundFileNamed:@"Zap.caf" waitForCompletion:NO];
-        _shieldUpSound = [SKAction playSoundFileNamed:@"ShieldUp.caf" waitForCompletion:NO];
+//        _bounceSound = [SKAction playSoundFileNamed:@"Bounce.caf" waitForCompletion:NO];
+//        _deepExplosionSound = [SKAction playSoundFileNamed:@"DeepExplosion.caf" waitForCompletion:NO];
+//        _explosionSound = [SKAction playSoundFileNamed:@"Explosion.caf" waitForCompletion:NO];
+//        _laserSound = [SKAction playSoundFileNamed:@"Laser.caf" waitForCompletion:NO];
+//        _zapSound = [SKAction playSoundFileNamed:@"Zap.caf" waitForCompletion:NO];
+//        _shieldUpSound = [SKAction playSoundFileNamed:@"ShieldUp.caf" waitForCompletion:NO];
         
         // Setup menu
         _menu = [[CCMenu alloc] init];
