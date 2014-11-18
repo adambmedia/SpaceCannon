@@ -21,7 +21,6 @@
 
 // Shield Power Up Events
 - (void)spawnedShieldPowerUpAtPosition:(CGPoint)position;
-- (void)extraShieldHitAtPosition:(CGPoint)position;
 - (void)replacedShieldAtPosition:(CGPoint)position;
 
 // Player Events

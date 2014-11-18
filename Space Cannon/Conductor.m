@@ -107,7 +107,8 @@
 
 - (void)haloHitShieldAtPosition:(CGPoint)position
 {
-    NSLog(@"Shield Removed");
+    // AOP Placeholder
+    [self haloHitBallAtPosition:position forPoints:1];
 }
 
 - (void)haloHitLifeBar
@@ -124,9 +125,7 @@
 - (void)spawnedShieldPowerUpAtPosition:(CGPoint)position {
     NSLog(@"Shield Available");
 }
-- (void)extraShieldHitAtPosition:(CGPoint)position {
-    NSLog(@"Shield Retrieved");
-}
+
 - (void)replacedShieldAtPosition:(CGPoint)position {
     float pan = -1.0 + 2.0 * position.x/playFieldSize.width;
     Zwoop *zwoop = [[Zwoop alloc] initWithPan:pan];
@@ -144,7 +143,6 @@
 }
 
 - (void)attemptedShotWithoutAmmo {
-    NSLog(@"Clunky, sad sound");
     LaserNote *laser = [[LaserNote alloc] initWithSpeed:10.0];
     [laserInstrument playNote:laser];
 }

@@ -437,7 +437,6 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
             SKNode *shield = [_shieldPool objectAtIndex:randomIndex];
             [_mainLayer addChild:shield];
             [_shieldPool removeObjectAtIndex:randomIndex];
-            [conductor extraShieldHitAtPosition:firstBody.node.position];
             [conductor replacedShieldAtPosition:shield.position];
             // [self runAction:_shieldUpSound];
         }
