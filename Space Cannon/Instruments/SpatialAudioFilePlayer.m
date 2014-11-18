@@ -19,6 +19,7 @@
         // NOTE BASED CONTROL ==================================================
         SpatialAudioFilePlayerNote *note = [[SpatialAudioFilePlayerNote alloc] init];
         [self addNoteProperty:note.speed];
+        [self addNoteProperty:note.pan];
         
         // INSTRUMENT DEFINITION ===============================================
         NSString *file;
@@ -35,7 +36,7 @@
                                                                type:kLoopingOscillatorNoLoop];
         [self connect:oscil];
         
-        AKPanner *panner = [[AKPanner alloc] initWithAudioSource:oscil pan:akp(0.5)];
+        AKPanner *panner = [[AKPanner alloc] initWithAudioSource:oscil pan:note.pan];
         [self connect:panner];
         
         _auxilliaryOutput = [AKStereoAudio globalParameter];
@@ -60,7 +61,13 @@
                                                minimum:0.2
                                                maximum:2.0];
         [self addProperty:_speed];
-
+        
+        _pan = [[AKNoteProperty alloc] initWithValue:0.5
+                                             minimum:0.0
+                                             maximum:1.0];
+        [self addProperty:_pan];
+        
+        
         self.duration.value = 4.0;
     }
     return self;

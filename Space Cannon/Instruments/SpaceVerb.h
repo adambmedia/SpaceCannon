@@ -13,5 +13,6 @@
 - (instancetype)initWithSoftBoing:(AKStereoAudio *)softBoing
                            crunch:(AKAudio *)crunch
                              buzz:(AKStereoAudio *)buzz
-                            laser:(AKStereoAudio *)laser;
+                            laser:(AKStereoAudio *)laser
+                            zwoop:(AKStereoAudio *)zwoop;
 @end

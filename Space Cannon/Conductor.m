@@ -14,6 +14,8 @@
 #import "CrunchInstrument.h"
 #import "BuzzInstrument.h"
 #import "LaserInstrument.h"
+#import "ZwoopInstrument.h"
+
 #import "SpaceVerb.h"
 
 @implementation Conductor
@@ -22,6 +24,7 @@
     CrunchInstrument *crunchInstrument;
     BuzzInstrument *buzzInstrument;
     LaserInstrument *laserInstrument;
+    ZwoopInstrument *zwoopInstrument;
     
     SpaceVerb *spaceVerb;
     
@@ -47,10 +50,14 @@
         laserInstrument = [[LaserInstrument alloc] init];
         [orchestra addInstrument:laserInstrument];
         
+        zwoopInstrument = [[ZwoopInstrument alloc] init];
+        [orchestra addInstrument:zwoopInstrument];
+        
         spaceVerb = [[SpaceVerb alloc] initWithSoftBoing:softBoingInstrument.auxilliaryOutput
                                                   crunch:crunchInstrument.auxilliaryOutput
                                                     buzz:buzzInstrument.auxilliaryOutput
-                                                   laser:laserInstrument.auxilliaryOutput];
+                                                   laser:laserInstrument.auxilliaryOutput
+                                                   zwoop:zwoopInstrument.auxilliaryOutput];
         [orchestra addInstrument:spaceVerb];
         
         [[AKManager sharedAKManager] runOrchestra:orchestra];
@@ -121,7 +128,9 @@
     NSLog(@"Shield Retrieved");
 }
 - (void)replacedShieldAtPosition:(CGPoint)position {
-    NSLog(@"Shield Replaced");
+    float pan = -1.0 + 2.0 * position.x/playFieldSize.width;
+    Zwoop *zwoop = [[Zwoop alloc] initWithPan:pan];
+    [zwoopInstrument playNote:zwoop];
 }
 
 // -----------------------------------------------------------------------------

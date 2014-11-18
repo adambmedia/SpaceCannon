@@ -10,7 +10,6 @@
 		571F75A818D3064E00E72683 /* BallTrail.sks in Resources */ = {isa = PBXBuildFile; fileRef = 571F75A718D3064E00E72683 /* BallTrail.sks */; };
 		5720534118D310A9002EA2DD /* CCBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 5720534018D310A9002EA2DD /* CCBall.m */; };
 		5720534718D3225B002EA2DD /* HaloX@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5720534618D3225B002EA2DD /* HaloX@2x.png */; };
-		5720535018D6F170002EA2DD /* ShieldUp.caf in Resources */ = {isa = PBXBuildFile; fileRef = 5720534F18D47B86002EA2DD /* ShieldUp.caf */; };
 		5742FD8818C62E6200F963DE /* LifeBarExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5742FD8718C62E6200F963DE /* LifeBarExplosion.sks */; };
 		576E66DC18D9EC380037A404 /* PauseButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 576E66DA18D9EC380037A404 /* PauseButton@2x.png */; };
 		576E66DD18D9EC380037A404 /* ResumeButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 576E66DB18D9EC380037A404 /* ResumeButton@2x.png */; };
@@ -61,6 +60,8 @@
 		C4A02FEE1A1B1DAE00956633 /* SpatialAudioFilePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A02FED1A1B1DAE00956633 /* SpatialAudioFilePlayer.m */; };
 		C4A02FF01A1B233900956633 /* Laser.aiff in Resources */ = {isa = PBXBuildFile; fileRef = C4A02FEF1A1B233900956633 /* Laser.aiff */; };
 		C4A02FF61A1B2DFB00956633 /* LaserInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A02FF51A1B2DFB00956633 /* LaserInstrument.m */; };
+		C4D5E30A1A1B4D390046F992 /* ZwoopInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D5E3091A1B4D390046F992 /* ZwoopInstrument.m */; };
+		C4D5E30D1A1B4F4C0046F992 /* ShieldUp.aiff in Resources */ = {isa = PBXBuildFile; fileRef = C4D5E30C1A1B4F4C0046F992 /* ShieldUp.aiff */; };
 		E43024DA1A16EC9F00CD5083 /* BuzzInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = E43024D91A16EC9F00CD5083 /* BuzzInstrument.m */; };
 		E4302A901A16F32D00CD5083 /* AKEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = E43029201A16F32C00CD5083 /* AKEvent.m */; };
 		E4302A911A16F32D00CD5083 /* AKInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = E43029231A16F32C00CD5083 /* AKInstrument.m */; };
@@ -226,7 +227,6 @@
 		5720533F18D310A9002EA2DD /* CCBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBall.h; sourceTree = "<group>"; };
 		5720534018D310A9002EA2DD /* CCBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBall.m; sourceTree = "<group>"; };
 		5720534618D3225B002EA2DD /* HaloX@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HaloX@2x.png"; sourceTree = "<group>"; };
-		5720534F18D47B86002EA2DD /* ShieldUp.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ShieldUp.caf; sourceTree = "<group>"; };
 		5742FD8718C62E6200F963DE /* LifeBarExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LifeBarExplosion.sks; sourceTree = "<group>"; };
 		576E66DA18D9EC380037A404 /* PauseButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseButton@2x.png"; sourceTree = "<group>"; };
 		576E66DB18D9EC380037A404 /* ResumeButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ResumeButton@2x.png"; sourceTree = "<group>"; };
@@ -289,6 +289,9 @@
 		C4A02FEF1A1B233900956633 /* Laser.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Laser.aiff; sourceTree = "<group>"; };
 		C4A02FF41A1B2DFB00956633 /* LaserInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LaserInstrument.h; path = "Space Cannon/Instruments/LaserInstrument.h"; sourceTree = "<group>"; };
 		C4A02FF51A1B2DFB00956633 /* LaserInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LaserInstrument.m; path = "Space Cannon/Instruments/LaserInstrument.m"; sourceTree = "<group>"; };
+		C4D5E3081A1B4D390046F992 /* ZwoopInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZwoopInstrument.h; path = "Space Cannon/Instruments/ZwoopInstrument.h"; sourceTree = "<group>"; };
+		C4D5E3091A1B4D390046F992 /* ZwoopInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZwoopInstrument.m; path = "Space Cannon/Instruments/ZwoopInstrument.m"; sourceTree = "<group>"; };
+		C4D5E30C1A1B4F4C0046F992 /* ShieldUp.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = ShieldUp.aiff; sourceTree = "<group>"; };
 		E43024D81A16EC9F00CD5083 /* BuzzInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuzzInstrument.h; sourceTree = "<group>"; };
 		E43024D91A16EC9F00CD5083 /* BuzzInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuzzInstrument.m; sourceTree = "<group>"; };
 		E430291F1A16F32C00CD5083 /* AKEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKEvent.h; sourceTree = "<group>"; };
@@ -649,7 +652,7 @@
 		57AF9AA218CE158E00717742 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				5720534F18D47B86002EA2DD /* ShieldUp.caf */,
+				C4D5E30C1A1B4F4C0046F992 /* ShieldUp.aiff */,
 				57AF9AA318CE158E00717742 /* Bounce.caf */,
 				57AF9AA418CE158E00717742 /* DeepExplosion.caf */,
 				57AF9AA518CE158E00717742 /* Explosion.caf */,
@@ -792,6 +795,8 @@
 				E43024D91A16EC9F00CD5083 /* BuzzInstrument.m */,
 				C47888811A16FBB200A80367 /* SpaceVerb.h */,
 				C47888821A16FBB200A80367 /* SpaceVerb.m */,
+				C4D5E3081A1B4D390046F992 /* ZwoopInstrument.h */,
+				C4D5E3091A1B4D390046F992 /* ZwoopInstrument.m */,
 			);
 			name = Instruments;
 			sourceTree = "<group>";
@@ -1568,7 +1573,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5720535018D6F170002EA2DD /* ShieldUp.caf in Resources */,
 				57AF9AA918CE158E00717742 /* DeepExplosion.caf in Resources */,
 				E4302A9E1A16F32D00CD5083 /* LICENSE.TXT in Resources */,
 				57FA96A818A8EF5A006ED483 /* Halo@2x.png in Resources */,
@@ -1576,6 +1580,7 @@
 				576E66DD18D9EC380037A404 /* ResumeButton@2x.png in Resources */,
 				57AF9AD218CF7ADF00717742 /* ScoreBoard@2x.png in Resources */,
 				C4A02FF01A1B233900956633 /* Laser.aiff in Resources */,
+				C4D5E30D1A1B4F4C0046F992 /* ShieldUp.aiff in Resources */,
 				5742FD8818C62E6200F963DE /* LifeBarExplosion.sks in Resources */,
 				57FA96A618A8EF5A006ED483 /* BlueBar@2x.png in Resources */,
 				57FA966218A8EEFF006ED483 /* InfoPlist.strings in Resources */,
@@ -1684,6 +1689,7 @@
 				E4302AAC1A16F32D00CD5083 /* AKMinControl.m in Sources */,
 				E4302ACD1A16F32D00CD5083 /* AKLowFrequencyOscillator.m in Sources */,
 				E4302AB61A16F32D00CD5083 /* AKFSignalFromMonoAudio.m in Sources */,
+				C4D5E30A1A1B4D390046F992 /* ZwoopInstrument.m in Sources */,
 				E43024DA1A16EC9F00CD5083 /* BuzzInstrument.m in Sources */,
 				E4302AE41A16F32D00CD5083 /* AKInterpolatedRandomNumberPulse.m in Sources */,
 				E4302AF81A16F32D00CD5083 /* AKDopplerEffect.m in Sources */,
