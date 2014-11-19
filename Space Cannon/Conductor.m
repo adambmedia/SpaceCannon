@@ -90,7 +90,7 @@
 
 - (void)haloHitEdgeAtPosition:(CGPoint)position
 {
-    float pan = -1.0;
+    float pan = 0.0;
     if (position.x > playFieldSize.width/2.0) pan = 1.0;
     
     float y = position.y / playFieldSize.height;
@@ -106,7 +106,7 @@
 
 - (void)haloHitBallAtPosition:(CGPoint)position forPoints:(int)points
 {
-    float pan = -1.0 + 2.0 * position.x/playFieldSize.width;
+    float pan = position.x/playFieldSize.width;
     float y = position.y / playFieldSize.height;
     
     [crunchInstrument playForDuration:1.4];
@@ -139,13 +139,13 @@
 
 - (void)updateShieldPowerUpPosition:(CGPoint)position
 {
-    float pan = -1.0 + 2.0 * position.x/playFieldSize.width;
+    float pan = position.x/playFieldSize.width;
     sirenInstrument.pan.value = pan;
 }
 
 - (void)replacedShieldAtPosition:(CGPoint)position {
     [sirenInstrument stop];
-    float pan = -1.0 + 2.0 * position.x/playFieldSize.width;
+    float pan = position.x/playFieldSize.width;
     Zwoop *zwoop = [[Zwoop alloc] initWithPan:pan];
     [zwoopInstrument playNote:zwoop];
 }
@@ -172,7 +172,7 @@
 
 - (void)ballBouncedAtPosition:(CGPoint)position
 {
-    float pan = -1.0;
+    float pan = 0.0;
     if (position.x > playFieldSize.width/2.0) pan = 1.0;
     
     SoftBoing *note = [[SoftBoing alloc] initWithPan:pan];
