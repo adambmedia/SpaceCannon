@@ -15,7 +15,7 @@
 #import "BuzzInstrument.h"
 #import "LaserInstrument.h"
 #import "ZwoopInstrument.h"
-
+#import "SirenInstrument.h"
 #import "SpaceVerb.h"
 
 @implementation Conductor
@@ -25,7 +25,7 @@
     BuzzInstrument *buzzInstrument;
     LaserInstrument *laserInstrument;
     ZwoopInstrument *zwoopInstrument;
-    
+    SirenInstrument *sirenInstrument;
     SpaceVerb *spaceVerb;
     
     CGSize playFieldSize;
@@ -53,11 +53,16 @@
         zwoopInstrument = [[ZwoopInstrument alloc] init];
         [orchestra addInstrument:zwoopInstrument];
         
+        sirenInstrument = [[SirenInstrument alloc]init];
+        [orchestra addInstrument:sirenInstrument];
+        
+        
         spaceVerb = [[SpaceVerb alloc] initWithSoftBoing:softBoingInstrument.auxilliaryOutput
                                                   crunch:crunchInstrument.auxilliaryOutput
                                                     buzz:buzzInstrument.auxilliaryOutput
                                                    laser:laserInstrument.auxilliaryOutput
-                                                   zwoop:zwoopInstrument.auxilliaryOutput];
+                                                   zwoop:zwoopInstrument.auxilliaryOutput
+                                                   siren:sirenInstrument.auxilliaryOutput];
         [orchestra addInstrument:spaceVerb];
         
         [[AKManager sharedAKManager] runOrchestra:orchestra];
@@ -68,6 +73,11 @@
     return self;
 }
 
+- (void)resetAll
+{
+    [sirenInstrument stop];
+}
+
 // -----------------------------------------------------------------------------
 #  pragma mark - Halo Lifespan Events
 // -----------------------------------------------------------------------------
@@ -75,6 +85,7 @@
 - (void)haloSpawnedAtPosition:(CGPoint)position isMultiplier:(bool)isMultiplier
 {
     NSLog(@"Halo Spawned, no sound yet");
+
 }
 
 - (void)haloHitEdgeAtPosition:(CGPoint)position
@@ -123,13 +134,25 @@
 // -----------------------------------------------------------------------------
 
 - (void)spawnedShieldPowerUpAtPosition:(CGPoint)position {
-    NSLog(@"Shield Available");
+    [sirenInstrument play];
+}
+
+- (void)updateShieldPowerUpPosition:(CGPoint)position
+{
+    float pan = -1.0 + 2.0 * position.x/playFieldSize.width;
+    sirenInstrument.pan.value = pan;
 }
 
 - (void)replacedShieldAtPosition:(CGPoint)position {
+    [sirenInstrument stop];
     float pan = -1.0 + 2.0 * position.x/playFieldSize.width;
     Zwoop *zwoop = [[Zwoop alloc] initWithPan:pan];
     [zwoopInstrument playNote:zwoop];
+}
+
+- (void)shieldPowerUpLost
+{
+    [sirenInstrument stop];
 }
 
 // -----------------------------------------------------------------------------
@@ -158,6 +181,8 @@
 
 - (void)multiplierModeStartedWithPointValue:(int)points {
     NSLog(@"Maybe another siren type sound");
+    
+    //if shot when multiplier mode is on, change parameter of the shot
 }
 - (void)multiplierModeEnded {
     NSLog(@"End the multiplier sound");

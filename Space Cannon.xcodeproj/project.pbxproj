@@ -209,6 +209,7 @@
 		E4302B221A16F32D00CD5083 /* AKWindowsTable.m in Sources */ = {isa = PBXBuildFile; fileRef = E4302A8A1A16F32D00CD5083 /* AKWindowsTable.m */; };
 		E4302B231A16F32D00CD5083 /* AKInstrumentProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = E4302A8D1A16F32D00CD5083 /* AKInstrumentProperty.m */; };
 		E4302B241A16F32D00CD5083 /* AKNoteProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = E4302A8F1A16F32D00CD5083 /* AKNoteProperty.m */; };
+		E44EC09A1A1BC1DB00F6A3A5 /* SirenInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = E44EC0991A1BC1DB00F6A3A5 /* SirenInstrument.m */; };
 		E4EAA2741A0F1C7B007DD63C /* SoftBoingInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EAA2731A0F1C7B007DD63C /* SoftBoingInstrument.m */; };
 /* End PBXBuildFile section */
 
@@ -610,6 +611,8 @@
 		E4302A8D1A16F32D00CD5083 /* AKInstrumentProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKInstrumentProperty.m; sourceTree = "<group>"; };
 		E4302A8E1A16F32D00CD5083 /* AKNoteProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKNoteProperty.h; sourceTree = "<group>"; };
 		E4302A8F1A16F32D00CD5083 /* AKNoteProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKNoteProperty.m; sourceTree = "<group>"; };
+		E44EC0981A1BC1DB00F6A3A5 /* SirenInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SirenInstrument.h; sourceTree = "<group>"; };
+		E44EC0991A1BC1DB00F6A3A5 /* SirenInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SirenInstrument.m; sourceTree = "<group>"; };
 		E4EAA2721A0F1C7B007DD63C /* SoftBoingInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoftBoingInstrument.h; sourceTree = "<group>"; };
 		E4EAA2731A0F1C7B007DD63C /* SoftBoingInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoftBoingInstrument.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -783,6 +786,8 @@
 		E43024D71A16EC0A00CD5083 /* Instruments */ = {
 			isa = PBXGroup;
 			children = (
+				E44EC0981A1BC1DB00F6A3A5 /* SirenInstrument.h */,
+				E44EC0991A1BC1DB00F6A3A5 /* SirenInstrument.m */,
 				C4A02FEC1A1B1DAE00956633 /* SpatialAudioFilePlayer.h */,
 				C4A02FED1A1B1DAE00956633 /* SpatialAudioFilePlayer.m */,
 				C4A02FF41A1B2DFB00956633 /* LaserInstrument.h */,
@@ -1542,7 +1547,7 @@
 				ORGANIZATIONNAME = "Code Coalition";
 				TargetAttributes = {
 					57FA965118A8EEFE006ED483 = {
-						DevelopmentTeam = T9KEX275FG;
+						DevelopmentTeam = 6QDK6789A6;
 					};
 					57FA967918A8EEFF006ED483 = {
 						TestTargetID = 57FA965118A8EEFE006ED483;
@@ -1740,6 +1745,7 @@
 				E4302AD51A16F32D00CD5083 /* AKMarimba.m in Sources */,
 				E4302A901A16F32D00CD5083 /* AKEvent.m in Sources */,
 				E4302A911A16F32D00CD5083 /* AKInstrument.m in Sources */,
+				E44EC09A1A1BC1DB00F6A3A5 /* SirenInstrument.m in Sources */,
 				E4302ABB1A16F32D00CD5083 /* AKSpectralVocoder.m in Sources */,
 				E4302B0A1A16F32D00CD5083 /* AKDeclick.m in Sources */,
 				C47888831A16FBB200A80367 /* SpaceVerb.m in Sources */,

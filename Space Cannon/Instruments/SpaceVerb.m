@@ -15,14 +15,15 @@
                              buzz:(AKStereoAudio *)buzz
                             laser:(AKStereoAudio *)laser
                             zwoop:(AKStereoAudio *)zwoop
+                            siren:(AKStereoAudio *)siren
 {
     self = [super init];
     if (self) {
         
-        AKSum *leftSum = [[AKSum alloc] initWithOperands:softBoing.leftOutput, crunch, buzz.leftOutput, laser.leftOutput, zwoop.leftOutput, nil];
+        AKSum *leftSum = [[AKSum alloc] initWithOperands:softBoing.leftOutput, crunch, buzz.leftOutput, laser.leftOutput, zwoop.leftOutput, siren.leftOutput, nil];
         [self connect:leftSum];
         
-        AKSum *rightSum = [[AKSum alloc] initWithOperands:softBoing.rightOutput, crunch, buzz.rightOutput, laser.rightOutput, zwoop.rightOutput, nil];
+        AKSum *rightSum = [[AKSum alloc] initWithOperands:softBoing.rightOutput, crunch, buzz.rightOutput, laser.rightOutput, zwoop.rightOutput, siren.rightOutput, nil];
         [self connect:rightSum];
         
         AKStereoAudio *stereoSum = [[AKStereoAudio alloc] initWithLeftAudio:leftSum rightAudio:rightSum];
@@ -45,6 +46,7 @@
         [self resetParameter:crunch];
         [self resetParameter:buzz];
         [self resetParameter:laser];
+        [self resetParameter:siren];
         
     }
     return self;
