@@ -3,7 +3,7 @@
 //  Space Cannon
 //
 //  Created by Aurelius Prochazka on 11/18/14.
-//  Copyright (c) 2014 Code Coalition. All rights reserved.
+//  Copyright (c) 2014 Hear for Yourself. All rights reserved.
 //
 
 #import "SpatialAudioFilePlayer.h"

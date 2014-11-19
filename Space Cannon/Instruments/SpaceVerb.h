@@ -14,5 +14,6 @@
                            crunch:(AKAudio *)crunch
                              buzz:(AKStereoAudio *)buzz
                             laser:(AKStereoAudio *)laser
-                            zwoop:(AKStereoAudio *)zwoop;
+                            zwoop:(AKStereoAudio *)zwoop
+                            siren:(AKStereoAudio *)siren;
 @end

@@ -169,12 +169,12 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         // Setup sounds
         conductor = [[Conductor alloc] initWithPlayfieldSize:self.size];
         
-        _bounceSound = [SKAction playSoundFileNamed:@"Bounce.caf" waitForCompletion:NO];
-        _deepExplosionSound = [SKAction playSoundFileNamed:@"DeepExplosion.caf" waitForCompletion:NO];
-        _explosionSound = [SKAction playSoundFileNamed:@"Explosion.caf" waitForCompletion:NO];
-        _laserSound = [SKAction playSoundFileNamed:@"Laser.caf" waitForCompletion:NO];
-        _zapSound = [SKAction playSoundFileNamed:@"Zap.caf" waitForCompletion:NO];
-        _shieldUpSound = [SKAction playSoundFileNamed:@"ShieldUp.caf" waitForCompletion:NO];
+//        _bounceSound = [SKAction playSoundFileNamed:@"Bounce.caf" waitForCompletion:NO];
+//        _deepExplosionSound = [SKAction playSoundFileNamed:@"DeepExplosion.caf" waitForCompletion:NO];
+//        _explosionSound = [SKAction playSoundFileNamed:@"Explosion.caf" waitForCompletion:NO];
+//        _laserSound = [SKAction playSoundFileNamed:@"Laser.caf" waitForCompletion:NO];
+//        _zapSound = [SKAction playSoundFileNamed:@"Zap.caf" waitForCompletion:NO];
+//        _shieldUpSound = [SKAction playSoundFileNamed:@"ShieldUp.caf" waitForCompletion:NO];
         
         // Setup menu
         _menu = [[CCMenu alloc] init];
@@ -217,6 +217,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
 -(void)newGame
 {
     [_mainLayer removeAllChildren];
+    [conductor resetAll];
     
     // Add all shields from pool to scene.
     while (_shieldPool.count > 0) {
@@ -270,6 +271,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         _pauseButton.hidden = gamePaused;
         _resumeButton.hidden = !gamePaused;
         self.paused = gamePaused;
+        [conductor resetAll];
     }
 }
 
@@ -448,6 +450,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
 
 -(void)gameOver
 {
+    [conductor resetAll];
     [_mainLayer enumerateChildNodesWithName:@"halo" usingBlock:^(SKNode *node, BOOL *stop) {
         [self addExplosion:node.position withName:@"HaloExplosion"];
         [node removeFromParent];
@@ -558,6 +561,9 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
     [_mainLayer enumerateChildNodesWithName:@"shieldUp" usingBlock:^(SKNode *node, BOOL *stop) {
         if (node.position.x + node.frame.size.width < 0) {
             [node removeFromParent];
+            [conductor shieldPowerUpLost];
+        } else {
+            [conductor updateShieldPowerUpPosition:node.position];
         }
     }];
     

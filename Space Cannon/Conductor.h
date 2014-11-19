@@ -11,6 +11,7 @@
 @interface Conductor : NSObject
 
 - (instancetype)initWithPlayfieldSize:(CGSize)size;
+- (void)resetAll;
 
 // Halo Lifespan Events
 - (void)haloSpawnedAtPosition:(CGPoint)position isMultiplier:(bool)isMultiplier;
@@ -21,7 +22,9 @@
 
 // Shield Power Up Events
 - (void)spawnedShieldPowerUpAtPosition:(CGPoint)position;
+- (void)updateShieldPowerUpPosition:(CGPoint)position;
 - (void)replacedShieldAtPosition:(CGPoint)position;
+- (void)shieldPowerUpLost;
 
 // Player Events
 - (void)playerShotBallWithRotationVector:(CGVector)rotationVector
