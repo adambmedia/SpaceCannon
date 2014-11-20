@@ -17,6 +17,7 @@
 #import "ZwoopInstrument.h"
 #import "SirenInstrument.h"
 #import "SpaceVerb.h"
+#import "MenacingInstrument.h"
 
 @implementation Conductor
 {
@@ -26,6 +27,7 @@
     LaserInstrument *laserInstrument;
     ZwoopInstrument *zwoopInstrument;
     SirenInstrument *sirenInstrument;
+    MenacingInstrument *menacingInstrument;
     SpaceVerb *spaceVerb;
     
     CGSize playFieldSize;
@@ -56,13 +58,17 @@
         sirenInstrument = [[SirenInstrument alloc]init];
         [orchestra addInstrument:sirenInstrument];
         
+        menacingInstrument = [[MenacingInstrument alloc]init];
+        [orchestra addInstrument:menacingInstrument];
+        
         
         spaceVerb = [[SpaceVerb alloc] initWithSoftBoing:softBoingInstrument.auxilliaryOutput
                                                   crunch:crunchInstrument.auxilliaryOutput
                                                     buzz:buzzInstrument.auxilliaryOutput
                                                    laser:laserInstrument.auxilliaryOutput
                                                    zwoop:zwoopInstrument.auxilliaryOutput
-                                                   siren:sirenInstrument.auxilliaryOutput];
+                                                   siren:sirenInstrument.auxilliaryOutput
+                                                  menace:menacingInstrument.auxilliaryOutput];
         [orchestra addInstrument:spaceVerb];
         
         [[AKManager sharedAKManager] runOrchestra:orchestra];
@@ -82,10 +88,13 @@
 #  pragma mark - Halo Lifespan Events
 // -----------------------------------------------------------------------------
 
-- (void)haloSpawnedAtPosition:(CGPoint)position isMultiplier:(bool)isMultiplier
+- (void)haloSpawnedAtPosition:(CGPoint)position direction:(CGVector)direction
 {
-    //NSLog(@"Halo Spawned, no sound yet");
-
+    NSLog(@"%f, %f direction: %f, %f", position.x, position.y, direction.dx, direction.dy);
+    MenacingNote *note = [[MenacingNote alloc] init];
+    note.frequency.value = 400- direction.dy * 400;
+    [menacingInstrument playNote:note];
+    
 }
 
 - (void)haloHitEdgeAtPosition:(CGPoint)position

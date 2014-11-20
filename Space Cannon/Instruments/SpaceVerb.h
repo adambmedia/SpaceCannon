@@ -17,6 +17,6 @@
                              buzz:(AKStereoAudio *)buzz
                             laser:(AKStereoAudio *)laser
                             zwoop:(AKStereoAudio *)zwoop
-                            siren:(AKStereoAudio *)siren;
-
+                            siren:(AKStereoAudio *)siren
+                           menace:(AKStereoAudio *)menace;
 @end

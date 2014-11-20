@@ -14,7 +14,7 @@
 - (void)resetAll;
 
 // Halo Lifespan Events
-- (void)haloSpawnedAtPosition:(CGPoint)position isMultiplier:(bool)isMultiplier;
+- (void)haloSpawnedAtPosition:(CGPoint)position direction:(CGVector)direction;
 - (void)haloHitEdgeAtPosition:(CGPoint)position;
 - (void)haloHitBallAtPosition:(CGPoint)position;
 - (void)haloHitShieldAtPosition:(CGPoint)position;

@@ -16,6 +16,9 @@
 
 @interface MenacingNote : AKNote
 
+@property AKNoteProperty *frequency;
 @property AKNoteProperty *pan;
+
+- (instancetype)initWithFrequency:(float)frequency pan:(float)pan;
 
 @end
