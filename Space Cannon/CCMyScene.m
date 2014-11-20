@@ -297,7 +297,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         ball.physicsBody.collisionBitMask = kCCEdgeCategory;
         ball.physicsBody.contactTestBitMask = kCCEdgeCategory | kCCShieldUpCategory;
         
-        [conductor playerShotBallWithRotationVector:rotationVector remaningAmmo:self.ammo pointValue:self.pointValue];
+        [conductor playerShotBallWithRotationVector:rotationVector remaningAmmo:self.ammo];
         //        [self runAction:_laserSound];
         
         // Create trail.
@@ -555,6 +555,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         if (!CGRectContainsPoint(self.frame, node.position)) {
             [node removeFromParent];
             self.pointValue = 1;
+            [conductor multiplierModeEnded];
         }
     }];
     

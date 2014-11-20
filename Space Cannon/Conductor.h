@@ -28,8 +28,7 @@
 
 // Player Events
 - (void)playerShotBallWithRotationVector:(CGVector)rotationVector
-                            remaningAmmo:(int)remainingAmmo
-                              pointValue:(int)pointValue;
+                            remaningAmmo:(int)remainingAmmo;
 - (void)attemptedShotWithoutAmmo;
 - (void)ballBouncedAtPosition:(CGPoint)position;
 - (void)multiplierModeStartedWithPointValue:(int)points;

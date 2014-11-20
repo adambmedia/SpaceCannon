@@ -84,7 +84,7 @@
 
 - (void)haloSpawnedAtPosition:(CGPoint)position isMultiplier:(bool)isMultiplier
 {
-    NSLog(@"Halo Spawned, no sound yet");
+    //NSLog(@"Halo Spawned, no sound yet");
 
 }
 
@@ -159,9 +159,8 @@
 #  pragma mark - Player Events
 // -----------------------------------------------------------------------------
 
-- (void)playerShotBallWithRotationVector:(CGVector)rotationVector remaningAmmo:(int)remainingAmmo pointValue:(int)pointValue
+- (void)playerShotBallWithRotationVector:(CGVector)rotationVector remaningAmmo:(int)remainingAmmo
 {
-    NSLog(@"Player shot at X %f Y% and has %d ammo left" , rotationVector.dx, rotationVector.dy, remainingAmmo);
     LaserNote *laser = [[LaserNote alloc] initWithSpeed:1.0 + (8.0 / (remainingAmmo+1)) pan:(1.0+rotationVector.dx)/2.0];
     [laserInstrument playNote:laser];
 }
@@ -190,7 +189,7 @@
         spaceVerb.feedbackLevel.value = 0.95;
     }
 }
-- (void)multiplierModeEnded {    
+- (void)multiplierModeEnded {
     spaceVerb.feedbackLevel.value = 0.8;
 }
 
