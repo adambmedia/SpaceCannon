@@ -210,6 +210,7 @@
 		E4302B231A16F32D00CD5083 /* AKInstrumentProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = E4302A8D1A16F32D00CD5083 /* AKInstrumentProperty.m */; };
 		E4302B241A16F32D00CD5083 /* AKNoteProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = E4302A8F1A16F32D00CD5083 /* AKNoteProperty.m */; };
 		E44EC09A1A1BC1DB00F6A3A5 /* SirenInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = E44EC0991A1BC1DB00F6A3A5 /* SirenInstrument.m */; };
+		E4E5A1981A1E83E2001A9B2A /* MenacingInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E5A1971A1E83E2001A9B2A /* MenacingInstrument.m */; };
 		E4EAA2741A0F1C7B007DD63C /* SoftBoingInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EAA2731A0F1C7B007DD63C /* SoftBoingInstrument.m */; };
 /* End PBXBuildFile section */
 
@@ -613,6 +614,8 @@
 		E4302A8F1A16F32D00CD5083 /* AKNoteProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKNoteProperty.m; sourceTree = "<group>"; };
 		E44EC0981A1BC1DB00F6A3A5 /* SirenInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SirenInstrument.h; sourceTree = "<group>"; };
 		E44EC0991A1BC1DB00F6A3A5 /* SirenInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SirenInstrument.m; sourceTree = "<group>"; };
+		E4E5A1961A1E83E2001A9B2A /* MenacingInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenacingInstrument.h; sourceTree = "<group>"; };
+		E4E5A1971A1E83E2001A9B2A /* MenacingInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenacingInstrument.m; sourceTree = "<group>"; };
 		E4EAA2721A0F1C7B007DD63C /* SoftBoingInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoftBoingInstrument.h; sourceTree = "<group>"; };
 		E4EAA2731A0F1C7B007DD63C /* SoftBoingInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoftBoingInstrument.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -786,6 +789,8 @@
 		E43024D71A16EC0A00CD5083 /* Instruments */ = {
 			isa = PBXGroup;
 			children = (
+				E4E5A1961A1E83E2001A9B2A /* MenacingInstrument.h */,
+				E4E5A1971A1E83E2001A9B2A /* MenacingInstrument.m */,
 				E44EC0981A1BC1DB00F6A3A5 /* SirenInstrument.h */,
 				E44EC0991A1BC1DB00F6A3A5 /* SirenInstrument.m */,
 				C4A02FEC1A1B1DAE00956633 /* SpatialAudioFilePlayer.h */,
@@ -1644,6 +1649,7 @@
 				E4302AEB1A16F32D00CD5083 /* AKAdditiveCosines.m in Sources */,
 				5720534118D310A9002EA2DD /* CCBall.m in Sources */,
 				E4302AB11A16F32D00CD5083 /* AKTableValue.m in Sources */,
+				E4E5A1981A1E83E2001A9B2A /* MenacingInstrument.m in Sources */,
 				E4302ADB1A16F32D00CD5083 /* AKGuiro.m in Sources */,
 				E4302B021A16F32D00CD5083 /* AKMoogVCF.m in Sources */,
 				E4302AD91A16F32D00CD5083 /* AKCrunch.m in Sources */,
