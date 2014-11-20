@@ -20,6 +20,9 @@
     self = [super init];
     if (self) {
         
+        _feedbackLevel = [[AKInstrumentProperty alloc] initWithValue:0.8 minimum:0.0 maximum:0.95];
+        [self addProperty:_feedbackLevel];
+        
         AKSum *leftSum = [[AKSum alloc] initWithOperands:softBoing.leftOutput, crunch, buzz.leftOutput, laser.leftOutput, zwoop.leftOutput, siren.leftOutput, nil];
         [self connect:leftSum];
         
@@ -29,7 +32,7 @@
         AKStereoAudio *stereoSum = [[AKStereoAudio alloc] initWithLeftAudio:leftSum rightAudio:rightSum];
         
         AKReverb *reverb = [[AKReverb alloc] initWithSourceStereoAudio:[stereoSum scaledBy:akp(0.33)]
-                                                         feedbackLevel:akp(0.9)
+                                                         feedbackLevel:_feedbackLevel
                                                        cutoffFrequency:akp(14000)];
         [self connect:reverb];
         

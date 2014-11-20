@@ -180,13 +180,22 @@
     [softBoingInstrument playNote:note];
 }
 
+
+//if shot when multiplier mode is on, change parameter of the shot
 - (void)multiplierModeStartedWithPointValue:(int)points {
-    NSLog(@"Maybe another siren type sound");
-    
-    //if shot when multiplier mode is on, change parameter of the shot
+    if ((points = 1)) {
+        spaceVerb.feedbackLevel.value = 0.8;
+        NSLog(@"regular mode");
+
+    }
+    else
+    {
+        spaceVerb.feedbackLevel.value = 0.95;
+        NSLog(@"MULTIPLIER MODE!!!");
+    }
 }
-- (void)multiplierModeEnded {
-    NSLog(@"End the multiplier sound");
+- (void)multiplierModeEnded {    
+    spaceVerb.feedbackLevel.value = 0.8;
 }
 
 
