@@ -134,7 +134,7 @@
 // -----------------------------------------------------------------------------
 
 - (void)spawnedShieldPowerUpAtPosition:(CGPoint)position {
-    [sirenInstrument play];
+    [sirenInstrument playForDuration:4.0];
 }
 
 - (void)updateShieldPowerUpPosition:(CGPoint)position
@@ -152,7 +152,7 @@
 
 - (void)shieldPowerUpLost
 {
-    [sirenInstrument stop];
+    //[sirenInstrument stop];
 }
 
 // -----------------------------------------------------------------------------

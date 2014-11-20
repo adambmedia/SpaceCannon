@@ -23,11 +23,9 @@
         [crunch setOptionalDampingFactor:note.damping];
         [self connect:crunch];
         
-        
         AKLowPassButterworthFilter *lowPassFilter;
         lowPassFilter = [[AKLowPassButterworthFilter alloc] initWithAudioSource:crunch cutoffFrequency:akp(1200)];
         [self connect:lowPassFilter];
-        
         
         _auxilliaryOutput = [AKAudio globalParameter];
         [self assignOutput:_auxilliaryOutput to:lowPassFilter];

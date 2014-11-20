@@ -19,6 +19,12 @@
         _pan = [[AKInstrumentProperty alloc] initWithValue:1.0 minimum:0.0 maximum:1.0];
         [self addProperty:_pan];
         
+        AKLinearADSRControlEnvelope *adsr = [[AKLinearADSRControlEnvelope alloc] initWithAttackDuration:akp(0.1)
+                                                                                          decayDuration:akp(0.0)
+                                                                                           sustainLevel:akp(1.0)
+                                                                                        releaseDuration:akp(1.00)];
+        [self connect:adsr];
+        
         AKSineTable *sine;
         sine = [[AKSineTable alloc] init];
         [self addFTable:sine];
@@ -28,7 +34,7 @@
                                                       carrierMultiplier:akp(1.74)
                                                    modulatingMultiplier:akp(0.17)
                                                         modulationIndex:akp(22.0)
-                                                              amplitude:akp(0.3)];
+                                                              amplitude:[adsr scaledBy:akp(0.3)]];
         
         [self connect:fmOscil];
         
