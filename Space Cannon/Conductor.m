@@ -104,7 +104,7 @@
     [buzzInstrument playNote:newBuzz];
 }
 
-- (void)haloHitBallAtPosition:(CGPoint)position forPoints:(int)points
+- (void)haloHitBallAtPosition:(CGPoint)position
 {
     float pan = position.x/playFieldSize.width;
     float y = position.y / playFieldSize.height;
@@ -119,7 +119,7 @@
 - (void)haloHitShieldAtPosition:(CGPoint)position
 {
     // AOP Placeholder
-    [self haloHitBallAtPosition:position forPoints:1];
+    [self haloHitBallAtPosition:position];
 }
 
 - (void)haloHitLifeBar
@@ -159,14 +159,15 @@
 #  pragma mark - Player Events
 // -----------------------------------------------------------------------------
 
-- (void)playerShotBallWithRotationVector:(CGVector)rotationVector remaningAmmo:(int)remainingAmmo {
+- (void)playerShotBallWithRotationVector:(CGVector)rotationVector remaningAmmo:(int)remainingAmmo pointValue:(int)pointValue
+{
     NSLog(@"Player shot at X %f Y% and has %d ammo left" , rotationVector.dx, rotationVector.dy, remainingAmmo);
-    LaserNote *laser = [[LaserNote alloc] initWithSpeed:1.0 + (8.0 / (remainingAmmo+1))];
+    LaserNote *laser = [[LaserNote alloc] initWithSpeed:1.0 + (8.0 / (remainingAmmo+1)) pan:(1.0+rotationVector.dx)/2.0];
     [laserInstrument playNote:laser];
 }
 
 - (void)attemptedShotWithoutAmmo {
-    LaserNote *laser = [[LaserNote alloc] initWithSpeed:10.0];
+    LaserNote *laser = [[LaserNote alloc] initWithSpeed:10.0 pan:0.5];
     [laserInstrument playNote:laser];
 }
 

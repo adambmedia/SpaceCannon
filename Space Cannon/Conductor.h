@@ -16,7 +16,7 @@
 // Halo Lifespan Events
 - (void)haloSpawnedAtPosition:(CGPoint)position isMultiplier:(bool)isMultiplier;
 - (void)haloHitEdgeAtPosition:(CGPoint)position;
-- (void)haloHitBallAtPosition:(CGPoint)position forPoints:(int)points;
+- (void)haloHitBallAtPosition:(CGPoint)position;
 - (void)haloHitShieldAtPosition:(CGPoint)position;
 - (void)haloHitLifeBar;
 
@@ -28,7 +28,8 @@
 
 // Player Events
 - (void)playerShotBallWithRotationVector:(CGVector)rotationVector
-                            remaningAmmo:(int)remainingAmmo;
+                            remaningAmmo:(int)remainingAmmo
+                              pointValue:(int)pointValue;
 - (void)attemptedShotWithoutAmmo;
 - (void)ballBouncedAtPosition:(CGPoint)position;
 - (void)multiplierModeStartedWithPointValue:(int)points;

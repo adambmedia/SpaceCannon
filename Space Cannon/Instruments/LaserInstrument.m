@@ -18,10 +18,11 @@
 
 @implementation LaserNote
 
-- (instancetype)initWithSpeed:(float)speed {
+- (instancetype)initWithSpeed:(float)speed pan:(float)pan {
     self = [super init];
     if(self) {
         self.speed.value = speed;
+        self.pan.value = pan;
     }
     return self;
 }

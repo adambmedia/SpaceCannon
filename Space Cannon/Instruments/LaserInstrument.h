@@ -15,6 +15,6 @@
 
 @interface LaserNote : SpatialAudioFilePlayerNote
 
-- (instancetype)initWithSpeed:(float)speed;
+- (instancetype)initWithSpeed:(float)speed pan:(float)pan;
 
 @end

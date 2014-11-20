@@ -297,7 +297,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         ball.physicsBody.collisionBitMask = kCCEdgeCategory;
         ball.physicsBody.contactTestBitMask = kCCEdgeCategory | kCCShieldUpCategory;
         
-        [conductor playerShotBallWithRotationVector:rotationVector remaningAmmo:self.ammo];
+        [conductor playerShotBallWithRotationVector:rotationVector remaningAmmo:self.ammo pointValue:self.pointValue];
         //        [self runAction:_laserSound];
         
         // Create trail.
@@ -382,7 +382,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         self.score += self.pointValue;
         [self addExplosion:firstBody.node.position withName:@"HaloExplosion"];
         
-        [conductor haloHitBallAtPosition:firstBody.node.position forPoints:self.pointValue];
+        [conductor haloHitBallAtPosition:firstBody.node.position];
         //        [self runAction:_explosionSound];
         
         if ([[firstBody.node.userData valueForKey:@"Multiplier"] boolValue]) {
