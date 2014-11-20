@@ -183,15 +183,11 @@
 
 //if shot when multiplier mode is on, change parameter of the shot
 - (void)multiplierModeStartedWithPointValue:(int)points {
-    if ((points = 1)) {
+    if (points == 1) {
         spaceVerb.feedbackLevel.value = 0.8;
-        NSLog(@"regular mode");
 
-    }
-    else
-    {
+    } else {
         spaceVerb.feedbackLevel.value = 0.95;
-        NSLog(@"MULTIPLIER MODE!!!");
     }
 }
 - (void)multiplierModeEnded {    
