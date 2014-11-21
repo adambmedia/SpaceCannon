@@ -55,14 +55,18 @@
 		57FA96A818A8EF5A006ED483 /* Halo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57FA969C18A8EF5A006ED483 /* Halo@2x.png */; };
 		57FA96A918A8EF5A006ED483 /* Starfield@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57FA969D18A8EF5A006ED483 /* Starfield@2x.png */; };
 		C4722E8A1A0F02E800C83A83 /* Conductor.m in Sources */ = {isa = PBXBuildFile; fileRef = C4722E891A0F02E800C83A83 /* Conductor.m */; };
-		C47888801A16E27B00A80367 /* CrunchInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = C478887F1A16E27B00A80367 /* CrunchInstrument.m */; };
-		C47888831A16FBB200A80367 /* SpaceVerb.m in Sources */ = {isa = PBXBuildFile; fileRef = C47888821A16FBB200A80367 /* SpaceVerb.m */; };
-		C4A02FEE1A1B1DAE00956633 /* SpatialAudioFilePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A02FED1A1B1DAE00956633 /* SpatialAudioFilePlayer.m */; };
 		C4A02FF01A1B233900956633 /* Laser.aiff in Resources */ = {isa = PBXBuildFile; fileRef = C4A02FEF1A1B233900956633 /* Laser.aiff */; };
-		C4A02FF61A1B2DFB00956633 /* LaserInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A02FF51A1B2DFB00956633 /* LaserInstrument.m */; };
-		C4D5E30A1A1B4D390046F992 /* ZwoopInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D5E3091A1B4D390046F992 /* ZwoopInstrument.m */; };
+		C4A3969C1A1F414F00E8FB4D /* BuzzInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A396891A1F414F00E8FB4D /* BuzzInstrument.m */; };
+		C4A3969D1A1F414F00E8FB4D /* CrunchInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A3968B1A1F414F00E8FB4D /* CrunchInstrument.m */; };
+		C4A3969E1A1F414F00E8FB4D /* ElectricalFieldInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A3968D1A1F414F00E8FB4D /* ElectricalFieldInstrument.m */; };
+		C4A3969F1A1F414F00E8FB4D /* LaserInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A3968F1A1F414F00E8FB4D /* LaserInstrument.m */; };
+		C4A396A01A1F414F00E8FB4D /* MenacingInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A396911A1F414F00E8FB4D /* MenacingInstrument.m */; };
+		C4A396A11A1F414F00E8FB4D /* SirenInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A396931A1F414F00E8FB4D /* SirenInstrument.m */; };
+		C4A396A21A1F414F00E8FB4D /* SoftBoingInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A396951A1F414F00E8FB4D /* SoftBoingInstrument.m */; };
+		C4A396A31A1F414F00E8FB4D /* SpaceVerb.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A396971A1F414F00E8FB4D /* SpaceVerb.m */; };
+		C4A396A41A1F414F00E8FB4D /* SpatialAudioFilePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A396991A1F414F00E8FB4D /* SpatialAudioFilePlayer.m */; };
+		C4A396A51A1F414F00E8FB4D /* ZwoopInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A3969B1A1F414F00E8FB4D /* ZwoopInstrument.m */; };
 		C4D5E30D1A1B4F4C0046F992 /* ShieldUp.aiff in Resources */ = {isa = PBXBuildFile; fileRef = C4D5E30C1A1B4F4C0046F992 /* ShieldUp.aiff */; };
-		E43024DA1A16EC9F00CD5083 /* BuzzInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = E43024D91A16EC9F00CD5083 /* BuzzInstrument.m */; };
 		E4302A901A16F32D00CD5083 /* AKEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = E43029201A16F32C00CD5083 /* AKEvent.m */; };
 		E4302A911A16F32D00CD5083 /* AKInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = E43029231A16F32C00CD5083 /* AKInstrument.m */; };
 		E4302A921A16F32D00CD5083 /* AKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E43029251A16F32C00CD5083 /* AKManager.m */; };
@@ -209,9 +213,6 @@
 		E4302B221A16F32D00CD5083 /* AKWindowsTable.m in Sources */ = {isa = PBXBuildFile; fileRef = E4302A8A1A16F32D00CD5083 /* AKWindowsTable.m */; };
 		E4302B231A16F32D00CD5083 /* AKInstrumentProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = E4302A8D1A16F32D00CD5083 /* AKInstrumentProperty.m */; };
 		E4302B241A16F32D00CD5083 /* AKNoteProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = E4302A8F1A16F32D00CD5083 /* AKNoteProperty.m */; };
-		E44EC09A1A1BC1DB00F6A3A5 /* SirenInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = E44EC0991A1BC1DB00F6A3A5 /* SirenInstrument.m */; };
-		E4E5A1981A1E83E2001A9B2A /* MenacingInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E5A1971A1E83E2001A9B2A /* MenacingInstrument.m */; };
-		E4EAA2741A0F1C7B007DD63C /* SoftBoingInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EAA2731A0F1C7B007DD63C /* SoftBoingInstrument.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -282,20 +283,28 @@
 		57FA969D18A8EF5A006ED483 /* Starfield@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Starfield@2x.png"; sourceTree = "<group>"; };
 		C4722E881A0F02E800C83A83 /* Conductor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Conductor.h; path = "Space Cannon/Conductor.h"; sourceTree = "<group>"; };
 		C4722E891A0F02E800C83A83 /* Conductor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Conductor.m; path = "Space Cannon/Conductor.m"; sourceTree = "<group>"; };
-		C478887E1A16E27B00A80367 /* CrunchInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CrunchInstrument.h; path = "Space Cannon/CrunchInstrument.h"; sourceTree = "<group>"; };
-		C478887F1A16E27B00A80367 /* CrunchInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CrunchInstrument.m; path = "Space Cannon/CrunchInstrument.m"; sourceTree = "<group>"; };
-		C47888811A16FBB200A80367 /* SpaceVerb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpaceVerb.h; path = "Space Cannon/Instruments/SpaceVerb.h"; sourceTree = "<group>"; };
-		C47888821A16FBB200A80367 /* SpaceVerb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpaceVerb.m; path = "Space Cannon/Instruments/SpaceVerb.m"; sourceTree = "<group>"; };
-		C4A02FEC1A1B1DAE00956633 /* SpatialAudioFilePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpatialAudioFilePlayer.h; path = "Space Cannon/Instruments/SpatialAudioFilePlayer.h"; sourceTree = "<group>"; };
-		C4A02FED1A1B1DAE00956633 /* SpatialAudioFilePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpatialAudioFilePlayer.m; path = "Space Cannon/Instruments/SpatialAudioFilePlayer.m"; sourceTree = "<group>"; };
 		C4A02FEF1A1B233900956633 /* Laser.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Laser.aiff; sourceTree = "<group>"; };
-		C4A02FF41A1B2DFB00956633 /* LaserInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LaserInstrument.h; path = "Space Cannon/Instruments/LaserInstrument.h"; sourceTree = "<group>"; };
-		C4A02FF51A1B2DFB00956633 /* LaserInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LaserInstrument.m; path = "Space Cannon/Instruments/LaserInstrument.m"; sourceTree = "<group>"; };
-		C4D5E3081A1B4D390046F992 /* ZwoopInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZwoopInstrument.h; path = "Space Cannon/Instruments/ZwoopInstrument.h"; sourceTree = "<group>"; };
-		C4D5E3091A1B4D390046F992 /* ZwoopInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZwoopInstrument.m; path = "Space Cannon/Instruments/ZwoopInstrument.m"; sourceTree = "<group>"; };
+		C4A396881A1F414F00E8FB4D /* BuzzInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuzzInstrument.h; sourceTree = "<group>"; };
+		C4A396891A1F414F00E8FB4D /* BuzzInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuzzInstrument.m; sourceTree = "<group>"; };
+		C4A3968A1A1F414F00E8FB4D /* CrunchInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrunchInstrument.h; sourceTree = "<group>"; };
+		C4A3968B1A1F414F00E8FB4D /* CrunchInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrunchInstrument.m; sourceTree = "<group>"; };
+		C4A3968C1A1F414F00E8FB4D /* ElectricalFieldInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElectricalFieldInstrument.h; sourceTree = "<group>"; };
+		C4A3968D1A1F414F00E8FB4D /* ElectricalFieldInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElectricalFieldInstrument.m; sourceTree = "<group>"; };
+		C4A3968E1A1F414F00E8FB4D /* LaserInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaserInstrument.h; sourceTree = "<group>"; };
+		C4A3968F1A1F414F00E8FB4D /* LaserInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaserInstrument.m; sourceTree = "<group>"; };
+		C4A396901A1F414F00E8FB4D /* MenacingInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenacingInstrument.h; sourceTree = "<group>"; };
+		C4A396911A1F414F00E8FB4D /* MenacingInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenacingInstrument.m; sourceTree = "<group>"; };
+		C4A396921A1F414F00E8FB4D /* SirenInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SirenInstrument.h; sourceTree = "<group>"; };
+		C4A396931A1F414F00E8FB4D /* SirenInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SirenInstrument.m; sourceTree = "<group>"; };
+		C4A396941A1F414F00E8FB4D /* SoftBoingInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoftBoingInstrument.h; sourceTree = "<group>"; };
+		C4A396951A1F414F00E8FB4D /* SoftBoingInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoftBoingInstrument.m; sourceTree = "<group>"; };
+		C4A396961A1F414F00E8FB4D /* SpaceVerb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceVerb.h; sourceTree = "<group>"; };
+		C4A396971A1F414F00E8FB4D /* SpaceVerb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaceVerb.m; sourceTree = "<group>"; };
+		C4A396981A1F414F00E8FB4D /* SpatialAudioFilePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpatialAudioFilePlayer.h; sourceTree = "<group>"; };
+		C4A396991A1F414F00E8FB4D /* SpatialAudioFilePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpatialAudioFilePlayer.m; sourceTree = "<group>"; };
+		C4A3969A1A1F414F00E8FB4D /* ZwoopInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZwoopInstrument.h; sourceTree = "<group>"; };
+		C4A3969B1A1F414F00E8FB4D /* ZwoopInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZwoopInstrument.m; sourceTree = "<group>"; };
 		C4D5E30C1A1B4F4C0046F992 /* ShieldUp.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = ShieldUp.aiff; sourceTree = "<group>"; };
-		E43024D81A16EC9F00CD5083 /* BuzzInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuzzInstrument.h; sourceTree = "<group>"; };
-		E43024D91A16EC9F00CD5083 /* BuzzInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuzzInstrument.m; sourceTree = "<group>"; };
 		E430291F1A16F32C00CD5083 /* AKEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKEvent.h; sourceTree = "<group>"; };
 		E43029201A16F32C00CD5083 /* AKEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKEvent.m; sourceTree = "<group>"; };
 		E43029211A16F32C00CD5083 /* AKFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKFoundation.h; sourceTree = "<group>"; };
@@ -612,12 +621,6 @@
 		E4302A8D1A16F32D00CD5083 /* AKInstrumentProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKInstrumentProperty.m; sourceTree = "<group>"; };
 		E4302A8E1A16F32D00CD5083 /* AKNoteProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKNoteProperty.h; sourceTree = "<group>"; };
 		E4302A8F1A16F32D00CD5083 /* AKNoteProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKNoteProperty.m; sourceTree = "<group>"; };
-		E44EC0981A1BC1DB00F6A3A5 /* SirenInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SirenInstrument.h; sourceTree = "<group>"; };
-		E44EC0991A1BC1DB00F6A3A5 /* SirenInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SirenInstrument.m; sourceTree = "<group>"; };
-		E4E5A1961A1E83E2001A9B2A /* MenacingInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenacingInstrument.h; sourceTree = "<group>"; };
-		E4E5A1971A1E83E2001A9B2A /* MenacingInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenacingInstrument.m; sourceTree = "<group>"; };
-		E4EAA2721A0F1C7B007DD63C /* SoftBoingInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoftBoingInstrument.h; sourceTree = "<group>"; };
-		E4EAA2731A0F1C7B007DD63C /* SoftBoingInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoftBoingInstrument.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -674,7 +677,6 @@
 				E430291D1A16F32C00CD5083 /* AudioKit */,
 				C4722E881A0F02E800C83A83 /* Conductor.h */,
 				C4722E891A0F02E800C83A83 /* Conductor.m */,
-				E43024D71A16EC0A00CD5083 /* Instruments */,
 				57FA965D18A8EEFF006ED483 /* Space Cannon */,
 				57FA968118A8EEFF006ED483 /* Space CannonTests */,
 				57FA965418A8EEFE006ED483 /* Frameworks */,
@@ -786,34 +788,38 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
-		E43024D71A16EC0A00CD5083 /* Instruments */ = {
+		C4A396871A1F414F00E8FB4D /* Instruments */ = {
 			isa = PBXGroup;
 			children = (
-				E4E5A1961A1E83E2001A9B2A /* MenacingInstrument.h */,
-				E4E5A1971A1E83E2001A9B2A /* MenacingInstrument.m */,
-				E44EC0981A1BC1DB00F6A3A5 /* SirenInstrument.h */,
-				E44EC0991A1BC1DB00F6A3A5 /* SirenInstrument.m */,
-				C4A02FEC1A1B1DAE00956633 /* SpatialAudioFilePlayer.h */,
-				C4A02FED1A1B1DAE00956633 /* SpatialAudioFilePlayer.m */,
-				C4A02FF41A1B2DFB00956633 /* LaserInstrument.h */,
-				C4A02FF51A1B2DFB00956633 /* LaserInstrument.m */,
-				E4EAA2721A0F1C7B007DD63C /* SoftBoingInstrument.h */,
-				E4EAA2731A0F1C7B007DD63C /* SoftBoingInstrument.m */,
-				C478887E1A16E27B00A80367 /* CrunchInstrument.h */,
-				C478887F1A16E27B00A80367 /* CrunchInstrument.m */,
-				E43024D81A16EC9F00CD5083 /* BuzzInstrument.h */,
-				E43024D91A16EC9F00CD5083 /* BuzzInstrument.m */,
-				C47888811A16FBB200A80367 /* SpaceVerb.h */,
-				C47888821A16FBB200A80367 /* SpaceVerb.m */,
-				C4D5E3081A1B4D390046F992 /* ZwoopInstrument.h */,
-				C4D5E3091A1B4D390046F992 /* ZwoopInstrument.m */,
+				C4A396881A1F414F00E8FB4D /* BuzzInstrument.h */,
+				C4A396891A1F414F00E8FB4D /* BuzzInstrument.m */,
+				C4A3968A1A1F414F00E8FB4D /* CrunchInstrument.h */,
+				C4A3968B1A1F414F00E8FB4D /* CrunchInstrument.m */,
+				C4A3968C1A1F414F00E8FB4D /* ElectricalFieldInstrument.h */,
+				C4A3968D1A1F414F00E8FB4D /* ElectricalFieldInstrument.m */,
+				C4A3968E1A1F414F00E8FB4D /* LaserInstrument.h */,
+				C4A3968F1A1F414F00E8FB4D /* LaserInstrument.m */,
+				C4A396901A1F414F00E8FB4D /* MenacingInstrument.h */,
+				C4A396911A1F414F00E8FB4D /* MenacingInstrument.m */,
+				C4A396921A1F414F00E8FB4D /* SirenInstrument.h */,
+				C4A396931A1F414F00E8FB4D /* SirenInstrument.m */,
+				C4A396941A1F414F00E8FB4D /* SoftBoingInstrument.h */,
+				C4A396951A1F414F00E8FB4D /* SoftBoingInstrument.m */,
+				C4A396961A1F414F00E8FB4D /* SpaceVerb.h */,
+				C4A396971A1F414F00E8FB4D /* SpaceVerb.m */,
+				C4A396981A1F414F00E8FB4D /* SpatialAudioFilePlayer.h */,
+				C4A396991A1F414F00E8FB4D /* SpatialAudioFilePlayer.m */,
+				C4A3969A1A1F414F00E8FB4D /* ZwoopInstrument.h */,
+				C4A3969B1A1F414F00E8FB4D /* ZwoopInstrument.m */,
 			);
 			name = Instruments;
-			sourceTree = "<group>";
+			path = "Space Cannon/Instruments";
+			sourceTree = SOURCE_ROOT;
 		};
 		E430291D1A16F32C00CD5083 /* AudioKit */ = {
 			isa = PBXGroup;
 			children = (
+				C4A396871A1F414F00E8FB4D /* Instruments */,
 				E430291E1A16F32C00CD5083 /* Core Classes */,
 				E43029311A16F32C00CD5083 /* Instruments */,
 				E43029361A16F32C00CD5083 /* Libraries */,
@@ -1649,8 +1655,8 @@
 				E4302AEB1A16F32D00CD5083 /* AKAdditiveCosines.m in Sources */,
 				5720534118D310A9002EA2DD /* CCBall.m in Sources */,
 				E4302AB11A16F32D00CD5083 /* AKTableValue.m in Sources */,
-				E4E5A1981A1E83E2001A9B2A /* MenacingInstrument.m in Sources */,
 				E4302ADB1A16F32D00CD5083 /* AKGuiro.m in Sources */,
+				C4A3969F1A1F414F00E8FB4D /* LaserInstrument.m in Sources */,
 				E4302B021A16F32D00CD5083 /* AKMoogVCF.m in Sources */,
 				E4302AD91A16F32D00CD5083 /* AKCrunch.m in Sources */,
 				E4302AA81A16F32D00CD5083 /* AKScaledControl.m in Sources */,
@@ -1700,8 +1706,6 @@
 				E4302AAC1A16F32D00CD5083 /* AKMinControl.m in Sources */,
 				E4302ACD1A16F32D00CD5083 /* AKLowFrequencyOscillator.m in Sources */,
 				E4302AB61A16F32D00CD5083 /* AKFSignalFromMonoAudio.m in Sources */,
-				C4D5E30A1A1B4D390046F992 /* ZwoopInstrument.m in Sources */,
-				E43024DA1A16EC9F00CD5083 /* BuzzInstrument.m in Sources */,
 				E4302AE41A16F32D00CD5083 /* AKInterpolatedRandomNumberPulse.m in Sources */,
 				E4302AF81A16F32D00CD5083 /* AKDopplerEffect.m in Sources */,
 				E4302B0E1A16F32D00CD5083 /* AKParallelCombLowPassFilterReverb.m in Sources */,
@@ -1714,9 +1718,11 @@
 				E4302AA61A16F32D00CD5083 /* AKTrackedFrequencyFromFSignal.m in Sources */,
 				E4302AC51A16F32D00CD5083 /* AKPortamento.m in Sources */,
 				57FA966418A8EEFF006ED483 /* main.m in Sources */,
+				C4A396A51A1F414F00E8FB4D /* ZwoopInstrument.m in Sources */,
 				E4302A9A1A16F32D00CD5083 /* AKTools.m in Sources */,
 				E4302ADA1A16F32D00CD5083 /* AKDroplet.m in Sources */,
 				E4302AD71A16F32D00CD5083 /* AKBamboo.m in Sources */,
+				C4A396A21A1F414F00E8FB4D /* SoftBoingInstrument.m in Sources */,
 				E4302AE11A16F32D00CD5083 /* AKBeatenPlate.m in Sources */,
 				E4302B211A16F32D00CD5083 /* AKSoundFileTable.m in Sources */,
 				E4302AF01A16F32D00CD5083 /* AKMonoFileInput.m in Sources */,
@@ -1728,6 +1734,7 @@
 				E4302ABC1A16F32D00CD5083 /* AKWarp.m in Sources */,
 				E4302A921A16F32D00CD5083 /* AKManager.m in Sources */,
 				E4302AF71A16F32D00CD5083 /* AKCompressor.m in Sources */,
+				C4A396A41A1F414F00E8FB4D /* SpatialAudioFilePlayer.m in Sources */,
 				E4302ACE1A16F32D00CD5083 /* AKPhasingControl.m in Sources */,
 				E4302AAE1A16F32D00CD5083 /* AKMixedControl.m in Sources */,
 				E4302AE51A16F32D00CD5083 /* AKJitter.m in Sources */,
@@ -1740,31 +1747,30 @@
 				E4302B121A16F32D00CD5083 /* AKArray.m in Sources */,
 				E4302ACA1A16F32D00CD5083 /* AKSineOscillator.m in Sources */,
 				E4302B131A16F32D00CD5083 /* AKAudio.m in Sources */,
-				C4A02FF61A1B2DFB00956633 /* LaserInstrument.m in Sources */,
 				57FA966E18A8EEFF006ED483 /* CCViewController.m in Sources */,
 				E4302B071A16F32D00CD5083 /* AKBandRejectButterworthFilter.m in Sources */,
 				E4302AC61A16F32D00CD5083 /* AKVibrato.m in Sources */,
 				E4302B151A16F32D00CD5083 /* AKControl.m in Sources */,
 				E4302AEE1A16F32D00CD5083 /* AKFileInput.m in Sources */,
-				E4EAA2741A0F1C7B007DD63C /* SoftBoingInstrument.m in Sources */,
 				E4302AF91A16F32D00CD5083 /* AKFlanger.m in Sources */,
 				E4302AD51A16F32D00CD5083 /* AKMarimba.m in Sources */,
+				C4A3969E1A1F414F00E8FB4D /* ElectricalFieldInstrument.m in Sources */,
 				E4302A901A16F32D00CD5083 /* AKEvent.m in Sources */,
 				E4302A911A16F32D00CD5083 /* AKInstrument.m in Sources */,
-				E44EC09A1A1BC1DB00F6A3A5 /* SirenInstrument.m in Sources */,
+				C4A3969C1A1F414F00E8FB4D /* BuzzInstrument.m in Sources */,
 				E4302ABB1A16F32D00CD5083 /* AKSpectralVocoder.m in Sources */,
 				E4302B0A1A16F32D00CD5083 /* AKDeclick.m in Sources */,
-				C47888831A16FBB200A80367 /* SpaceVerb.m in Sources */,
-				C4A02FEE1A1B1DAE00956633 /* SpatialAudioFilePlayer.m in Sources */,
 				E4302AD21A16F32D00CD5083 /* AKVibes.m in Sources */,
 				E4302AEC1A16F32D00CD5083 /* AKAudioInput.m in Sources */,
+				C4A396A01A1F414F00E8FB4D /* MenacingInstrument.m in Sources */,
+				C4A396A31A1F414F00E8FB4D /* SpaceVerb.m in Sources */,
 				E4302B111A16F32D00CD5083 /* AKPanner.m in Sources */,
 				E4302ABF1A16F32D00CD5083 /* AKLinearADSRAudioEnvelope.m in Sources */,
 				E4302AF11A16F32D00CD5083 /* AKLoopingOscillator.m in Sources */,
-				C47888801A16E27B00A80367 /* CrunchInstrument.m in Sources */,
 				E4302AFB1A16F32D00CD5083 /* AKDCBlock.m in Sources */,
 				E4302AFA1A16F32D00CD5083 /* AKCombFilter.m in Sources */,
 				E4302B0D1A16F32D00CD5083 /* AKFlatFrequencyResponseReverb.m in Sources */,
+				C4A396A11A1F414F00E8FB4D /* SirenInstrument.m in Sources */,
 				E4302AF61A16F32D00CD5083 /* AKVariableDelay.m in Sources */,
 				E4302ABE1A16F32D00CD5083 /* AKSinusoidBursts.m in Sources */,
 				E4302AEA1A16F32D00CD5083 /* AKControlSegmentArrayLoop.m in Sources */,
@@ -1790,6 +1796,7 @@
 				E4302ACB1A16F32D00CD5083 /* AKVCOscillator.m in Sources */,
 				E4302AFD1A16F32D00CD5083 /* AKHighPassFilter.m in Sources */,
 				E4302ACF1A16F32D00CD5083 /* AKPhasor.m in Sources */,
+				C4A3969D1A1F414F00E8FB4D /* CrunchInstrument.m in Sources */,
 				E4302B191A16F32D00CD5083 /* AKAdditiveCosineTable.m in Sources */,
 				E4302B141A16F32D00CD5083 /* AKConstant.m in Sources */,
 				E4302A981A16F32D00CD5083 /* AKAudioAnalyzer.m in Sources */,
