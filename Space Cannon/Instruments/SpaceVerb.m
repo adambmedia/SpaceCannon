@@ -12,7 +12,7 @@
 
 - (instancetype)initWithSoftBoing:(AKStereoAudio *)softBoing
                            crunch:(AKAudio *)crunch
-                             buzz:(AKStereoAudio *)buzz
+                            pluck:(AKStereoAudio *)pluck
                             laser:(AKStereoAudio *)laser
                             zwoop:(AKStereoAudio *)zwoop
                             siren:(AKStereoAudio *)siren
@@ -24,10 +24,10 @@
         _feedbackLevel = [[AKInstrumentProperty alloc] initWithValue:0.8 minimum:0.0 maximum:0.95];
         [self addProperty:_feedbackLevel];
 
-        AKSum *leftSum = [[AKSum alloc] initWithOperands:softBoing.leftOutput, crunch, buzz.leftOutput, laser.leftOutput, zwoop.leftOutput, siren.leftOutput, menace.leftOutput, nil];
+        AKSum *leftSum = [[AKSum alloc] initWithOperands:softBoing.leftOutput, crunch, pluck.leftOutput, laser.leftOutput, zwoop.leftOutput, siren.leftOutput, menace.leftOutput, nil];
         [self connect:leftSum];
         
-        AKSum *rightSum = [[AKSum alloc] initWithOperands:softBoing.rightOutput, crunch, buzz.rightOutput, laser.rightOutput, zwoop.rightOutput, siren.rightOutput, menace.rightOutput, nil];
+        AKSum *rightSum = [[AKSum alloc] initWithOperands:softBoing.rightOutput, crunch, pluck.rightOutput, laser.rightOutput, zwoop.rightOutput, siren.rightOutput, menace.rightOutput, nil];
         [self connect:rightSum];
         
         AKStereoAudio *stereoSum = [[AKStereoAudio alloc] initWithLeftAudio:leftSum rightAudio:rightSum];
@@ -48,7 +48,7 @@
         // RESET INPUTS ========================================================
         [self resetParameter:softBoing];
         [self resetParameter:crunch];
-        [self resetParameter:buzz];
+        [self resetParameter:pluck];
         [self resetParameter:laser];
         [self resetParameter:siren];
         [self resetParameter:menace];

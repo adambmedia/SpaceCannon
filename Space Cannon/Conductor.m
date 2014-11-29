@@ -12,7 +12,7 @@
 
 #import "SoftBoingInstrument.h"
 #import "CrunchInstrument.h"
-#import "BuzzInstrument.h"
+#import "PluckyInstrument.h"
 #import "LaserInstrument.h"
 #import "ZwoopInstrument.h"
 #import "SirenInstrument.h"
@@ -23,7 +23,7 @@
 {
     SoftBoingInstrument *softBoingInstrument;
     CrunchInstrument *crunchInstrument;
-    BuzzInstrument *buzzInstrument;
+    PluckyInstrument *pluckyInstrument;
     LaserInstrument *laserInstrument;
     ZwoopInstrument *zwoopInstrument;
     SirenInstrument *sirenInstrument;
@@ -45,8 +45,8 @@
         crunchInstrument = [[CrunchInstrument alloc] init];
         [AKOrchestra addInstrument:crunchInstrument];
         
-        buzzInstrument = [[BuzzInstrument alloc] init];
-        [AKOrchestra addInstrument:buzzInstrument];
+        pluckyInstrument = [[PluckyInstrument alloc] init];
+        [AKOrchestra addInstrument:pluckyInstrument];
         
         laserInstrument = [[LaserInstrument alloc] init];
         [AKOrchestra addInstrument:laserInstrument];
@@ -63,7 +63,7 @@
         
         spaceVerb = [[SpaceVerb alloc] initWithSoftBoing:softBoingInstrument.auxilliaryOutput
                                                   crunch:crunchInstrument.auxilliaryOutput
-                                                    buzz:buzzInstrument.auxilliaryOutput
+                                                   pluck:pluckyInstrument.auxilliaryOutput
                                                    laser:laserInstrument.auxilliaryOutput
                                                    zwoop:zwoopInstrument.auxilliaryOutput
                                                    siren:sirenInstrument.auxilliaryOutput
@@ -91,15 +91,11 @@
     float pan = 0.0;
     if (position.x > playFieldSize.width/2.0) pan = 1.0;
     
-    float y = position.y / playFieldSize.height;
-    
-    float amplitude = 1.2- 0.9 * y;
     float frequency = 1200 - position.y; // AOP HOKEY
     
-    Buzz  *newBuzz = [[Buzz alloc] initWithFrequency:frequency
-                                           amplitude:amplitude
-                                                 pan:pan];
-    [buzzInstrument playNote:newBuzz];
+    Pluck  *newPluck = [[Pluck alloc] initWithFrequency:frequency
+                                                    pan:pan];
+    [pluckyInstrument playNote:newPluck];
 }
 
 - (void)haloHitBallAtPosition:(CGPoint)position

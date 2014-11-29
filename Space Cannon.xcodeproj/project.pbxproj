@@ -213,6 +213,7 @@
 		E49429651A2A860E00BDEF72 /* AKNoteProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = E49428CD1A2A860E00BDEF72 /* AKNoteProperty.m */; };
 		E49429661A2A860E00BDEF72 /* AKAudioAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = E49428D01A2A860E00BDEF72 /* AKAudioAnalyzer.m */; };
 		E49429671A2A860E00BDEF72 /* LevelMeter.m in Sources */ = {isa = PBXBuildFile; fileRef = E49428D21A2A860E00BDEF72 /* LevelMeter.m */; };
+		E494296D1A2A8BC500BDEF72 /* PluckyInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = E494296C1A2A8BC500BDEF72 /* PluckyInstrument.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -621,6 +622,8 @@
 		E49428D01A2A860E00BDEF72 /* AKAudioAnalyzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKAudioAnalyzer.m; sourceTree = "<group>"; };
 		E49428D11A2A860E00BDEF72 /* LevelMeter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelMeter.h; sourceTree = "<group>"; };
 		E49428D21A2A860E00BDEF72 /* LevelMeter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelMeter.m; sourceTree = "<group>"; };
+		E494296B1A2A8BC500BDEF72 /* PluckyInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PluckyInstrument.h; sourceTree = "<group>"; };
+		E494296C1A2A8BC500BDEF72 /* PluckyInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PluckyInstrument.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -812,6 +815,8 @@
 				C4A396991A1F414F00E8FB4D /* SpatialAudioFilePlayer.m */,
 				C4A3969A1A1F414F00E8FB4D /* ZwoopInstrument.h */,
 				C4A3969B1A1F414F00E8FB4D /* ZwoopInstrument.m */,
+				E494296B1A2A8BC500BDEF72 /* PluckyInstrument.h */,
+				E494296C1A2A8BC500BDEF72 /* PluckyInstrument.m */,
 			);
 			name = Instruments;
 			path = "Space Cannon/Instruments";
@@ -1755,6 +1760,7 @@
 				E49429311A2A860E00BDEF72 /* AKMonoFileInput.m in Sources */,
 				E49428D41A2A860E00BDEF72 /* AKInstrument.m in Sources */,
 				E49429091A2A860E00BDEF72 /* AKOscillatingControl.m in Sources */,
+				E494296D1A2A8BC500BDEF72 /* PluckyInstrument.m in Sources */,
 				C4A3969C1A1F414F00E8FB4D /* BuzzInstrument.m in Sources */,
 				E49428F01A2A860E00BDEF72 /* AKProduct.m in Sources */,
 				E49428F41A2A860E00BDEF72 /* AKTableValueControl.m in Sources */,
