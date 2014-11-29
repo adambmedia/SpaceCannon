@@ -107,6 +107,7 @@
     Crunch *crunch = [[Crunch alloc] initWithIntensity:53
                                                damping:0.43+0.2*y
                                                    pan:pan];
+    [[crunch intensity] randomize];
     [crunchInstrument playNote:crunch];
 }
 

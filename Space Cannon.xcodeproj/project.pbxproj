@@ -805,6 +805,8 @@
 				C4A3968F1A1F414F00E8FB4D /* LaserInstrument.m */,
 				C4A396901A1F414F00E8FB4D /* MenacingInstrument.h */,
 				C4A396911A1F414F00E8FB4D /* MenacingInstrument.m */,
+				E494296B1A2A8BC500BDEF72 /* PluckyInstrument.h */,
+				E494296C1A2A8BC500BDEF72 /* PluckyInstrument.m */,
 				C4A396921A1F414F00E8FB4D /* SirenInstrument.h */,
 				C4A396931A1F414F00E8FB4D /* SirenInstrument.m */,
 				C4A396941A1F414F00E8FB4D /* SoftBoingInstrument.h */,
@@ -815,8 +817,6 @@
 				C4A396991A1F414F00E8FB4D /* SpatialAudioFilePlayer.m */,
 				C4A3969A1A1F414F00E8FB4D /* ZwoopInstrument.h */,
 				C4A3969B1A1F414F00E8FB4D /* ZwoopInstrument.m */,
-				E494296B1A2A8BC500BDEF72 /* PluckyInstrument.h */,
-				E494296C1A2A8BC500BDEF72 /* PluckyInstrument.m */,
 			);
 			name = Instruments;
 			path = "Space Cannon/Instruments";
