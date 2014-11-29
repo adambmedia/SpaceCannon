@@ -86,15 +86,6 @@
 #  pragma mark - Halo Lifespan Events
 // -----------------------------------------------------------------------------
 
-- (void)haloSpawnedAtPosition:(CGPoint)position direction:(CGVector)direction
-{
-    NSLog(@"%f, %f direction: %f, %f", position.x, position.y, direction.dx, direction.dy);
-    MenacingNote *note = [[MenacingNote alloc] init];
-    note.frequency.value = 400- direction.dy * 400;
-    [menacingInstrument playNote:note];
-    
-}
-
 - (void)haloHitEdgeAtPosition:(CGPoint)position
 {
     float pan = 0.0;

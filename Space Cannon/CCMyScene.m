@@ -341,8 +341,6 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         halo.userData = [[NSMutableDictionary alloc] init];
         [halo.userData setValue:@YES forKey:@"Multiplier"];
     }
-    [conductor haloSpawnedAtPosition:halo.position direction:direction];
-    
     [_mainLayer addChild:halo];
 }
 
