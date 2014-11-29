@@ -18,11 +18,11 @@
 
 
 
-@property AKNoteProperty *count;
+@property AKNoteProperty *intensity;
 @property AKNoteProperty *damping;
 @property AKNoteProperty *pan;
 
-- (instancetype)initWithCount:(float)count
+- (instancetype)initWithIntensity:(float)intensity
                       damping:(float)damping
                           pan:(float)pan;
 

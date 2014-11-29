@@ -117,9 +117,9 @@
     float y = position.y / playFieldSize.height;
     
     [crunchInstrument playForDuration:1.4];
-    Crunch *crunch = [[Crunch alloc] initWithCount:53
-                                           damping:0.43+0.2*y
-                                               pan:pan];
+    Crunch *crunch = [[Crunch alloc] initWithIntensity:53
+                                               damping:0.43+0.2*y
+                                                   pan:pan];
     [crunchInstrument playNote:crunch];
 }
 
@@ -191,7 +191,7 @@
 - (void)multiplierModeStartedWithPointValue:(int)points {
     if (points == 1) {
         spaceVerb.feedbackLevel.value = 0.8;
-
+        
     } else {
         spaceVerb.feedbackLevel.value = 0.95;
     }

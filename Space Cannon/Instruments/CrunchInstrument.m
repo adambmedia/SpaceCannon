@@ -14,12 +14,12 @@
     self = [super init];
     if (self) {
         Crunch *note = [[Crunch alloc] init];
-        [self addNoteProperty:note.count];
+        [self addNoteProperty:note.intensity];
         [self addNoteProperty:note.damping];
         [self addNoteProperty:note.pan];
         
-        AKCrunch *crunch = [[AKCrunch alloc] initWithDuration:akp(0.1) amplitude:akp(0.9)];
-        [crunch setOptionalCount:note.count];
+        AKCrunch *crunch = [AKCrunch audio];
+        [crunch setOptionalIntensity:note.intensity];
         [crunch setOptionalDampingFactor:note.damping];
         [self connect:crunch];
         
@@ -43,8 +43,8 @@
     self = [super init];
     if (self) {
         
-        _count = [[AKNoteProperty alloc] initWithValue:53 minimum:53 maximum:153];
-        [self addProperty:_count];
+        _intensity = [[AKNoteProperty alloc] initWithValue:53 minimum:53 maximum:153];
+        [self addProperty:_intensity];
         
         _damping = [[AKNoteProperty alloc] initWithValue:0.63 minimum:0.43 maximum:0.83];
         [self addProperty:_damping];
@@ -58,7 +58,7 @@
 
 
 
-- (instancetype)initWithCount:(float)count damping:(float)damping pan:(float)pan
+- (instancetype)initWithIntensity:(float)intensity damping:(float)damping pan:(float)pan
 {
     self = [self init];
     if (self) {
@@ -71,7 +71,7 @@
 
 - (instancetype)initAsDeepCrunch
 {
-    return [self initWithCount:153
+    return [self initWithIntensity:153
                        damping:0.83
                            pan:0.5];
 }
