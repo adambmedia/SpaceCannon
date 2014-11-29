@@ -39,27 +39,26 @@
     if (self) {
         playFieldSize = size;
         
-        AKOrchestra *orchestra = [[AKOrchestra alloc] init];
         softBoingInstrument = [[SoftBoingInstrument alloc] init];
-        [orchestra addInstrument:softBoingInstrument];
+        [AKOrchestra addInstrument:softBoingInstrument];
         
         crunchInstrument = [[CrunchInstrument alloc] init];
-        [orchestra addInstrument:crunchInstrument];
+        [AKOrchestra addInstrument:crunchInstrument];
         
         buzzInstrument = [[BuzzInstrument alloc] init];
-        [orchestra addInstrument:buzzInstrument];
+        [AKOrchestra addInstrument:buzzInstrument];
         
         laserInstrument = [[LaserInstrument alloc] init];
-        [orchestra addInstrument:laserInstrument];
+        [AKOrchestra addInstrument:laserInstrument];
         
         zwoopInstrument = [[ZwoopInstrument alloc] init];
-        [orchestra addInstrument:zwoopInstrument];
+        [AKOrchestra addInstrument:zwoopInstrument];
         
         sirenInstrument = [[SirenInstrument alloc]init];
-        [orchestra addInstrument:sirenInstrument];
+        [AKOrchestra addInstrument:sirenInstrument];
         
         menacingInstrument = [[MenacingInstrument alloc]init];
-        [orchestra addInstrument:menacingInstrument];
+        [AKOrchestra addInstrument:menacingInstrument];
         
         
         spaceVerb = [[SpaceVerb alloc] initWithSoftBoing:softBoingInstrument.auxilliaryOutput
@@ -69,10 +68,9 @@
                                                    zwoop:zwoopInstrument.auxilliaryOutput
                                                    siren:sirenInstrument.auxilliaryOutput
                                                   menace:menacingInstrument.auxilliaryOutput];
-        [orchestra addInstrument:spaceVerb];
+        [AKOrchestra addInstrument:spaceVerb];
         
-        [[AKManager sharedAKManager] runOrchestra:orchestra];
-        
+        [AKOrchestra start];
         [spaceVerb play];
     }
     

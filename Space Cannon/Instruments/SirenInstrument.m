@@ -34,7 +34,9 @@
                                                       carrierMultiplier:akp(1.74)
                                                    modulatingMultiplier:akp(0.17)
                                                         modulationIndex:akp(22.0)
-                                                              amplitude:[adsr scaledBy:akp(0.3)]];
+                                                              amplitude:[adsr scaledBy:akp(0.3)]
+                                                                  phase:akp(0)];
+        
         
         [self connect:fmOscil];
         

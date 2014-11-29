@@ -32,7 +32,7 @@
         
         AKStereoAudio *stereoSum = [[AKStereoAudio alloc] initWithLeftAudio:leftSum rightAudio:rightSum];
         
-        AKReverb *reverb = [[AKReverb alloc] initWithSourceStereoAudio:[stereoSum scaledBy:akp(0.33)]
+        AKReverb *reverb = [[AKReverb alloc] initWithStereoAudioSource:[stereoSum scaledBy:akp(0.33)]
                                                          feedbackLevel:_feedbackLevel
                                                         cutoffFrequency:akp(14000)];
         [self connect:reverb];
