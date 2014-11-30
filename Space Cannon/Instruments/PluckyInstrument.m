@@ -3,7 +3,7 @@
 //  Space Cannon
 //
 //  Created by Nicholas Arner on 11/29/14.
-//  Copyright (c) 2014 Code Coalition. All rights reserved.
+//  Copyright (c) 2014 Hear for Yourself. All rights reserved.
 //
 
 #import "PluckyInstrument.h"
@@ -19,9 +19,9 @@
         [self addNoteProperty:note.frequency];
         [self addNoteProperty:note.pan];
         
-        AKLinearControl *decay = [[AKLinearControl alloc] initFromValue:akp(1)
+        AKLinearControl *decay = [[AKLinearControl alloc] initFromValue:akp(0.5)
                                                                 toValue:akp(0)
-                                                               duration:akp(0.5)];
+                                                               duration:akp(0.25)];
         [self connect:decay];
         
         AKOscillator *osc =[[AKOscillator alloc] initWithFTable:[AKManager sharedAKManager].standardSineTable
@@ -32,7 +32,7 @@
         // Instrument Definition
         AKPluckedString *pluck = [AKPluckedString audioWithExcitationSignal:osc];
         pluck.frequency = note.frequency;
-        [pluck setOptionalAmplitude:akp(0.3)];
+        [pluck setOptionalAmplitude:akp(0.15)];
         [pluck setOptionalReflectionCoefficient:akp(0.2)];
         [self connect:pluck];
         

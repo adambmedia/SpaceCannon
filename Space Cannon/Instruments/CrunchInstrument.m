@@ -73,10 +73,9 @@
 
 - (instancetype)initAsDeepCrunch
 {
-    NSLog(@"HERE!");
     return [self initWithIntensity:10
-                       damping:0.95
-                           pan:0.5];
+                           damping:0.95
+                               pan:0.5];
 }
 
 @end

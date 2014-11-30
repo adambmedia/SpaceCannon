@@ -17,6 +17,5 @@
                             pluck:(AKStereoAudio *)pluck
                             laser:(AKStereoAudio *)laser
                             zwoop:(AKStereoAudio *)zwoop
-                            siren:(AKStereoAudio *)siren
-                           menace:(AKStereoAudio *)menace;
+                            siren:(AKStereoAudio *)siren;
 @end

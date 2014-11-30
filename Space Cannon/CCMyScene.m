@@ -560,7 +560,6 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
     [_mainLayer enumerateChildNodesWithName:@"shieldUp" usingBlock:^(SKNode *node, BOOL *stop) {
         if (node.position.x + node.frame.size.width < 0) {
             [node removeFromParent];
-            [conductor shieldPowerUpLost];
         } else {
             [conductor updateShieldPowerUpPosition:node.position];
         }

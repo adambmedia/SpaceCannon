@@ -17,7 +17,6 @@
 #import "ZwoopInstrument.h"
 #import "SirenInstrument.h"
 #import "SpaceVerb.h"
-#import "MenacingInstrument.h"
 
 @implementation Conductor
 {
@@ -27,7 +26,6 @@
     LaserInstrument *laserInstrument;
     ZwoopInstrument *zwoopInstrument;
     SirenInstrument *sirenInstrument;
-    MenacingInstrument *menacingInstrument;
     SpaceVerb *spaceVerb;
     
     CGSize playFieldSize;
@@ -57,8 +55,6 @@
         sirenInstrument = [[SirenInstrument alloc]init];
         [AKOrchestra addInstrument:sirenInstrument];
         
-        menacingInstrument = [[MenacingInstrument alloc]init];
-        [AKOrchestra addInstrument:menacingInstrument];
         
         
         spaceVerb = [[SpaceVerb alloc] initWithSoftBoing:softBoingInstrument.auxilliaryOutput
@@ -66,8 +62,7 @@
                                                    pluck:pluckyInstrument.auxilliaryOutput
                                                    laser:laserInstrument.auxilliaryOutput
                                                    zwoop:zwoopInstrument.auxilliaryOutput
-                                                   siren:sirenInstrument.auxilliaryOutput
-                                                  menace:menacingInstrument.auxilliaryOutput];
+                                                   siren:sirenInstrument.auxilliaryOutput];
         [AKOrchestra addInstrument:spaceVerb];
         
         [AKOrchestra start];
@@ -91,7 +86,7 @@
     float pan = 0.0;
     if (position.x > playFieldSize.width/2.0) pan = 1.0;
     
-    float frequency = 1200 - position.y; // AOP HOKEY
+    float frequency = 1200 - position.y;
     
     Pluck  *newPluck = [[Pluck alloc] initWithFrequency:frequency
                                                     pan:pan];
@@ -111,9 +106,7 @@
     [crunchInstrument playNote:crunch];
 }
 
-- (void)haloHitShieldAtPosition:(CGPoint)position
-{
-    // AOP Placeholder
+- (void)haloHitShieldAtPosition:(CGPoint)position {
     [self haloHitBallAtPosition:position];
 }
 
@@ -145,10 +138,6 @@
     [zwoopInstrument playNote:zwoop];
 }
 
-- (void)shieldPowerUpLost
-{
-    //[sirenInstrument stop];
-}
 
 // -----------------------------------------------------------------------------
 #  pragma mark - Player Events
@@ -167,23 +156,17 @@
 
 - (void)ballBouncedAtPosition:(CGPoint)position
 {
-    float pan = 0.0;
-    if (position.x > playFieldSize.width/2.0) pan = 1.0;
-    
+    float pan = position.x/playFieldSize.width;
     SoftBoing *note = [[SoftBoing alloc] initWithPan:pan];
     [softBoingInstrument playNote:note];
 }
 
-
-//if shot when multiplier mode is on, change parameter of the shot
 - (void)multiplierModeStartedWithPointValue:(int)points {
-    if (points == 1) {
-        spaceVerb.feedbackLevel.value = 0.8;
-        
-    } else {
-        spaceVerb.feedbackLevel.value = 0.95;
-    }
+    float feedbackLevel = 0.8 + points*0.05;
+    if (feedbackLevel > 0.99) { feedbackLevel = 0.99;}
+    spaceVerb.feedbackLevel.value = feedbackLevel;
 }
+
 - (void)multiplierModeEnded {
     spaceVerb.feedbackLevel.value = 0.8;
 }

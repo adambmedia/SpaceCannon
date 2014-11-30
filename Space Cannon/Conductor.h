@@ -23,7 +23,6 @@
 - (void)spawnedShieldPowerUpAtPosition:(CGPoint)position;
 - (void)updateShieldPowerUpPosition:(CGPoint)position;
 - (void)replacedShieldAtPosition:(CGPoint)position;
-- (void)shieldPowerUpLost;
 
 // Player Events
 - (void)playerShotBallWithRotationVector:(CGVector)rotationVector
@@ -32,7 +31,6 @@
 - (void)ballBouncedAtPosition:(CGPoint)position;
 - (void)multiplierModeStartedWithPointValue:(int)points;
 - (void)multiplierModeEnded;
-
 
 
 @end

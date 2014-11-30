@@ -15,8 +15,7 @@
                             pluck:(AKStereoAudio *)pluck
                             laser:(AKStereoAudio *)laser
                             zwoop:(AKStereoAudio *)zwoop
-                            siren:(AKStereoAudio *)siren
-                           menace:(AKStereoAudio *)menace;
+                            siren:(AKStereoAudio *)siren;
 {
     self = [super init];
     if (self) {
@@ -24,10 +23,10 @@
         _feedbackLevel = [[AKInstrumentProperty alloc] initWithValue:0.8 minimum:0.0 maximum:0.95];
         [self addProperty:_feedbackLevel];
 
-        AKSum *leftSum = [[AKSum alloc] initWithOperands:softBoing.leftOutput, crunch, pluck.leftOutput, laser.leftOutput, zwoop.leftOutput, siren.leftOutput, menace.leftOutput, nil];
+        AKSum *leftSum = [[AKSum alloc] initWithOperands:softBoing.leftOutput, crunch, pluck.leftOutput, laser.leftOutput, zwoop.leftOutput, siren.leftOutput, nil];
         [self connect:leftSum];
         
-        AKSum *rightSum = [[AKSum alloc] initWithOperands:softBoing.rightOutput, crunch, pluck.rightOutput, laser.rightOutput, zwoop.rightOutput, siren.rightOutput, menace.rightOutput, nil];
+        AKSum *rightSum = [[AKSum alloc] initWithOperands:softBoing.rightOutput, crunch, pluck.rightOutput, laser.rightOutput, zwoop.rightOutput, siren.rightOutput, nil];
         [self connect:rightSum];
         
         AKStereoAudio *stereoSum = [[AKStereoAudio alloc] initWithLeftAudio:leftSum rightAudio:rightSum];
@@ -51,8 +50,6 @@
         [self resetParameter:pluck];
         [self resetParameter:laser];
         [self resetParameter:siren];
-        [self resetParameter:menace];
-        
     }
     return self;
 }
