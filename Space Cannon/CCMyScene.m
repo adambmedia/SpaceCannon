@@ -24,12 +24,12 @@
     SKLabelNode *_scoreLabel;
     SKLabelNode *_pointLabel;
     BOOL _didShoot;
-    SKAction *_bounceSound;
-    SKAction *_deepExplosionSound;
-    SKAction *_explosionSound;
-    SKAction *_laserSound;
-    SKAction *_zapSound;
-    SKAction *_shieldUpSound;
+//    SKAction *_bounceSound;
+//    SKAction *_deepExplosionSound;
+//    SKAction *_explosionSound;
+//    SKAction *_laserSound;
+//    SKAction *_zapSound;
+//    SKAction *_shieldUpSound;
     BOOL _gameOver;
     NSUserDefaults *_userDefaults;
     NSMutableArray *_shieldPool;
@@ -196,19 +196,19 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         _menu.topScore = (int)[_userDefaults integerForKey:kCCKeyTopScore];
         
         // Load music
-        NSURL *url = [[NSBundle mainBundle] URLForResource:@"ObservingTheStar" withExtension:@"caf"];
-        NSError *error = nil;
-        _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-        
-        if (!_audioPlayer) {
-            NSLog(@"Error loading audio player: %@", error);
-        }
-        else {
-            _audioPlayer.numberOfLoops = -1;
-            _audioPlayer.volume = 0.8;
-            //[_audioPlayer play];
-            _menu.musicPlaying = YES;
-        }
+//        NSURL *url = [[NSBundle mainBundle] URLForResource:@"ObservingTheStar" withExtension:@"caf"];
+//        NSError *error = nil;
+//        _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+//        
+//        if (!_audioPlayer) {
+//            NSLog(@"Error loading audio player: %@", error);
+//        }
+//        else {
+//            _audioPlayer.numberOfLoops = -1;
+//            _audioPlayer.volume = 0.8;
+//            [_audioPlayer play];
+//            _menu.musicPlaying = YES;
+//        }
         
     }
     return self;
@@ -512,14 +512,14 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
             if ([n.name isEqualToString:@"Play"]) {
                 [self newGame];
             }
-            if ([n.name isEqualToString:@"Music"]) {
-                _menu.musicPlaying = !_menu.musicPlaying;
-                if (_menu.musicPlaying) {
-                    //                    [_audioPlayer play];
-                } else {
-                    [_audioPlayer stop];
-                }
-            }
+//            if ([n.name isEqualToString:@"Music"]) {
+//                _menu.musicPlaying = !_menu.musicPlaying;
+//                if (_menu.musicPlaying) {
+//                                        [_audioPlayer play];
+//                } else {
+//                    [_audioPlayer stop];
+//                }
+//            }
         }
         else if (!_gameOver)
         {

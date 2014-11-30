@@ -17,7 +17,6 @@
 @interface Crunch : AKNote
 
 
-
 @property AKNoteProperty *intensity;
 @property AKNoteProperty *damping;
 @property AKNoteProperty *pan;
