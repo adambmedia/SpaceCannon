@@ -63,6 +63,8 @@
     self = [self init];
     if (self) {
         _pan.value = pan;
+        _intensity.value = intensity;
+        _damping.value = damping;
         self.duration.value = 1.0;
     }
     return self;
@@ -71,8 +73,9 @@
 
 - (instancetype)initAsDeepCrunch
 {
-    return [self initWithIntensity:153
-                       damping:0.83
+    NSLog(@"HERE!");
+    return [self initWithIntensity:10
+                       damping:0.95
                            pan:0.5];
 }
 
