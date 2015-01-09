@@ -12,7 +12,6 @@
 
 - (instancetype)initWithFilename:(NSString *)filename
 {
-    
     self = [super init];
     if (self) {
         

@@ -55,8 +55,6 @@
         sirenInstrument = [[SirenInstrument alloc]init];
         [AKOrchestra addInstrument:sirenInstrument];
         
-        
-        
         spaceVerb = [[SpaceVerb alloc] initWithSoftBoing:softBoingInstrument.auxilliaryOutput
                                                   crunch:crunchInstrument.auxilliaryOutput
                                                    pluck:pluckyInstrument.auxilliaryOutput
@@ -86,21 +84,20 @@
     float pan = 0.0;
     if (position.x > playFieldSize.width/2.0) pan = 1.0;
 
-    float fractionalHeight = (playFieldSize.height - position.y)/playFieldSize.height;
-    float frequency = 300+ 900*fractionalHeight; //1200 - position.y
+    float fractionalHeight = (playFieldSize.height - position.y) / playFieldSize.height;
+    float frequency = 300 + 900 * fractionalHeight;
     
-    Pluck  *newPluck = [[Pluck alloc] initWithFrequency:frequency
-                                                    pan:pan];
+    Pluck  *newPluck = [[Pluck alloc] initWithFrequency:frequency pan:pan];
     [pluckyInstrument playNote:newPluck];
 }
 
 - (void)haloHitBallAtPosition:(CGPoint)position
 {
-    float pan = position.x/playFieldSize.width;
-    float fractionalHeight = (playFieldSize.height - position.y)/playFieldSize.height;
+    float pan = position.x / playFieldSize.width;
+    float fractionalHeight = (playFieldSize.height - position.y) / playFieldSize.height;
     
     Crunch *crunch = [[Crunch alloc] initWithIntensity:180
-                                               damping:0.8-0.6*fractionalHeight
+                                               damping:0.8 - 0.6 * fractionalHeight
                                                    pan:pan];
     [crunchInstrument playNote:crunch];
 }
@@ -144,7 +141,7 @@
 
 - (void)playerShotBallWithRotationVector:(CGVector)rotationVector remaningAmmo:(int)remainingAmmo
 {
-    LaserNote *laser = [[LaserNote alloc] initWithSpeed:(6.0 / (remainingAmmo+1)) pan:(1.0+rotationVector.dx)/2.0];
+    LaserNote *laser = [[LaserNote alloc] initWithSpeed:(6.0 / (remainingAmmo + 1)) pan:(1.0 + rotationVector.dx) / 2.0];
     [laserInstrument playNote:laser];
 }
 
@@ -155,22 +152,20 @@
 
 - (void)ballBouncedAtPosition:(CGPoint)position
 {
-    float pan = position.x/playFieldSize.width;
-    float amplitude = (playFieldSize.height -position.y)/playFieldSize.height;
+    float pan = position.x / playFieldSize.width;
+    float amplitude = (playFieldSize.height - position.y) / playFieldSize.height;
     SoftBoing *note = [[SoftBoing alloc] initWithPan:pan];
     note.amplitude.value = amplitude;
     [softBoingInstrument playNote:note];
 }
 
 - (void)multiplierModeStartedWithPointValue:(int)points {
-    float feedbackLevel = 0.8 + (0.2*(points-1)) / (float)points;
+    float feedbackLevel = 0.8 + (0.2 * (points - 1)) / (float)points;
     spaceVerb.feedbackLevel.value = feedbackLevel;
 }
 
 - (void)multiplierModeEnded {
     spaceVerb.feedbackLevel.value = 0.8;
 }
-
-
 
 @end

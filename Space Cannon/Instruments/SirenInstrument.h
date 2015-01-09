@@ -15,6 +15,3 @@
 @property (readonly) AKStereoAudio *auxilliaryOutput;
 
 @end
-
-
-

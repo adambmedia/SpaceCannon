@@ -8,9 +8,7 @@
 
 #import "SoftBoingInstrument.h"
 
-
 @implementation SoftBoingInstrument
-
 
 - (instancetype)init
 {
@@ -44,6 +42,7 @@
 }
 @end
 
+
 @implementation SoftBoing
 
 - (instancetype)init {
@@ -57,8 +56,6 @@
     }
     return self;
 }
-
-
 
 - (instancetype)initWithPan:(float)pan
 {

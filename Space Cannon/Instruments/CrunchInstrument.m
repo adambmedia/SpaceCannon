@@ -36,7 +36,6 @@
 @end
 
 
-
 @implementation Crunch
 
 - (instancetype)init {
@@ -54,7 +53,6 @@
     }
     return self;
 }
-
 
 
 - (instancetype)initWithIntensity:(float)intensity damping:(float)damping pan:(float)pan
