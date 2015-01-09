@@ -45,7 +45,7 @@
         
         pluckyInstrument = [[PluckyInstrument alloc] init];
         [AKOrchestra addInstrument:pluckyInstrument];
-        
+         
         laserInstrument = [[LaserInstrument alloc] init];
         [AKOrchestra addInstrument:laserInstrument];
         
@@ -81,24 +81,23 @@
 
 - (void)haloHitEdgeAtPosition:(CGPoint)position
 {
-    float pan = 0.0;
-    if (position.x > playFieldSize.width/2.0) pan = 1.0;
-
+    float pan  = position.x / playFieldSize.width * 2.0 - 1.0;
     float fractionalHeight = (playFieldSize.height - position.y) / playFieldSize.height;
-    float frequency = 300 + 900 * fractionalHeight;
     
-    Pluck  *newPluck = [[Pluck alloc] initWithFrequency:frequency pan:pan];
+    Pluck  *newPluck = [[Pluck alloc] init]; //WithFrequency:frequency pan:pan];
+    newPluck.frequency.value = newPluck.frequency.minimum + fractionalHeight * (newPluck.frequency.maximum - newPluck.frequency.minimum);
+    newPluck.pan.value = pan;
     [pluckyInstrument playNote:newPluck];
 }
 
 - (void)haloHitBallAtPosition:(CGPoint)position
 {
-    float pan = position.x / playFieldSize.width;
+    float pan  = position.x / playFieldSize.width * 2.0 - 1.0;
     float fractionalHeight = (playFieldSize.height - position.y) / playFieldSize.height;
     
-    Crunch *crunch = [[Crunch alloc] initWithIntensity:180
-                                               damping:0.8 - 0.6 * fractionalHeight
-                                                   pan:pan];
+    Crunch *crunch = [[Crunch alloc] init];
+    crunch.damping.value = crunch.damping.maximum - fractionalHeight * (crunch.damping.maximum - crunch.damping.minimum);
+    crunch.pan.value = pan;
     [crunchInstrument playNote:crunch];
 }
 
@@ -123,13 +122,13 @@
 
 - (void)updateShieldPowerUpPosition:(CGPoint)position
 {
-    float pan = position.x/playFieldSize.width;
+    float pan  = position.x / playFieldSize.width * 2.0 - 1.0;
     sirenInstrument.pan.value = pan;
 }
 
 - (void)replacedShieldAtPosition:(CGPoint)position {
     [sirenInstrument stop];
-    float pan = position.x/playFieldSize.width;
+    float pan  = position.x / playFieldSize.width * 2.0 - 1.0;
     Zwoop *zwoop = [[Zwoop alloc] initWithPan:pan];
     [zwoopInstrument playNote:zwoop];
 }
@@ -152,7 +151,7 @@
 
 - (void)ballBouncedAtPosition:(CGPoint)position
 {
-    float pan = position.x / playFieldSize.width;
+    float pan  = position.x / playFieldSize.width * 2.0 - 1.0;
     float amplitude = (playFieldSize.height - position.y) / playFieldSize.height;
     SoftBoing *note = [[SoftBoing alloc] initWithPan:pan];
     note.amplitude.value = amplitude;

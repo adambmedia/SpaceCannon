@@ -21,8 +21,8 @@
 @property AKNoteProperty *pan;
 
 - (instancetype)initWithIntensity:(float)intensity
-                      damping:(float)damping
-                          pan:(float)pan;
+                          damping:(float)damping
+                              pan:(float)pan;
 
 - (instancetype)initAsDeepCrunch;
 

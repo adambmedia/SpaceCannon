@@ -44,7 +44,7 @@
         _intensity = [[AKNoteProperty alloc] initWithValue:180 minimum:180 maximum:240];
         [self addProperty:_intensity];
         
-        _damping = [[AKNoteProperty alloc] initWithValue:0.4 minimum:0.05 maximum:0.4];
+        _damping = [[AKNoteProperty alloc] initWithValue:0.4 minimum:0.05 maximum:0.8];
         [self addProperty:_damping];
         
         _pan = [[AKNoteProperty alloc] initWithValue:0.5 minimum:0 maximum:1];

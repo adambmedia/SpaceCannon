@@ -59,7 +59,7 @@
 {
     self = [super init];
     if (self) {
-        _frequency = [[AKNoteProperty alloc] initWithValue:440 minimum:100 maximum:20000];
+        _frequency = [[AKNoteProperty alloc] initWithValue:440 minimum:300 maximum:1200];
         [self addProperty:_frequency];
         
         _pan = [[AKNoteProperty alloc] initWithValue:0.0 minimum:0 maximum:1];
