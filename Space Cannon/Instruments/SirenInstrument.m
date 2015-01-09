@@ -3,7 +3,7 @@
 //  Space Cannon
 //
 //  Created by Nicholas Arner on 11/18/14.
-//  Copyright (c) 2014 Hear for Yourself. All rights reserved.
+//  Copyright (c) 2014 AudioKit. All rights reserved.
 //
 
 
@@ -19,29 +19,26 @@
         _pan = [[AKInstrumentProperty alloc] initWithValue:1.0 minimum:0.0 maximum:1.0];
         [self addProperty:_pan];
         
-        AKLinearADSRControlEnvelope *adsr = [[AKLinearADSRControlEnvelope alloc] initWithAttackDuration:akp(0.1)
-                                                                                          decayDuration:akp(0.0)
-                                                                                           sustainLevel:akp(1.0)
-                                                                                        releaseDuration:akp(1.00)];
+        AKLinearADSREnvelope *adsr = [[AKLinearADSREnvelope alloc] initWithAttackDuration:akp(0.1)
+                                                                            decayDuration:akp(0.0)
+                                                                             sustainLevel:akp(1.0)
+                                                                          releaseDuration:akp(1.00)
+                                                                                    delay:akp(0)];
         [self connect:adsr];
         
-        AKSineTable *sine;
-        sine = [[AKSineTable alloc] init];
-        [self addFTable:sine];
-        
-        AKFMOscillator *fmOscil = [[AKFMOscillator alloc]initWithFTable:sine
-                                                          baseFrequency:akp(61)
-                                                      carrierMultiplier:akp(1.74)
-                                                   modulatingMultiplier:akp(0.17)
-                                                        modulationIndex:akp(22.0)
-                                                              amplitude:[adsr scaledBy:akp(0.3)]
-                                                                  phase:akp(0)];
+        AKFMOscillator *fmOscil = [[AKFMOscillator alloc]initWithFunctionTable:[AKManager sharedManager].standardSineWave
+                                                                 baseFrequency:akp(61)
+                                                             carrierMultiplier:akp(1.74)
+                                                          modulatingMultiplier:akp(0.17)
+                                                               modulationIndex:akp(22.0)
+                                                                     amplitude:[adsr scaledBy:akp(0.3)]];
         
         
         [self connect:fmOscil];
         
-        AKPanner *panner = [[AKPanner alloc] initWithAudioSource:fmOscil
-                                                             pan:_pan];
+        AKPanner *panner = [[AKPanner alloc] initWithInput:fmOscil
+                                                       pan:_pan
+                                                 panMethod:AKPanMethodEqualPower];
         [self connect:panner];
         
         _auxilliaryOutput = [AKStereoAudio globalParameter];

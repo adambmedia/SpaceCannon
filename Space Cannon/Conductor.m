@@ -2,8 +2,8 @@
 //  Conductor.m
 //  Space Cannon
 //
-//  Created by Aurelius Prochazka on 11/8/14.
-//  Copyright (c) 2014 Hear For Yourself. All rights reserved.
+//  Created by Aurelius Prochazka and Nick Arner on 11/8/14.
+//  Copyright (c) 2014 AudioKit. All rights reserved.
 //
 
 #import "Conductor.h"

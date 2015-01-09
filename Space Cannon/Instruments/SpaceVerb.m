@@ -2,8 +2,8 @@
 //  SpaceVerb.m
 //  Space Cannon
 //
-//  Created by Aurelius Prochazka on 11/14/14.
-//  Copyright (c) 2014 Hear For Yourself. All rights reserved.
+//  Created by Aurelius Prochazka and Nick Arner on 11/14/14.
+//  Copyright (c) 2014 AudioKit. All rights reserved.
 //
 
 #import "SpaceVerb.h"
@@ -22,7 +22,7 @@
         
         _feedbackLevel = [[AKInstrumentProperty alloc] initWithValue:0.8 minimum:0.0 maximum:0.95];
         [self addProperty:_feedbackLevel];
-
+        
         AKSum *leftSum = [[AKSum alloc] initWithOperands:softBoing.leftOutput, crunch, pluck.leftOutput, laser.leftOutput, zwoop.leftOutput, siren.leftOutput, nil];
         [self connect:leftSum];
         
@@ -31,9 +31,9 @@
         
         AKStereoAudio *stereoSum = [[AKStereoAudio alloc] initWithLeftAudio:leftSum rightAudio:rightSum];
         
-        AKReverb *reverb = [[AKReverb alloc] initWithStereoAudioSource:[stereoSum scaledBy:akp(0.33)]
-                                                         feedbackLevel:_feedbackLevel
-                                                        cutoffFrequency:akp(14000)];
+        AKReverb *reverb = [[AKReverb alloc] initWithStereoInput:[stereoSum scaledBy:akp(0.33)]
+                                                        feedback:_feedbackLevel
+                                                 cutoffFrequency:akp(14000)];
         [self connect:reverb];
         
         AKMixedAudio *leftmix = [[AKMixedAudio alloc] initWithSignal1:leftSum signal2:reverb.leftOutput balance:akp(0.5)];

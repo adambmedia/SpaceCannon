@@ -3,7 +3,7 @@
 //  Space Cannon
 //
 //  Created by Nicholas Arner on 11/8/14.elf conn
-//  Copyright (c) 2014 Hear for Yourself. All rights reserved.
+//  Copyright (c) 2014 AudioKit. All rights reserved.
 //
 
 #import "SoftBoingInstrument.h"
@@ -26,12 +26,13 @@
                                                                    strikePosition:akp(0.15)
                                                                    strikeVelocity:akp(608)
                                                                       strikeWidth:akp(0.386)
-                                                            leftBoundaryCondition:akpi(2)
-                                                           rightBoundaryCondition:akpi(1)
+                                                            leftBoundaryCondition:AKStruckMetalBarBoundaryConditionPivoting
+                                                           rightBoundaryCondition:AKStruckMetalBarBoundaryConditionClamped
                                                                         scanSpeed:akp(0.23)];
         [self connect:struckBar];
         
-        AKPanner *panner = [[AKPanner alloc] initWithAudioSource:struckBar pan:softBoing.pan];
+        AKPanner *panner = [[AKPanner alloc] initWithInput:struckBar];
+        panner.pan = softBoing.pan;
         [self connect:panner];
         
         _auxilliaryOutput = [AKStereoAudio globalParameter];

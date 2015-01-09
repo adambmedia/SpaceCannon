@@ -2,8 +2,8 @@
 //  CrunchInstrument.m
 //  Space Cannon
 //
-//  Created by Aurelius Prochazka on 11/14/14.
-//  Copyright (c) 2014 Hear For Yourself. All rights reserved.
+//  Created by Aurelius Prochazka and Nick Arner on 11/14/14.
+//  Copyright (c) 2014 AudioKit. All rights reserved.
 //
 
 #import "CrunchInstrument.h"
@@ -18,13 +18,13 @@
         [self addNoteProperty:note.damping];
         [self addNoteProperty:note.pan];
         
-        AKCrunch *crunch = [AKCrunch audio];
+        AKCrunch *crunch = [AKCrunch crunch];
         [crunch setOptionalIntensity:note.intensity];
         [crunch setOptionalDampingFactor:note.damping];
         [self connect:crunch];
         
         AKLowPassButterworthFilter *lowPassFilter;
-        lowPassFilter = [[AKLowPassButterworthFilter alloc] initWithAudioSource:crunch cutoffFrequency:akp(1200)];
+        lowPassFilter = [[AKLowPassButterworthFilter alloc] initWithInput:crunch cutoffFrequency:akp(1200)];
         [self connect:lowPassFilter];
         
         _auxilliaryOutput = [AKAudio globalParameter];

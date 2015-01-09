@@ -2,8 +2,8 @@
 //  SpatialAudioFilePlayer.m
 //  Space Cannon
 //
-//  Created by Aurelius Prochazka on 11/17/14.
-//  Copyright (c) 2014 Hear for Yourself. All rights reserved.
+//  Created by Aurelius Prochazka and Nick Arner on 11/17/14.
+//  Copyright (c) 2014 AudioKit. All rights reserved.
 //
 
 #import "SpatialAudioFilePlayer.h"
@@ -25,18 +25,19 @@
         NSString *file;
         file = [[NSBundle mainBundle] pathForResource:filename ofType:@"aiff"];
         
-        AKSoundFileTable *fileTable;
-        fileTable = [[AKSoundFileTable alloc] initWithFilename:file];
+        AKSoundFile *fileTable;
+        fileTable = [[AKSoundFile alloc] initWithFilename:file];
         [self connect:fileTable];
         
-        AKLoopingOscillator *oscil;
-        oscil = [[AKLoopingOscillator alloc] initWithSoundFileTable:fileTable
-                                                frequencyMultiplier:note.speed
-                                                          amplitude:akp(0.5)
-                                                               type:kLoopingOscillatorNoLoop];
-        [self connect:oscil];
+        AKMonoSoundFileLooper *looper;
+        looper = [[AKMonoSoundFileLooper alloc] initWithSoundFile:fileTable
+                                                   frequencyRatio:note.speed
+                                                        amplitude:akp(0.5)
+                                                         loopMode:AKSoundFileLooperModeNoLoop];
+        [self connect:looper];
         
-        AKPanner *panner = [[AKPanner alloc] initWithAudioSource:oscil pan:note.pan];
+        AKPanner *panner = [[AKPanner alloc] initWithInput:looper];
+        panner.pan = note.pan;
         [self connect:panner];
         
         _auxilliaryOutput = [AKStereoAudio globalParameter];

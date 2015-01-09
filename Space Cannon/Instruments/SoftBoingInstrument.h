@@ -3,7 +3,7 @@
 //  Space Cannon
 //
 //  Created by Nicholas Arner on 11/8/14.
-//  Copyright (c) 2014 Hear for Yourself. All rights reserved.
+//  Copyright (c) 2014 AudioKit. All rights reserved.
 //
 
 #import "AKFoundation.h"
