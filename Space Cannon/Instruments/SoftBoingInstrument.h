@@ -17,6 +17,7 @@
 
 @interface SoftBoing : AKNote
 @property AKNoteProperty *pan;
+@property AKNoteProperty *amplitude;
 
 - (instancetype)initWithPan:(float)pan;
 

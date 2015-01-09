@@ -19,18 +19,18 @@
         [self addNoteProperty:note.frequency];
         [self addNoteProperty:note.pan];
         
-        AKLine *decay = [[AKLine alloc]initWithFirstPoint:akp(0.5)
-                                              secondPoint:akp(0)
-                                    durationBetweenPoints:akp(0.25)];
-        [self connect:decay];
+        NSString *file;
+        file = [[NSBundle mainBundle] pathForResource:@"marmstk1" ofType:@"wav"];
         
-        AKOscillator *oscillator = [AKOscillator oscillator];
-        oscillator.frequency.value = 1;
-        oscillator.amplitude = decay;
-        [self connect:oscillator];
+        AKSoundFile *soundFile = [[AKSoundFile alloc] initWithFilename:file];
+        [self addFunctionTable:soundFile];
+        
+        AKMonoSoundFileLooper *impulse = [AKMonoSoundFileLooper looperWithSoundFile:soundFile];
+        impulse.loopMode = AKSoundFileLooperModeNoLoop;
+        [self connect:impulse];
         
         // Instrument Definition
-        AKPluckedString *pluck = [AKPluckedString pluckWithExcitationSignal:oscillator];
+        AKPluckedString *pluck = [AKPluckedString pluckWithExcitationSignal:impulse];
         pluck.frequency = note.frequency;
         [pluck setOptionalAmplitude:akp(0.15)];
         [pluck setOptionalReflectionCoefficient:akp(0.2)];

@@ -85,8 +85,9 @@
 {
     float pan = 0.0;
     if (position.x > playFieldSize.width/2.0) pan = 1.0;
-    
-    float frequency = 1200 - position.y;
+
+    float fractionalHeight = (playFieldSize.height - position.y)/playFieldSize.height;
+    float frequency = 300+ 900*fractionalHeight; //1200 - position.y
     
     Pluck  *newPluck = [[Pluck alloc] initWithFrequency:frequency
                                                     pan:pan];
@@ -145,7 +146,7 @@
 
 - (void)playerShotBallWithRotationVector:(CGVector)rotationVector remaningAmmo:(int)remainingAmmo
 {
-    LaserNote *laser = [[LaserNote alloc] initWithSpeed:1.0 + (8.0 / (remainingAmmo+1)) pan:(1.0+rotationVector.dx)/2.0];
+    LaserNote *laser = [[LaserNote alloc] initWithSpeed:(6.0 / (remainingAmmo+1)) pan:(1.0+rotationVector.dx)/2.0];
     [laserInstrument playNote:laser];
 }
 
@@ -157,12 +158,15 @@
 - (void)ballBouncedAtPosition:(CGPoint)position
 {
     float pan = position.x/playFieldSize.width;
+    float amplitude = (playFieldSize.height -position.y)/playFieldSize.height;
     SoftBoing *note = [[SoftBoing alloc] initWithPan:pan];
+    note.amplitude.value = amplitude;
     [softBoingInstrument playNote:note];
 }
 
 - (void)multiplierModeStartedWithPointValue:(int)points {
-    float feedbackLevel = 0.8 + points*0.075;
+    float feedbackLevel = 0.8 + points*0.05;
+    if (feedbackLevel > 0.98) feedbackLevel = 0.98;
     spaceVerb.feedbackLevel.value = feedbackLevel;
 }
 

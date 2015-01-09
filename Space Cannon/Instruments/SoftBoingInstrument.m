@@ -19,6 +19,7 @@
         
         SoftBoing *softBoing = [[SoftBoing alloc]init];
         [self addNoteProperty:softBoing.pan];
+        [self addNoteProperty:softBoing.amplitude];
         
         AKStruckMetalBar *struckBar = [[AKStruckMetalBar alloc] initWithDecayTime:akp(1.52)
                                                            dimensionlessStiffness:akp(76.3)
@@ -31,7 +32,7 @@
                                                                         scanSpeed:akp(0.23)];
         [self connect:struckBar];
         
-        AKPanner *panner = [[AKPanner alloc] initWithInput:struckBar];
+        AKPanner *panner = [[AKPanner alloc] initWithInput:[struckBar scaledBy:softBoing.amplitude]];
         panner.pan = softBoing.pan;
         [self connect:panner];
         
@@ -50,6 +51,8 @@
     if (self) {
         _pan = [[AKNoteProperty alloc] initWithValue:0.5 minimum:0 maximum:1];
         [self addProperty:_pan];
+        _amplitude = [[AKNoteProperty alloc] initWithValue:1.0 minimum:0 maximum:1];
+        [self addProperty:_amplitude];
         self.duration.value = 1.0;
     }
     return self;

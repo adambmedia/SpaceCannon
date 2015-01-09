@@ -54,6 +54,7 @@
 		C4A396A41A1F414F00E8FB4D /* SpatialAudioFilePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A396991A1F414F00E8FB4D /* SpatialAudioFilePlayer.m */; };
 		C4A396A51A1F414F00E8FB4D /* ZwoopInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A3969B1A1F414F00E8FB4D /* ZwoopInstrument.m */; };
 		C4D5E30D1A1B4F4C0046F992 /* ShieldUp.aiff in Resources */ = {isa = PBXBuildFile; fileRef = C4D5E30C1A1B4F4C0046F992 /* ShieldUp.aiff */; };
+		C4F434DB1A5FB32D00EC6FE3 /* AudioTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F434DA1A5FB32D00EC6FE3 /* AudioTestViewController.m */; };
 		E415FA6E1A5F798300C9B7D1 /* AKEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = E415F90B1A5F798300C9B7D1 /* AKEvent.m */; };
 		E415FA6F1A5F798300C9B7D1 /* AKInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = E415F90E1A5F798300C9B7D1 /* AKInstrument.m */; };
 		E415FA701A5F798300C9B7D1 /* AKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E415F9101A5F798300C9B7D1 /* AKManager.m */; };
@@ -265,6 +266,8 @@
 		C4A3969A1A1F414F00E8FB4D /* ZwoopInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZwoopInstrument.h; sourceTree = "<group>"; };
 		C4A3969B1A1F414F00E8FB4D /* ZwoopInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZwoopInstrument.m; sourceTree = "<group>"; };
 		C4D5E30C1A1B4F4C0046F992 /* ShieldUp.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = ShieldUp.aiff; sourceTree = "<group>"; };
+		C4F434D91A5FB32D00EC6FE3 /* AudioTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioTestViewController.h; sourceTree = "<group>"; };
+		C4F434DA1A5FB32D00EC6FE3 /* AudioTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioTestViewController.m; sourceTree = "<group>"; };
 		E415F90A1A5F798300C9B7D1 /* AKEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKEvent.h; sourceTree = "<group>"; };
 		E415F90B1A5F798300C9B7D1 /* AKEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKEvent.m; sourceTree = "<group>"; };
 		E415F90C1A5F798300C9B7D1 /* AKFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKFoundation.h; sourceTree = "<group>"; };
@@ -637,6 +640,9 @@
 			children = (
 				C4722E881A0F02E800C83A83 /* Conductor.h */,
 				C4722E891A0F02E800C83A83 /* Conductor.m */,
+				C4F434D91A5FB32D00EC6FE3 /* AudioTestViewController.h */,
+				C4F434DA1A5FB32D00EC6FE3 /* AudioTestViewController.m */,
+				57FA966918A8EEFF006ED483 /* Main.storyboard */,
 				C4A396871A1F414F00E8FB4D /* Instruments */,
 				57AF9AA218CE158E00717742 /* Sounds */,
 				57FA969118A8EF5A006ED483 /* Images */,
@@ -1358,7 +1364,6 @@
 			children = (
 				57FA966618A8EEFF006ED483 /* CCAppDelegate.h */,
 				57FA966718A8EEFF006ED483 /* CCAppDelegate.m */,
-				57FA966918A8EEFF006ED483 /* Main.storyboard */,
 				57FA966C18A8EEFF006ED483 /* CCViewController.h */,
 				57FA966D18A8EEFF006ED483 /* CCViewController.m */,
 				57FA966F18A8EEFF006ED483 /* CCMyScene.h */,
@@ -1527,6 +1532,7 @@
 				E415FAAE1A5F798300C9B7D1 /* AKLinearEnvelope.m in Sources */,
 				E415FADC1A5F798300C9B7D1 /* AKCompressor.m in Sources */,
 				E415FA951A5F798300C9B7D1 /* AKFunctionTableLooper.m in Sources */,
+				C4F434DB1A5FB32D00EC6FE3 /* AudioTestViewController.m in Sources */,
 				E415FAD41A5F798300C9B7D1 /* AKFileInput.m in Sources */,
 				E415FAF41A5F798300C9B7D1 /* AKBalance.m in Sources */,
 				E415FAB31A5F798300C9B7D1 /* AKFMOscillator.m in Sources */,
