@@ -50,6 +50,7 @@
         [self resetParameter:pluck];
         [self resetParameter:laser];
         [self resetParameter:siren];
+        [self resetParameter:zwoop];
     }
     return self;
 }

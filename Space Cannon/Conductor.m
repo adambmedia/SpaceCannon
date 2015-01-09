@@ -165,8 +165,7 @@
 }
 
 - (void)multiplierModeStartedWithPointValue:(int)points {
-    float feedbackLevel = 0.8 + points*0.05;
-    if (feedbackLevel > 0.98) feedbackLevel = 0.98;
+    float feedbackLevel = 0.8 + (0.2*(points-1)) / (float)points;
     spaceVerb.feedbackLevel.value = feedbackLevel;
 }
 
