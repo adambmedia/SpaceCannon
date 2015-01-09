@@ -62,7 +62,7 @@
         _frequency = [[AKNoteProperty alloc] initWithValue:440 minimum:300 maximum:1200];
         [self addProperty:_frequency];
         
-        _pan = [[AKNoteProperty alloc] initWithValue:0.0 minimum:0 maximum:1];
+        _pan = [[AKNoteProperty alloc] initWithValue:0.0 minimum:-1 maximum:1];
         [self addProperty:_pan];
         
         // Optionally set a default note duration

@@ -48,7 +48,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _pan = [[AKNoteProperty alloc] initWithValue:0.5 minimum:0 maximum:1];
+        _pan = [[AKNoteProperty alloc] initWithValue:0.0 minimum:-1 maximum:1];
         [self addProperty:_pan];
         _amplitude = [[AKNoteProperty alloc] initWithValue:1.0 minimum:0 maximum:1];
         [self addProperty:_amplitude];

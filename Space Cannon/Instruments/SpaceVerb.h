@@ -13,7 +13,7 @@
 @property AKInstrumentProperty *feedbackLevel;
 
 - (instancetype)initWithSoftBoing:(AKStereoAudio *)softBoing
-                           crunch:(AKAudio *)crunch
+                           crunch:(AKStereoAudio *)crunch
                             pluck:(AKStereoAudio *)pluck
                             laser:(AKStereoAudio *)laser
                             zwoop:(AKStereoAudio *)zwoop

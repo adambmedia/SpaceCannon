@@ -10,7 +10,7 @@
 
 @interface SirenInstrument : AKInstrument
 
-@property AKInstrumentProperty *pan;
+@property (nonatomic, strong) AKInstrumentProperty *pan;
 
 @property (readonly) AKStereoAudio *auxilliaryOutput;
 

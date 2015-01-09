@@ -11,7 +11,7 @@
 @implementation SpaceVerb
 
 - (instancetype)initWithSoftBoing:(AKStereoAudio *)softBoing
-                           crunch:(AKAudio *)crunch
+                           crunch:(AKStereoAudio *)crunch
                             pluck:(AKStereoAudio *)pluck
                             laser:(AKStereoAudio *)laser
                             zwoop:(AKStereoAudio *)zwoop
@@ -23,10 +23,10 @@
         _feedbackLevel = [[AKInstrumentProperty alloc] initWithValue:0.8 minimum:0.0 maximum:0.95];
         [self addProperty:_feedbackLevel];
         
-        AKSum *leftSum = [[AKSum alloc] initWithOperands:softBoing.leftOutput, crunch, pluck.leftOutput, laser.leftOutput, zwoop.leftOutput, siren.leftOutput, nil];
+        AKSum *leftSum = [[AKSum alloc] initWithOperands:softBoing.leftOutput, crunch.leftOutput, pluck.leftOutput, laser.leftOutput, zwoop.leftOutput, siren.leftOutput, nil];
         [self connect:leftSum];
         
-        AKSum *rightSum = [[AKSum alloc] initWithOperands:softBoing.rightOutput, crunch, pluck.rightOutput, laser.rightOutput, zwoop.rightOutput, siren.rightOutput, nil];
+        AKSum *rightSum = [[AKSum alloc] initWithOperands:softBoing.rightOutput, crunch.rightOutput, pluck.rightOutput, laser.rightOutput, zwoop.rightOutput, siren.rightOutput, nil];
         [self connect:rightSum];
         
         AKStereoAudio *stereoSum = [[AKStereoAudio alloc] initWithLeftAudio:leftSum rightAudio:rightSum];

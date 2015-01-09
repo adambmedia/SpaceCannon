@@ -27,8 +27,12 @@
         lowPassFilter = [[AKLowPassButterworthFilter alloc] initWithInput:crunch cutoffFrequency:akp(1200)];
         [self connect:lowPassFilter];
         
-        _auxilliaryOutput = [AKAudio globalParameter];
-        [self assignOutput:_auxilliaryOutput to:lowPassFilter];
+        AKPanner *panner = [[AKPanner alloc] initWithInput:lowPassFilter pan:note.pan panMethod:AKPanMethodEqualPower];
+        [self connect:panner];
+        
+        // Output to global effects processing
+        _auxilliaryOutput = [AKStereoAudio globalParameter];
+        [self assignOutput:_auxilliaryOutput to:panner];
     }
     return self;
 }
@@ -47,7 +51,7 @@
         _damping = [[AKNoteProperty alloc] initWithValue:0.4 minimum:0.05 maximum:0.8];
         [self addProperty:_damping];
         
-        _pan = [[AKNoteProperty alloc] initWithValue:0.5 minimum:0 maximum:1];
+        _pan = [[AKNoteProperty alloc] initWithValue:0.0 minimum:-1.0 maximum:1.0];
         [self addProperty:_pan];
         
     }

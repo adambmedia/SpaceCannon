@@ -38,7 +38,7 @@
     [conductor haloHitBallAtPosition:CGPointMake(0.5, sender.value)];
 }
 - (IBAction)haloHitsShield:(UISlider *)sender {
-    [conductor haloHitShieldAtPosition:CGPointMake(sender.value, 0.8)];
+    [conductor haloHitShieldAtPosition:CGPointMake(sender.value, 0.2)];
 }
 
 - (IBAction)shieldPowerUpAvailable {
@@ -49,7 +49,7 @@
     [conductor replacedShieldAtPosition:CGPointMake(sender.value, 0.5)];
 }
 - (IBAction)shoot:(UISlider *)sender {
-    [conductor playerShotBallWithRotationVector:CGVectorMake(0, 0) remaningAmmo:(int)self.remainingAmmo.selectedSegmentIndex];
+    [conductor playerShotBallWithRotationVector:CGVectorMake((sender.value - 0.5) * 2.0, 0) remaningAmmo:(int)self.remainingAmmo.selectedSegmentIndex];
 }
 
 - (IBAction)shotBounces:(UISlider *)sender {
@@ -65,6 +65,13 @@
 }
 - (IBAction)youDie {
     [conductor haloHitLifeBar];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSLog(@"segueing");
+    [[AKManager sharedManager] stop];
+    [AKOrchestra reset];
+    [[AKManager sharedManager] setIsLogging:NO];
 }
 
 @end

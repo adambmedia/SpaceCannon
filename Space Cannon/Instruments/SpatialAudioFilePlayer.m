@@ -62,8 +62,8 @@
                                                maximum:2.0];
         [self addProperty:_speed];
         
-        _pan = [[AKNoteProperty alloc] initWithValue:0.5
-                                             minimum:0.0
+        _pan = [[AKNoteProperty alloc] initWithValue:0.0
+                                             minimum:-1.0
                                              maximum:1.0];
         [self addProperty:_pan];
         

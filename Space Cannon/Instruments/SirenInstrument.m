@@ -15,7 +15,7 @@
 {
     self = [super init];
     if (self) {
-        _pan = [[AKInstrumentProperty alloc] initWithValue:1.0 minimum:0.0 maximum:1.0];
+        _pan = [[AKInstrumentProperty alloc] initWithValue:0.0 minimum:-1.0 maximum:1.0];
         [self addProperty:_pan];
         
         AKLinearADSREnvelope *adsr = [[AKLinearADSREnvelope alloc] initWithAttackDuration:akp(0.1)

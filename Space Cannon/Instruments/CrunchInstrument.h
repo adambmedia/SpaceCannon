@@ -10,7 +10,7 @@
 
 @interface CrunchInstrument : AKInstrument
 
-@property (readonly) AKAudio *auxilliaryOutput;
+@property (readonly) AKStereoAudio *auxilliaryOutput;
 
 @end
 

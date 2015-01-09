@@ -122,8 +122,8 @@
 
 - (void)updateShieldPowerUpPosition:(CGPoint)position
 {
-    float pan  = position.x / playFieldSize.width * 2.0 - 1.0;
-    sirenInstrument.pan.value = pan;
+    float scaledXposition  = position.x / playFieldSize.width * 2.0 - 1.0;
+    sirenInstrument.pan.value = scaledXposition;
 }
 
 - (void)replacedShieldAtPosition:(CGPoint)position {
@@ -140,7 +140,7 @@
 
 - (void)playerShotBallWithRotationVector:(CGVector)rotationVector remaningAmmo:(int)remainingAmmo
 {
-    LaserNote *laser = [[LaserNote alloc] initWithSpeed:(6.0 / (remainingAmmo + 1)) pan:(1.0 + rotationVector.dx) / 2.0];
+    LaserNote *laser = [[LaserNote alloc] initWithSpeed:(6.0 / (remainingAmmo + 1)) pan:rotationVector.dx];
     [laserInstrument playNote:laser];
 }
 
