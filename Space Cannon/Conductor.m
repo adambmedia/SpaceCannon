@@ -97,13 +97,11 @@
 - (void)haloHitBallAtPosition:(CGPoint)position
 {
     float pan = position.x/playFieldSize.width;
-    float y = position.y / playFieldSize.height;
+    float fractionalHeight = (playFieldSize.height - position.y)/playFieldSize.height;
     
-    [crunchInstrument playForDuration:1.4];
-    Crunch *crunch = [[Crunch alloc] initWithIntensity:53
-                                               damping:0.43+0.2*y
+    Crunch *crunch = [[Crunch alloc] initWithIntensity:180
+                                               damping:0.8-0.6*fractionalHeight
                                                    pan:pan];
-    [[crunch intensity] randomize];
     [crunchInstrument playNote:crunch];
 }
 
@@ -123,7 +121,7 @@
 // -----------------------------------------------------------------------------
 
 - (void)spawnedShieldPowerUpAtPosition:(CGPoint)position {
-    [sirenInstrument playForDuration:4.0];
+    [sirenInstrument playForDuration:5.0];
 }
 
 - (void)updateShieldPowerUpPosition:(CGPoint)position

@@ -19,8 +19,8 @@
         [self addNoteProperty:note.pan];
         
         AKCrunch *crunch = [AKCrunch crunch];
-        [crunch setOptionalIntensity:note.intensity];
-        [crunch setOptionalDampingFactor:note.damping];
+        crunch.intensity = note.intensity;
+        crunch.dampingFactor = note.damping;
         [self connect:crunch];
         
         AKLowPassButterworthFilter *lowPassFilter;
@@ -42,11 +42,10 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        
-        _intensity = [[AKNoteProperty alloc] initWithValue:53 minimum:53 maximum:153];
+        _intensity = [[AKNoteProperty alloc] initWithValue:180 minimum:180 maximum:240];
         [self addProperty:_intensity];
         
-        _damping = [[AKNoteProperty alloc] initWithValue:0.63 minimum:0.43 maximum:0.83];
+        _damping = [[AKNoteProperty alloc] initWithValue:0.4 minimum:0.05 maximum:0.4];
         [self addProperty:_damping];
         
         _pan = [[AKNoteProperty alloc] initWithValue:0.5 minimum:0 maximum:1];
@@ -73,8 +72,8 @@
 
 - (instancetype)initAsDeepCrunch
 {
-    return [self initWithIntensity:10
-                           damping:0.95
+    return [self initWithIntensity:240
+                           damping:0.05
                                pan:0.5];
 }
 

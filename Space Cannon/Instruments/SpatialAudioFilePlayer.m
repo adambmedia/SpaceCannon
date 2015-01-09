@@ -27,7 +27,7 @@
         
         AKSoundFile *fileTable;
         fileTable = [[AKSoundFile alloc] initWithFilename:file];
-        [self connect:fileTable];
+        [self addFunctionTable:fileTable];
         
         AKMonoSoundFileLooper *looper;
         looper = [[AKMonoSoundFileLooper alloc] initWithSoundFile:fileTable

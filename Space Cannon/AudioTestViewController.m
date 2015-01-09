@@ -63,5 +63,8 @@
         [conductor multiplierModeEnded];
     }
 }
+- (IBAction)youDie {
+    [conductor haloHitLifeBar];
+}
 
 @end
