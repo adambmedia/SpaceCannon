@@ -24,12 +24,6 @@
     SKLabelNode *_scoreLabel;
     SKLabelNode *_pointLabel;
     BOOL _didShoot;
-//    SKAction *_bounceSound;
-//    SKAction *_deepExplosionSound;
-//    SKAction *_explosionSound;
-//    SKAction *_laserSound;
-//    SKAction *_zapSound;
-//    SKAction *_shieldUpSound;
     BOOL _gameOver;
     NSUserDefaults *_userDefaults;
     NSMutableArray *_shieldPool;
@@ -169,13 +163,6 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         // Setup sounds
         conductor = [[Conductor alloc] initWithPlayfieldSize:self.size];
         
-//        _bounceSound = [SKAction playSoundFileNamed:@"Bounce.caf" waitForCompletion:NO];
-//        _deepExplosionSound = [SKAction playSoundFileNamed:@"DeepExplosion.caf" waitForCompletion:NO];
-//        _explosionSound = [SKAction playSoundFileNamed:@"Explosion.caf" waitForCompletion:NO];
-//        _laserSound = [SKAction playSoundFileNamed:@"Laser.caf" waitForCompletion:NO];
-//        _zapSound = [SKAction playSoundFileNamed:@"Zap.caf" waitForCompletion:NO];
-//        _shieldUpSound = [SKAction playSoundFileNamed:@"ShieldUp.caf" waitForCompletion:NO];
-        
         // Setup menu
         _menu = [[CCMenu alloc] init];
         _menu.position = CGPointMake(self.size.width * 0.5, self.size.height - 220);
@@ -194,22 +181,6 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         // Load top score
         _userDefaults = [NSUserDefaults standardUserDefaults];
         _menu.topScore = (int)[_userDefaults integerForKey:kCCKeyTopScore];
-        
-        // Load music
-//        NSURL *url = [[NSBundle mainBundle] URLForResource:@"ObservingTheStar" withExtension:@"caf"];
-//        NSError *error = nil;
-//        _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-//        
-//        if (!_audioPlayer) {
-//            NSLog(@"Error loading audio player: %@", error);
-//        }
-//        else {
-//            _audioPlayer.numberOfLoops = -1;
-//            _audioPlayer.volume = 0.8;
-//            [_audioPlayer play];
-//            _menu.musicPlaying = YES;
-//        }
-        
     }
     return self;
 }
@@ -298,7 +269,6 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         ball.physicsBody.contactTestBitMask = kCCEdgeCategory | kCCShieldUpCategory;
         
         [conductor playerShotBallWithRotationVector:rotationVector remaningAmmo:self.ammo];
-        //        [self runAction:_laserSound];
         
         // Create trail.
         NSString *ballTrailPath = [[NSBundle mainBundle] pathForResource:@"BallTrail" ofType:@"sks"];
@@ -381,7 +351,6 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         [self addExplosion:firstBody.node.position withName:@"HaloExplosion"];
         
         [conductor haloHitBallAtPosition:firstBody.node.position];
-        //        [self runAction:_explosionSound];
         
         if ([[firstBody.node.userData valueForKey:@"Multiplier"] boolValue]) {
             self.pointValue++;
@@ -395,8 +364,8 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
     if (firstBody.categoryBitMask == kCCHaloCategory && secondBody.categoryBitMask == kCCShieldCategory) {
         // Collision between halo and shield.
         [self addExplosion:firstBody.node.position withName:@"HaloExplosion"];
+        
         [conductor haloHitShieldAtPosition:firstBody.node.position];
-        //        [self runAction:_explosionSound];
         
         firstBody.categoryBitMask = 0;
         [firstBody.node removeFromParent];
@@ -406,16 +375,17 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
     if (firstBody.categoryBitMask == kCCHaloCategory && secondBody.categoryBitMask == kCCLifeBarCategory) {
         // Collision between halo and life bar.
         [self addExplosion:secondBody.node.position withName:@"LifeBarExplosion"];
+        
         [conductor haloHitLifeBar];
-        //        [self runAction:_deepExplosionSound];
         
         firstBody.categoryBitMask = 0;
         [secondBody.node removeFromParent];
         [self gameOver];
     }
     if (firstBody.categoryBitMask == kCCHaloCategory && secondBody.categoryBitMask == kCCEdgeCategory) {
+        
         [conductor haloHitEdgeAtPosition:firstBody.node.position];
-        //        [self runAction:_zapSound];
+        
     }
     
     if (firstBody.categoryBitMask == kCCBallCategory && secondBody.categoryBitMask == kCCEdgeCategory) {
@@ -424,11 +394,13 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
             if (((CCBall*)firstBody.node).bounces > 3) {
                 [firstBody.node removeFromParent];
                 self.pointValue = 1;
+                
                 [conductor multiplierModeEnded];
             }
         }
+        
         [conductor ballBouncedAtPosition:firstBody.node.position];
-        // [self runAction:_bounceSound];
+
     }
     if (firstBody.categoryBitMask == kCCBallCategory && secondBody.categoryBitMask == kCCShieldUpCategory) {
         // Hit a shield power up.
@@ -437,8 +409,9 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
             SKNode *shield = [_shieldPool objectAtIndex:randomIndex];
             [_mainLayer addChild:shield];
             [_shieldPool removeObjectAtIndex:randomIndex];
+            
             [conductor replacedShieldAtPosition:shield.position];
-            // [self runAction:_shieldUpSound];
+            
         }
         [firstBody.node removeFromParent];
         [secondBody.node removeFromParent];
@@ -512,14 +485,6 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
             if ([n.name isEqualToString:@"Play"]) {
                 [self newGame];
             }
-//            if ([n.name isEqualToString:@"Music"]) {
-//                _menu.musicPlaying = !_menu.musicPlaying;
-//                if (_menu.musicPlaying) {
-//                                        [_audioPlayer play];
-//                } else {
-//                    [_audioPlayer stop];
-//                }
-//            }
         }
         else if (!_gameOver)
         {

@@ -2,7 +2,7 @@
 //  SoftBoingInstrument.m
 //  Space Cannon
 //
-//  Created by Nicholas Arner on 11/8/14.elf conn
+//  Created by Aurelius Prochazka and Nick Arner on 11/8/14.elf conn
 //  Copyright (c) 2014 AudioKit. All rights reserved.
 //
 
