@@ -58,8 +58,8 @@
     self = [super init];
     if(self) {
         _speed = [[AKNoteProperty alloc] initWithValue:1.0
-                                               minimum:0.2
-                                               maximum:2.0];
+                                               minimum:1.0
+                                               maximum:6.0];
         [self addProperty:_speed];
         
         _pan = [[AKNoteProperty alloc] initWithValue:0.0

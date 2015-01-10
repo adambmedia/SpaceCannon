@@ -15,7 +15,6 @@
 
 @end
 
-
 @interface SpatialAudioFilePlayerNote : AKNote
 
 @property AKNoteProperty *speed;

@@ -24,10 +24,13 @@
         [self connect:crunch];
         
         AKLowPassButterworthFilter *lowPassFilter;
-        lowPassFilter = [[AKLowPassButterworthFilter alloc] initWithInput:crunch cutoffFrequency:akp(1200)];
+        lowPassFilter = [[AKLowPassButterworthFilter alloc] initWithInput:crunch
+                                                          cutoffFrequency:akp(1200)];
         [self connect:lowPassFilter];
         
-        AKPanner *panner = [[AKPanner alloc] initWithInput:lowPassFilter pan:note.pan panMethod:AKPanMethodEqualPower];
+        AKPanner *panner = [[AKPanner alloc] initWithInput:lowPassFilter
+                                                       pan:note.pan
+                                                 panMethod:AKPanMethodEqualPower];
         [self connect:panner];
         
         // Output to global effects processing
@@ -71,12 +74,16 @@
     return self;
 }
 
-
 - (instancetype)initAsDeepCrunch
 {
-    return [self initWithIntensity:240
-                           damping:0.05
-                               pan:0.5];
+    self = [self init];
+    if (self) {
+        _pan.value = 0.0;
+        _intensity.value = 240;
+        _damping.value = 0.05;
+        self.duration.value = 2.0;
+    }
+    return self;
 }
 
 @end

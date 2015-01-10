@@ -20,28 +20,48 @@
     self = [super init];
     if (self) {
         
-        _feedbackLevel = [[AKInstrumentProperty alloc] initWithValue:0.8 minimum:0.0 maximum:0.95];
+        _feedbackLevel = [[AKInstrumentProperty alloc] initWithValue:0.8
+                                                             minimum:0.8
+                                                             maximum:0.99];
         [self addProperty:_feedbackLevel];
         
-        AKSum *leftSum = [[AKSum alloc] initWithOperands:softBoing.leftOutput, crunch.leftOutput, pluck.leftOutput, laser.leftOutput, zwoop.leftOutput, siren.leftOutput, nil];
+        AKSum *leftSum = [[AKSum alloc] initWithOperands:
+                          softBoing.leftOutput,
+                          crunch.leftOutput,
+                          pluck.leftOutput,
+                          laser.leftOutput,
+                          zwoop.leftOutput,
+                          siren.leftOutput, nil];
         [self connect:leftSum];
         
-        AKSum *rightSum = [[AKSum alloc] initWithOperands:softBoing.rightOutput, crunch.rightOutput, pluck.rightOutput, laser.rightOutput, zwoop.rightOutput, siren.rightOutput, nil];
+        AKSum *rightSum = [[AKSum alloc] initWithOperands:
+                           softBoing.rightOutput,
+                           crunch.rightOutput,
+                           pluck.rightOutput,
+                           laser.rightOutput,
+                           zwoop.rightOutput,
+                           siren.rightOutput, nil];
         [self connect:rightSum];
         
-        AKStereoAudio *stereoSum = [[AKStereoAudio alloc] initWithLeftAudio:leftSum rightAudio:rightSum];
+        AKStereoAudio *stereoSum;
+        stereoSum = [[AKStereoAudio alloc] initWithLeftAudio:leftSum
+                                                  rightAudio:rightSum];
         
-        AKReverb *reverb = [[AKReverb alloc] initWithStereoInput:[stereoSum scaledBy:akp(0.33)]
-                                                        feedback:_feedbackLevel
-                                                 cutoffFrequency:akp(14000)];
+        AKReverb *reverb = [[AKReverb alloc] initWithStereoInput:[stereoSum scaledBy:akp(0.33)]];
+        reverb.feedback = _feedbackLevel;
         [self connect:reverb];
         
-        AKMixedAudio *leftmix = [[AKMixedAudio alloc] initWithSignal1:leftSum signal2:reverb.leftOutput balance:akp(0.5)];
+        AKMixedAudio *leftmix = [[AKMixedAudio alloc] initWithSignal1:leftSum
+                                                              signal2:reverb.leftOutput
+                                                              balance:akp(0.5)];
         [self connect:leftmix];
-        AKMixedAudio *rightmix = [[AKMixedAudio alloc] initWithSignal1:rightSum signal2:reverb.rightOutput balance:akp(0.5)];
+        AKMixedAudio *rightmix = [[AKMixedAudio alloc] initWithSignal1:rightSum
+                                                               signal2:reverb.rightOutput
+                                                               balance:akp(0.5)];
         [self connect:rightmix];
         
-        AKAudioOutput *output = [[AKAudioOutput alloc] initWithLeftAudio:leftmix rightAudio:rightmix];
+        AKAudioOutput *output = [[AKAudioOutput alloc] initWithLeftAudio:leftmix
+                                                              rightAudio:rightmix];
         [self connect:output];
         
         // RESET INPUTS ========================================================

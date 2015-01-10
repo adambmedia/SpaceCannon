@@ -18,26 +18,20 @@
         _pan = [[AKInstrumentProperty alloc] initWithValue:0.0 minimum:-1.0 maximum:1.0];
         [self addProperty:_pan];
         
-        AKLinearADSREnvelope *adsr = [[AKLinearADSREnvelope alloc] initWithAttackDuration:akp(0.1)
-                                                                            decayDuration:akp(0.0)
-                                                                             sustainLevel:akp(1.0)
-                                                                          releaseDuration:akp(1.00)
-                                                                                    delay:akp(0)];
+        AKLinearADSREnvelope *adsr = [AKLinearADSREnvelope envelope];
         [self connect:adsr];
         
-        AKFMOscillator *fmOscil = [[AKFMOscillator alloc]initWithFunctionTable:[AKManager sharedManager].standardSineWave
-                                                                 baseFrequency:akp(61)
-                                                             carrierMultiplier:akp(1.74)
-                                                          modulatingMultiplier:akp(0.17)
-                                                               modulationIndex:akp(22.0)
-                                                                     amplitude:[adsr scaledBy:akp(0.3)]];
+        AKFMOscillator *fmOscillator;
+        fmOscillator = [[AKFMOscillator alloc]initWithFunctionTable:[AKManager sharedManager].standardSineWave
+                                                      baseFrequency:akp(61)
+                                                  carrierMultiplier:akp(1.74)
+                                               modulatingMultiplier:akp(0.17)
+                                                    modulationIndex:akp(22.0)
+                                                          amplitude:[adsr scaledBy:akp(0.3)]];
+        [self connect:fmOscillator];
         
-        
-        [self connect:fmOscil];
-        
-        AKPanner *panner = [[AKPanner alloc] initWithInput:fmOscil
-                                                       pan:_pan
-                                                 panMethod:AKPanMethodEqualPower];
+        AKPanner *panner = [[AKPanner alloc] initWithInput:fmOscillator];
+        panner.pan = _pan;
         [self connect:panner];
         
         _auxilliaryOutput = [AKStereoAudio globalParameter];
